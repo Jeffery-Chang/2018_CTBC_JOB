@@ -14,10 +14,9 @@
     <link rel="stylesheet" href="css/twentytwenty.css">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery.event.move@1.3.6/js/jquery.event.move.min.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.twentytwenty.min.js"></script>
+    <script src="js/twentytwenty.js"></script>
 </head>
 
 <body>
@@ -27,10 +26,10 @@
                 <img src="images/ctbc-logo.png" alt="" width="100%">
             </a>
             <ul class="f_white go_right inline f15">
-                <li class="active">擁抱更美好</li>
-                <li>解析如何掌握</li>
-                <li>高勝率基金大公開</li>
-                <li>中信方便家</li>
+                <li class="nav_01 active">擁抱更美好</li>
+                <li class="nav_02 inactive">解析如何掌握</li>
+                <li class="nav_03 inactive">高勝率基金大公開</li>
+                <li class="nav_04 inactive">中信方便家</li>
             </ul>
         </div>
         <div id="kv">
@@ -44,23 +43,28 @@
                 <p class="f_white">你是否有什麼夢想或者目標尚未達成？而檢視現在所擁有的資源，是否足以達成理想？<br> 來吧！從現在開始左右你的人生，擁抱更美好的未來。
                 </p>
             </div>
-            <div id="kv_container">
-                <img src="images/theme1_01.jpg">
-                <img src="images/theme1_02.jpg">
+            <div class="kv">
+                <div class="slide_bar"><img src="images/bar_ball.png" class="poA" alt=""></div>
+                <div class="outer left">
+                  <div class="content left"></div>
+                </div>
+                <div class="outer right">
+                  <div class="content right"></div>
+                </div>
             </div>
             <div class="bar poA">
                 <span class="circle_01 show"></span>
                 <span class="circle_02 show"></span>
                 <span class="circle_03"></span>
                 <span class="circle_04"></span>
+                <div class="W100 t_center f_white f13 poA">*投資人因不同時間進場，將有不同之投資績效，過去之績效不代表未來績效之保證；且投資一定有風險，基金投資有賺有賠，亦無獲利之保證。</div>
             </div>
             <ul class="change_theme poA f_white">
                 <div class="active poA" style="top:20px"><span class="triangle"></span></div>
-                <li data-top=20>想買車</li>
-                <li data-top=100>想結婚</li>
-                <li data-top=180>想留學</li>
-                <li data-top=260>想育兒</li>
-
+                <li data-top=20 onclick="change(1);">想買車</li>
+                <li data-top=100 onclick="change(2);">想結婚</li>
+                <li data-top=180 onclick="change(3);">想留學</li>
+                <li data-top=260 onclick="change(4);">想育兒</li>
             </ul>
         </div>
         <div id="analysis" class="W100 t_center inline">
@@ -91,6 +95,7 @@
                     </div>
                 </li>
             </ul>
+            <hr>
             <div class="inline formula f_black">
                 <p class="inline f15">如果</p>
                 <p class="inline years f35 f_green">3</p>
@@ -114,7 +119,7 @@
                                 <li class="f_orange f13"><span>申購次數：</span><span>超過200次</span></li>
                             </ul>
                             <div class="W100 t_center">
-                                <a href="" class="btn_green">觀察</a><a href="" class="btn_green">申購</a>
+                                <a href="" class="btn_green btn"><span>觀察</span></a><a href="" class="btn_green btn"><span>申購</span></a>
                             </div>
                         </li>
                         <li class="find_item W33 bg_white">
@@ -129,7 +134,7 @@
                                 <li class="f_orange f13"><span>申購次數：</span><span>超過200次</span></li>
                             </ul>
                             <div class="W100 t_center">
-                                <a href="" class="btn_green">觀察</a><a href="" class="btn_green">申購</a>
+                                <a href="" class="btn_green btn"><span>觀察</span></a><a href="" class="btn_green btn"><span>申購</span></a>
                             </div>
                         </li>
                         <li class="find_item W33 bg_white">
@@ -144,7 +149,7 @@
                                 <li class="f_orange f13"><span>申購次數：</span><span>超過200次</span></li>
                             </ul>
                             <div class="W100 t_center">
-                                <a href="" class="btn_green">觀察</a><a href="" class="btn_green">申購</a>
+                                <a href="" class="btn_green btn"><span>觀察</span></a><a href="" class="btn_green btn"><span>申購</span></a>
                             </div>
                         </li>
                         <li class="find_item W33 bg_white">
@@ -159,7 +164,7 @@
                                 <li class="f_orange f13"><span>申購次數：</span><span>超過200次</span></li>
                             </ul>
                             <div class="W100 t_center">
-                                <a href="" class="btn_green">觀察</a><a href="" class="btn_green">申購</a>
+                                <a href="" class="btn_green btn"><span>觀察</span></a><a href="" class="btn_green btn"><span>申購</span></a>
                             </div>
                         </li>
                         <li class="find_item W33 bg_white">
@@ -174,7 +179,7 @@
                                 <li class="f_orange f13"><span>申購次數：</span><span>超過200次</span></li>
                             </ul>
                             <div class="W100 t_center">
-                                <a href="" class="btn_green">觀察</a><a href="" class="btn_green">申購</a>
+                                <a href="" class="btn_green btn"><span>觀察</span></a><a href="" class="btn_green btn"><span>申購</span></a>
                             </div>
                         </li>
                         <li class="find_item W33 bg_white">
@@ -189,7 +194,7 @@
                                 <li class="f_orange f13"><span>申購次數：</span><span>超過200次</span></li>
                             </ul>
                             <div class="W100 t_center">
-                                <a href="" class="btn_green">觀察</a><a href="" class="btn_green">申購</a>
+                                <a href="" class="btn_green btn"><span>觀察</span></a><a href="" class="btn_green btn"><span>申購</span></a>
                             </div>
                         </li>
                     </ul>
@@ -197,7 +202,7 @@
             </div>
             <div class="btn_wrapper">
                 <a href="" class="btn btn_green show"><span class="ana">立即解析</span><span class="re_ana">重新解析</span></a>
-                <a href="" class="btn btn_white">高勝率基金大公開</a>
+                <a href="" class="btn btn_white"><span>高勝率基金大公開</span></a>
             </div>
         </div>
 
@@ -274,9 +279,10 @@
                     </div>
                 </li>
             </ul>
+            <hr>
             <div class="inline">
-                <a href="" class="btn btn_green">立即投資</a>
-                <a href="" class="btn btn_orange">立即開戶</a>
+                <a href="" class="btn btn_green"><span>立即投資</span></a>
+                <a href="" class="btn btn_orange"><span>立即開戶</span></a>
             </div>
         </div>
         <div id="attention" class="bg_grey W100">

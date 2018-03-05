@@ -2,13 +2,21 @@
 body {
     font-family: sans-serif, "微軟正黑體";
     overflow-x: hidden;
-    padding-top: 70px;
+    /* padding-top: 70px; */
 }
 
 * {
     text-decoration: none;
     box-sizing: border-box;
     font-family: 'Noto Sans', sans-serif;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    outline:none
+}
+
+hr{
+    border: 0 ;
+    margin: 0;
 }
 
 .mb {
@@ -266,13 +274,38 @@ body {
 
 .btn {
     display: inline-block;
+    position: relative;
     margin: 0 5px;
+    height: 50px;
+    overflow: hidden;
     line-height: 50px;
     padding: 0 80px;
     text-decoration: none;
     font-size: 17px;
     letter-spacing: 2px;
     cursor: pointer;
+}
+
+.btn>*{
+    z-index: 55;
+    position: relative;
+} 
+
+.btn:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: -100%;
+    left: 0;
+    background: rgba(0, 0, 0, 0.14);
+    display: block;
+    position: absolute;
+    transition:all .2s;
+    cursor: pointer;
+}   
+
+.btn:hover:before {
+    top: 0;
 }
 
 .btn_green {
@@ -293,22 +326,37 @@ body {
     background-color: #fff;
 }
 
+.btn_white::before{
+    background: #33cccc;
+}
+
+.btn_white:hover{
+    color: #fff;
+}
+
 .ul_01 li {
     margin-bottom: 10px;
 }
 
 .title {
-    font-weight: 500;
+    /* font-weight: 500; */
     font-style: normal;
     font-stretch: normal;
     line-height: 1;
     letter-spacing: normal;
     color: #009999;
     font-size: 47px;
+    letter-spacing: 1px;
+    font-weight: 600;
 }
 
 #wrapper {
     margin: 0 auto;
+}
+
+#wrapper>div {
+    -webkit-transition:all .6s;
+    transition:all .6s;
 }
 
 #top {
@@ -318,18 +366,50 @@ body {
     border-bottom: 5px solid #539995;
     padding: 0 10px;
     z-index: 550;
+    overflow: hidden;
+    height: 65px;
 }
 
 #top li {
     padding: 0 15px;
     float: left;
     line-height: 65px;
+    height: 65px;
     cursor: pointer;
+    overflow: visible;
+    transition: all .5s;
+    position: relative;
 }
-
+#top li.inactive:hover {
+    margin-top: 65px;
+}
 #top li.active {
     color: #ffe066;
 }
+
+#top li:after{
+    position: absolute;
+    top: -65px;
+    left: 0;
+    display: block;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+} 
+
+#top .nav_01:after{
+    content:"擁抱更美好"; 
+}
+#top .nav_02:after{
+    content:"解析如何掌握"; 
+}
+#top .nav_03:after{
+    content:"高勝率基金大公開"; 
+}
+#top .nav_04:after{
+    content:"中信方便家"; 
+}
+
 
 .logo {
     display: inline-block;
@@ -341,16 +421,70 @@ body {
     height: 100vh;
     position: relative;
     background: #000;
+    overflow: hidden;
 }
 
 #kv_container {
     height: 100%;
 }
 
-#kv_container img {}
+.wrap, .kv{ width: 100%; }
+.outer{
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.outer.left{
+  left: 0;
+  z-index: 1;
+}
+.outer.right{
+  right: 0;
+}
+.content{
+  position: absolute;
+  width: 100%;
+  min-width: 100%;
+  height: 100vh;
+}
+.content.left{
+  background: url(../images/theme1_01.jpg) no-repeat center top;
+  background-size: cover;
+}
+.content.right{
+  background: url(../images/theme1_02.jpg) no-repeat center top;
+  background-size: cover;
+}
+
+.slide_bar{
+    position: absolute;
+    width: 5px;
+    height: 44vh;
+    background-color: #ffcc04;
+    z-index: 5;
+    cursor: -webkit-grab;
+    bottom: 12.5vh;
+    z-index: 99;
+  }
+
+.slide_bar:after{
+    content: "";
+    display: block;
+    width: 46px;
+    height: 110%;
+    position: absolute;
+    /* background: pink; */
+    margin-left: -20px;
+    top: 0;
+}    
+
+.slide_bar img{width: 46px;bottom: -23px;left: -20px;}
+    
+
 
 .kv_content {
-    top: 60px;
+    top: 110px;
     width: 100%;
     left: 0;
     z-index: 60;
@@ -374,12 +508,16 @@ body {
 }
 
 .bar {
-    width: 990px;
-    height: 4px;
-    /* background: #fff; */
-    left: 10%;
-    bottom: 150px;
+    width: 900px;
+    left: 50%;
+    bottom: 12.5vh;
     z-index: 50;
+    margin-left: -450px;
+    height: 0;
+}
+
+.bar div{
+    top: 55px;
 }
 
 .bar span {
@@ -414,7 +552,7 @@ body {
 .circle_02:after,
 .circle_03:after {
     content: "";
-    width: 314px;
+    width: 284px;
     background: #fff;
     height: 4px;
     display: block;
@@ -430,7 +568,7 @@ body {
     position: absolute;
     font-size: 13px;
     width: 100px;
-    bottom: -28px;
+    bottom: -33px;
     text-align: center;
     margin-left: -45px;
     letter-spacing: 1px;
@@ -457,7 +595,7 @@ body {
 }
 
 .change_theme {
-    top: 50%;
+    top: 56%;
     margin-top: -180px;
     left: 35px;
 }
@@ -726,7 +864,9 @@ select {
     text-align: center;
     width: 80px;
     margin: 20px 5px 10px;
-    padding: 5px;
+    padding: 0;
+    line-height: 35px;
+    height: 35px;
 }
 
 .years,
@@ -917,13 +1057,38 @@ select {
     bottom: 25px;
     border-radius: 50%;
     text-align: center;
-    padding-top: 16px;
+    padding-top: 20px;
     cursor: pointer;
+    z-index: 150;
+    overflow: hidden;
+}
+
+
+.go_formula:after {
+    content: "";
+    background: #00a3a1;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: -100%;
+    transition: all 0.2s;
+
+}
+
+.go_formula:hover:after {
+    top: 0;
 }
 
 .go_formula .f_yellow {
-    margin-top: -4px;
+    margin-top: -3px;
     margin-left: 2px;
+    font-size: 40px;
+}
+
+.go_formula>p{
+    position: relative;
+    z-index: 155;
 }
 
 #footer {
