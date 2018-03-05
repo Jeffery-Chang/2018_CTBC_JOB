@@ -11,11 +11,11 @@ body {
     font-family: 'Noto Sans', sans-serif;
     -webkit-touch-callout: none;
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-    outline:none
+    outline: none
 }
 
-hr{
-    border: 0 ;
+hr {
+    border: 0;
     margin: 0;
 }
 
@@ -235,7 +235,7 @@ hr{
 }
 
 .W33 {
-    width: 32%;
+    width: 32.333%;
     position: relative;
     margin-right: 1%;
     float: left;
@@ -286,10 +286,10 @@ hr{
     cursor: pointer;
 }
 
-.btn>*{
+.btn>* {
     z-index: 55;
     position: relative;
-} 
+}
 
 .btn:before {
     content: "";
@@ -300,9 +300,9 @@ hr{
     background: rgba(0, 0, 0, 0.14);
     display: block;
     position: absolute;
-    transition:all .2s;
+    transition: all .2s;
     cursor: pointer;
-}   
+}
 
 .btn:hover:before {
     top: 0;
@@ -326,11 +326,11 @@ hr{
     background-color: #fff;
 }
 
-.btn_white::before{
+.btn_white::before {
     background: #33cccc;
 }
 
-.btn_white:hover{
+.btn_white:hover {
     color: #fff;
 }
 
@@ -355,8 +355,8 @@ hr{
 }
 
 #wrapper>div {
-    -webkit-transition:all .6s;
-    transition:all .6s;
+    -webkit-transition: all .6s;
+    transition: all .6s;
 }
 
 #top {
@@ -380,14 +380,24 @@ hr{
     transition: all .5s;
     position: relative;
 }
+
+#top li a {
+    color: #fff;
+}
+
 #top li.inactive:hover {
     margin-top: 65px;
 }
+
 #top li.active {
     color: #ffe066;
 }
 
-#top li:after{
+#top li.active a {
+    color: #ffe066;
+}
+
+#top li:after {
     position: absolute;
     top: -65px;
     left: 0;
@@ -395,21 +405,23 @@ hr{
     width: 100%;
     text-align: center;
     cursor: pointer;
-} 
-
-#top .nav_01:after{
-    content:"擁抱更美好"; 
-}
-#top .nav_02:after{
-    content:"解析如何掌握"; 
-}
-#top .nav_03:after{
-    content:"高勝率基金大公開"; 
-}
-#top .nav_04:after{
-    content:"中信方便家"; 
 }
 
+#top .nav_01:after {
+    content: "擁抱更美好";
+}
+
+#top .nav_02:after {
+    content: "解析如何掌握";
+}
+
+#top .nav_03:after {
+    content: "高勝率基金大公開";
+}
+
+#top .nav_04:after {
+    content: "中信方便家";
+}
 
 .logo {
     display: inline-block;
@@ -428,36 +440,45 @@ hr{
     height: 100%;
 }
 
-.wrap, .kv{ width: 100%; }
-.outer{
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-.outer.left{
-  left: 0;
-  z-index: 1;
-}
-.outer.right{
-  right: 0;
-}
-.content{
-  position: absolute;
-  width: 100%;
-  min-width: 100%;
-  height: 100vh;
-}
-.content.left{
-  background: url(../images/theme1_01.jpg) no-repeat center top;
-  background-size: cover;
-}
-.content.right{
-  background: url(../images/theme1_02.jpg) no-repeat center top;
-  background-size: cover;
+.wrap,
+.kv {
+    width: 100%;
 }
 
-.slide_bar{
+.outer {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.outer.left {
+    left: 0;
+    z-index: 1;
+}
+
+.outer.right {
+    right: 0;
+}
+
+.content {
+    position: absolute;
+    width: 100%;
+    min-width: 100%;
+    height: 100vh;
+}
+
+.content.left {
+    background: url(../images/theme1_01.jpg) no-repeat center top;
+    background-size: cover;
+}
+
+.content.right {
+    background: url(../images/theme1_02.jpg) no-repeat center top;
+    background-size: cover;
+}
+
+.slide_bar {
     position: absolute;
     width: 5px;
     height: 44vh;
@@ -466,9 +487,9 @@ hr{
     cursor: -webkit-grab;
     bottom: 12.5vh;
     z-index: 99;
-  }
+}
 
-.slide_bar:after{
+.slide_bar:after {
     content: "";
     display: block;
     width: 46px;
@@ -477,11 +498,13 @@ hr{
     /* background: pink; */
     margin-left: -20px;
     top: 0;
-}    
+}
 
-.slide_bar img{width: 46px;bottom: -23px;left: -20px;}
-    
-
+.slide_bar img {
+    width: 46px;
+    bottom: -23px;
+    left: -20px;
+}
 
 .kv_content {
     top: 110px;
@@ -516,7 +539,7 @@ hr{
     height: 0;
 }
 
-.bar div{
+.bar div {
     top: 55px;
 }
 
@@ -1063,7 +1086,6 @@ select {
     overflow: hidden;
 }
 
-
 .go_formula:after {
     content: "";
     background: #00a3a1;
@@ -1073,7 +1095,6 @@ select {
     height: 100%;
     top: -100%;
     transition: all 0.2s;
-
 }
 
 .go_formula:hover:after {
@@ -1086,7 +1107,7 @@ select {
     font-size: 40px;
 }
 
-.go_formula>p{
+.go_formula>p {
     position: relative;
     z-index: 155;
 }
@@ -1094,4 +1115,41 @@ select {
 #footer {
     padding: 20px;
     text-align: center;
+}
+
+#sub_kv {
+    height: 290px;
+    background-image: url(../images/bg_02.jpg);
+    padding-top: 63px;
+    box-sizing: content-box;
+}
+
+#funds_area {
+    text-align: center;
+    background: #dcf6f6;
+    padding: 75px 0;
+}
+
+#funds_area>div>p {
+    padding-left: 1%;
+}
+
+.filter {
+    /* margin-left: 1.6%; */
+}
+
+.filter .select_wrapper {
+    width: 210px;
+    margin: 0 1% 30px;
+}
+
+.select_wrapper.poA {
+    position: absolute;
+    left: 50%;
+    margin-left: -105px;
+}
+
+.filter select {
+    width: 100%;
+    font-size: 15px;
 }
