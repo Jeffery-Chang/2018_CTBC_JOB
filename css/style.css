@@ -1306,10 +1306,8 @@ select {
     .trans50{
         width: 414px;
     }
-    .go_formula{
-
-    }
-    .weapon5 li{width: 100%;}
+    .go_formula{width: 65px;height: 65px;padding-top: 13px;}
+    .weapon5 li{width: 100%;padding: 0;margin-bottom: 25px;}
     #top {
         height: 50px;
     }
@@ -1351,4 +1349,77 @@ select {
     .f15{
         font-size: 14px;
     }
+    #control{
+        padding-bottom: 0;
+    }
+    #weapon{
+        padding: 60px 0;
+    }
+    #weapon h2{
+        margin-bottom: 20px;
+    }
+    .text_bottom .icon_wrap{
+        position: absolute;
+        margin: 0;
+        width: 60px;
+        height: 60px;
+        padding: 0;
+        border-width: 6px;
+    }
+    .text_top .icon_wrap{
+        position: absolute;
+        margin: 0;
+        width: 60px;
+        height: 60px;
+        padding: 0;
+        border-width: 6px;
+    }
+    
+    .weapon5 .text_detail{
+        padding-left: 100px;
+        text-align: left;
+        transform: translate(0);
+    }
+    .weapon5 li span{
+        margin: 0;
+    }
+    .weapon5 .icon_wrap::before{
+        height: 4px;
+        width: 20px;
+        top: 22px;
+        left: 56px;
+    }
+    .weapon5 .icon_wrap::after{
+        top: 19.5px;
+        left: 76px;
+        width: 9px;
+        height: 9px;
+    }
+    .go_formula>p{
+        font-size: 11px;
+    }
+    .go_formula .f_yellow{
+        font-size: 27px;
+        letter-spacing: 2px;
+    }
+    
 }  
+@media only screen and (max-width: 414px) {
+    .title{
+        font-size: 31px;
+    }
+    .find_item{
+        width:98%;
+    }
+    .select_wrapper.poA{
+        position: relative;
+        margin-left: 0;
+        left: 0;
+        display: inline-block;
+    }
+    .filter .select_wrapper{
+        width: 100%;
+        margin: 0 0 25px;
+    }
+    
+}    
