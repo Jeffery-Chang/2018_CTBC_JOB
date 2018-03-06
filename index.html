@@ -1,40 +1,3 @@
-<<<<<<< HEAD
-<html>
-      <head>
-        <meta charset="UTF-8">
-        <title>index.md</title>
-      </head>
-      <body>
-        <h2 id="welcome-to-github-pages">Welcome to GitHub Pages</h2>
-<p>You can use the <a href="https://github.com/Jeffery-Chang/2018_CTBC_JOB/edit/master/index.md">editor on GitHub</a> to maintain and preview the content for your website in Markdown files.</p>
-<p>Whenever you commit to this repository, GitHub Pages will run <a href="https://jekyllrb.com/">Jekyll</a> to rebuild the pages in your site, from the content in your Markdown files.</p>
-<h3 id="markdown">Markdown</h3>
-<p>Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for</p>
-<pre><code class="lang-markdown">Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-</code></pre>
-<p>For more details see <a href="https://guides.github.com/features/mastering-markdown/">GitHub Flavored Markdown</a>.</p>
-<h3 id="jekyll-themes">Jekyll Themes</h3>
-<p>Your Pages site will use the layout and styles from the Jekyll theme you have selected in your <a href="https://github.com/Jeffery-Chang/2018_CTBC_JOB/settings">repository settings</a>. The name of this theme is saved in the Jekyll <code>_config.yml</code> configuration file.</p>
-<h3 id="support-or-contact">Support or Contact</h3>
-<p>Having trouble with Pages? Check out our <a href="https://help.github.com/categories/github-pages-basics/">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
-
-      </body>
-    </html>
-=======
 <!DOCTYPE html>
 <html>
     <head>
@@ -56,27 +19,7 @@
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/jquery-ui.css">
         <link rel="stylesheet" href="css/style.css" />
-        <style>
-            #control .pie1{
-                opacity: 0;
-                transform: translate(-50px, -50px);
-                transition: transform .75s ease, opacity .75s ease;
-            }
-            #control .pie2{
-                opacity: 0;
-                transform: translate(50px, -50px);
-                transition: transform .75s ease, opacity .75s ease;
-            }
-            #control .pie3{
-                opacity: 0;
-                transform: translate(0, 50px);
-                transition: transform .75s ease, opacity .75s ease;
-            }
-            #control .pie1.show, #control .pie2.show, #control .pie3.show{
-                opacity: 1;
-                transform: translate(0, 0);
-            }
-        </style>
+        <link rel="stylesheet" href="css/self.css">
         <!-- js -->
         <script src="js/vendor/ga.js"></script>
         <script src="js/vendor/jquery.min.js"></script>
@@ -131,10 +74,10 @@
                 </div>
                 <ul class="change_theme poA f_white">
                     <div class="active poA" style="top:20px"><span class="triangle"></span></div>
-                    <li data-top=20 onclick="change(1);">想買車</li>
-                    <li data-top=100 onclick="change(2);">想結婚</li>
-                    <li data-top=180 onclick="change(3);">想留學</li>
-                    <li data-top=260 onclick="change(4);">想育兒</li>
+                    <li data-top="20">想買車</li>
+                    <li data-top="100">想結婚</li>
+                    <li data-top="180">想留學</li>
+                    <li data-top="260">想育兒</li>
                 </ul>
             </div>
             <div id="analysis" class="W100 t_center inline">
@@ -305,7 +248,7 @@
                 <h2 class="title marginBottom40">五大投資利器</h2>
                 <ul class="weapon5 W1120">
                     <li class="text_bottom">
-                        <div class="icon_wrap">
+                        <div class="icon_wrap shake shake1">
                             <img src="images/icon_01.png" width="100%" alt="">
                         </div>
                         <div class="text_detail">
@@ -314,7 +257,7 @@
                         </div>
                     </li>
                     <li class="text_top">
-                        <div class="icon_wrap">
+                        <div class="icon_wrap shake shake2">
                             <img src="images/icon_02.png" width="100%" alt="">
                         </div>
                         <div class="text_detail">
@@ -323,7 +266,7 @@
                         </div>
                     </li>
                     <li class="text_bottom">
-                        <div class="icon_wrap">
+                        <div class="icon_wrap shake shake3">
                             <img src="images/icon_03.png" width="100%" alt="">
                         </div>
                         <div class="text_detail">
@@ -332,7 +275,7 @@
                         </div>
                     </li>
                     <li class="text_top">
-                        <div class="icon_wrap">
+                        <div class="icon_wrap shake shake4">
                             <img src="images/icon_04.png" width="100%" alt="">
                         </div>
                         <div class="text_detail">
@@ -341,7 +284,7 @@
                         </div>
                     </li>
                     <li class="text_bottom">
-                        <div class="icon_wrap">
+                        <div class="icon_wrap shake shake5">
                             <img src="images/icon_05.png" width="100%" alt="">
                         </div>
                         <div class="text_detail">
@@ -421,9 +364,7 @@
                 <p class="f45 W100 f_yellow">GO</p>
             </div>
         </div>
-        <script src="js/init.js"></script>
         <script src="js/menu.js"></script>
-        <script src="js/twentytwenty.js"></script>
+        <script src="js/init.js"></script>
     </body>
 </html>
->>>>>>> 6c6b1b958a691f7b8af78a57b3bf3cb6c3248f62
