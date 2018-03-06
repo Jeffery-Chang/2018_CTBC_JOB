@@ -1,0 +1,62 @@
+/* pie Chart use*/
+#control .pie1{
+    opacity: 0;
+    transform: translate(-50px, -50px);
+    transition: transform .75s ease, opacity .75s ease;
+}
+#control .pie2{
+    opacity: 0;
+    transform: translate(50px, -50px);
+    transition: transform .75s ease, opacity .75s ease;
+}
+#control .pie3{
+    opacity: 0;
+    transform: translate(0, 50px);
+    transition: transform .75s ease, opacity .75s ease;
+}
+#control .pie1.instage, #control .pie2.instage, #control .pie3.instage{
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* five circle use*/
+@media screen and (min-width: 767px) {
+    #weapon .icon_wrap img{
+        transform: scale(.7);
+    }
+    #weapon .icon_wrap.shake img{
+        animation: shake 3s ease infinite;
+    }
+    #weapon .icon_wrap.shake1 img{
+        animation-delay: 0s;
+    }
+    #weapon .icon_wrap.shake2 img{
+        animation-delay: .125s;
+    }
+    #weapon .icon_wrap.shake3 img{
+        animation-delay: .25s;
+    }
+    #weapon .icon_wrap.shake4 img{
+        animation-delay: .375s;
+    }
+    #weapon .icon_wrap.shake5 img{
+        animation-delay: .500s;
+    }
+    @keyframes shake{
+        0% {
+            transform: scale(.7);
+        }
+        30% {
+            transform: scale(.7);
+        }
+        50%{
+            transform: scale(1);
+        }
+        70%{
+            transform: scale(.7);
+        }
+        100%{
+            transform: scale(.7);
+        }
+    }
+}
