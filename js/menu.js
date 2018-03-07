@@ -39,6 +39,13 @@ var menuCtrl = {
     scrollPage(pos){
         var final = pos || 0;
         $('html, body').stop().animate({ scrollTop: final }, 500);
+    },
+    chkDevice: function(){
+        var chk_fg = false;
+        if(isMobile.phone || $(window).width() < 768){
+            chk_fg = true;
+        }
+        return chk_fg;
     }
 }
 

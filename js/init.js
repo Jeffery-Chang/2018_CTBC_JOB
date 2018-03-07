@@ -133,6 +133,7 @@ var indexCtrl = {
             }).delay(200).fadeIn(400);
         };
         
+        // top 跟 left 數值要拉出去外面做
         btn.click(function(e){
             e.preventDefault();
             var index = $(this).index();
