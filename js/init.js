@@ -7,6 +7,11 @@ var indexCtrl = {
         this.setFunds();
         this.kv();
         this.changeBg();
+        this.fromFunds();
+    },
+    fromFunds(){
+        var from = $.getUrlParam('from');
+        if(from == 1 && from != null) $('.go_formula').click();
     },
     kv(){
         var slider = $('.slide_bar'); //拉bar
