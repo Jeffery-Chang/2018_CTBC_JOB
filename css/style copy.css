@@ -91,10 +91,6 @@ hr {
     color: #6e6e6e;
 }
 
-.f_l_grey{
-    color: #979797;
-}
-
 .f_white {
     color: #fff;
 }
@@ -1244,13 +1240,6 @@ select {
 
 .ui-widget-header{background: #4ed2d3;}
 
-#analysis .mb.f_l_grey{
-    background-color: #edfafb;
-    padding: 35px 20px;
-    margin-bottom: 40px;
-    line-height: 1.5;
-}
-
 @media only screen and (max-width: 920px) {
     .tri{
         margin-left: 25px;
@@ -1298,22 +1287,9 @@ select {
         transform: rotateY(0);
         
     }
-    .mb{
-        display: none;
-    }
-    .pc{
-        display: block;
-    }
 
 }
 @media only screen and (max-width: 768px) {
-    .mb{
-        display: block;
-    }
-    .pc{
-        display: none;
-    }
-    #analysis{padding-top: 0;}
     .W50{
         width: 100%;
     }
@@ -1410,55 +1386,23 @@ select {
         max-width: 600px;
     }
     
-    .weapon5 .text_detail{
-        padding-left: 100px;
-        text-align: left;
-        transform: translate(0);
-    }
-    .weapon5 li span{
-        margin: 0;
-    }
-    .weapon5 .icon_wrap::before{
-        display: none;
-        width: 20px;
-        top: 22px;
-        left: 56px;
-    }
-    .weapon5 .icon_wrap::after{
-        display: none;
-        left: 76px;
-        width: 9px;
-        height: 9px;
-    }
-    .go_formula>p{
-        font-size: 11px;
-    }
-    .go_formula .f_yellow{
-        font-size: 27px;
-        letter-spacing: 2px;
-    }
-    #sub_kv{
-        margin-top: 50px;
-    }
-    #control .W50.t_left{
-        text-align: center;
-    }
-
     .bar {
         width: 414px;
-        bottom: 180px;
+        bottom: 200px;
         z-index: 50;
         margin-left: -208px;
     }
     
     .bar div {
-        display: none;
+        width: 100vw;
+        padding: 5px 20px;
+        transform: translate(-23%,0);
     }
 
     .slide_bar {
         height: 38vh;
         background-color: #ffcc04;
-        bottom: 180px;
+        bottom: 200px;
     }
     
     .circle_01:after,
@@ -1473,7 +1417,6 @@ select {
         left: 0;
         bottom: 0;
         width: 100%;
-        background: #aaaaaa;
     }
     
     .change_theme li {
@@ -1496,35 +1439,572 @@ select {
     #control {
         padding: 40px 0 60px;
     }
-
-    .circle_01:before, .circle_02:before, .circle_03:before, .circle_04:before{
-        font-size: 14px;
-        bottom: -39px;
+    
+    .trans50 {
+        width: 80%;
+        margin: 0;
+        max-width: 560px;
+        float: left;
     }
     
-}  
+    .tri {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: 25px 0 0 60px;
+    }
+    
+    .find_item {
+        margin: 15px 1%;
+        width: 31.33%;
+        padding: 20px;
+        box-sizing: border-box;
+        line-height: 1.5;
+        text-align: left;
+    }
+    
+    .fund_detail {
+        line-height: 2;
+    }
+    
+    .fund_detail li span:first-child {
+        width: 90px;
+        display: inline-block;
+    }
+    
+    .find_item h5 .f_grey {
+        padding-left: 10px;
+        opacity: .6;
+    }
+    
+    .find_item .f_orange {}
+    
+    .find_item .btn_green {
+        display: inline-block;
+        text-align: center;
+        width: 80px;
+        margin: 20px 5px 10px;
+        padding: 0;
+        line-height: 35px;
+        height: 35px;
+    }
+    
+    .years,
+    .money {
+        padding: 10px 20px;
+        background: rgba(221, 246, 246, 0.29);
+        font-weight: bold;
+    }
+    
+    .formula {
+        line-height: 40px;
+        margin: 20px auto 260px;
+    }
+    
+    .formula p {
+        line-height: 40px;
+        vertical-align: middle;
+    }
+    
+    #result {
+        padding: 65px 0 260px;
+        display: none;
+    }
+    
+    #result.show {
+        display: block;
+        margin-top: -180px;
+    }
+    
+    #attention {
+        padding: 65px 0;
+    }
+    
+    #analysis {
+        padding: 65px 0 0;
+    }
+    
+    #analysis .btn_wrapper {
+        position: absolute;
+        margin-top: -211px;
+        bottom: 75px;
+        display: inline-block;
+        left: 50%;
+        margin-left: -130px;
+    }
+    
+    .re_ana {
+        display: none;
+    }
+    
+    .show .re_ana {
+        display: block;
+    }
+    
+    .show .ana {
+        display: none;
+    }
+    
+    #analysis .btn_wrapper a {
+        margin-bottom: 15px;
+        width: 250px;
+        padding: 0;
+        display: block;
+    }
+    
+    #analysis>p {
+        line-height: 1.6;
+        padding-bottom: 25px;
+    }
+    
+    #weapon {
+        text-align: center;
+        padding: 95px 0;
+    }
+    
+    #weapon h2 {
+        margin-bottom: 110px;
+    }
+    
+    .weapon5 {
+        margin: 20px auto;
+        display: inline-block;
+        padding: 0 3%;
+    }
+    
+    .weapon5 li {
+        width: 20%;
+        float: left;
+        padding: 40px 0;
+        box-sizing: border-box;
+    }
+    
+    .weapon5 li h5 {
+        padding: 15px 0 6px;
+        white-space: nowrap;
+    }
+    
+    .weapon5 li span {
+        line-height: 1.5;
+        padding: 4px 0;
+        width: 120%;
+        display: inline-block;
+        margin-left: -10%;
+    }
+    
+    .text_bottom .icon_wrap {
+        border: 10px solid #6cc;
+        border-radius: 50%;
+        width: 150px;
+        padding: 10px;
+        box-sizing: border-box;
+        margin: 50px auto 65px;
+        position: relative;
+    }
+    
+    .text_bottom .icon_wrap::before {
+        content: "";
+        display: block;
+        background-color: #6cc;
+        width: 6px;
+        height: 40px;
+        position: absolute;
+        top: 140px;
+        left: 50%;
+        margin-left: -3px;
+    }
+    
+    .text_bottom .icon_wrap::after {
+        content: "";
+        display: block;
+        background-color: #6cc;
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        top: 170px;
+        left: 50%;
+        margin-left: -7px;
+    }
+    
+    .text_top .icon_wrap {
+        border: 10px solid #66cd99;
+        border-radius: 50%;
+        width: 150px;
+        padding: 10px;
+        box-sizing: border-box;
+        margin: 50px auto;
+        position: relative;
+    }
+    
+    .text_top .icon_wrap::before {
+        content: "";
+        display: block;
+        background-color: #65ce99;
+        width: 6px;
+        height: 40px;
+        position: absolute;
+        top: -49px;
+        left: 50%;
+        margin-left: -3px;
+    }
+    
+    .text_top .icon_wrap::after {
+        content: "";
+        display: block;
+        background-color: #65ce99;
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        top: -56px;
+        left: 50%;
+        margin-left: -7px;
+    }
+    
+    .text_top .text_detail {
+        transform: translate(0, -359px);
+    }
+    
+    .twentytwenty-wrapper {
+        height: 100%;
+    }
+    
+    .go_formula {
+        position: fixed;
+        width: 100px;
+        height: 100px;
+        right: 25px;
+        bottom: 25px;
+        border-radius: 50%;
+        text-align: center;
+        padding-top: 20px;
+        cursor: pointer;
+        z-index: 150;
+        overflow: hidden;
+    }
+    
+    .go_formula:after {
+        content: "";
+        background: #00a3a1;
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        top: -100%;
+        transition: all 0.2s;
+    }
+    
+    .go_formula .f_yellow {
+        margin-top: -3px;
+        margin-left: 2px;
+        font-size: 40px;
+    }
+    
+    .go_formula>p {
+        position: relative;
+        z-index: 155;
+    }
+    
+    #footer {
+        padding: 20px;
+        text-align: center;
+    }
+    
+    #sub_kv {
+        height: 330px;
+        background-image: url(../images/bg_02.jpg);
+        background-size: cover;
+        background-position: center;
+        margin-top: 63px;
+        box-sizing: content-box;
+    }
+    
+    #funds_area {
+        text-align: center;
+        background: #dcf6f6;
+        padding: 75px 0;
+    }
+    
+    #funds_area>div>p {
+        padding-left: 1%;
+    }
+    
+    .filter {
+        /* margin-left: 1.6%; */
+    }
+    
+    .filter .select_wrapper {
+        width: 210px;
+        margin: 0 1% 30px;
+    }
+    
+    .select_wrapper.poA {
+        position: absolute;
+        left: 50%;
+        margin-left: -105px;
+    }
+    
+    .filter select {
+        width: 100%;
+        font-size: 15px;
+    }
+    
+    .kv_text{
+        margin: 120px 0 0 3%;
+    }
+    
+    .kv_text h1{
+        padding-bottom: 14px;
+    }
+    
+    .ui-widget-header{background: #4ed2d3;}
+    
+    @media only screen and (max-width: 920px) {
+        .tri{
+            margin-left: 25px;
+            width: 90%;
+        }
+        .find_item{
+            width:48%;
+        }
+        .text_top .icon_wrap{
+            width: 120px;
+        }
+        .text_bottom .icon_wrap{
+            width: 120px;
+            margin-bottom: 55px;
+        }
+        .text_bottom .icon_wrap::before{
+            top: 110px;
+    
+        }
+        .text_bottom .icon_wrap::after{
+            top: 145px;
+        }
+        .text_top .text_detail{
+            transform: translate(0, -345px);
+        }
+        
+    
+    }   
+    @media only screen and (min-width: 769px) {
+        .go_formula:hover:after {
+            top: 0;
+        }
+    
+        #top li.inactive:hover {
+            margin-top: 65px;
+        }
+        .btn_white:hover {
+            color: #fff;
+        }
+    
+        .btn:hover:before {
+            top: 0;
+        }
+        .change_theme li:hover:after{
+            transform: rotateY(0);
+            
+        }
+    
+    }
+    @media only screen and (max-width: 768px) {
+        .W50{
+            width: 100%;
+        }
+        #control .W50.go_right{
+            position: relative;
+            background-position: center;
+            margin-top: 25px;
+        }
+        #control .title {
+            margin: 20px 0;
+        }
+        .title{
+            font-size: 41px;
+        }
+        .tri{
+            margin: 20px auto 0;
+            display: inline-block;
+            width: 414px;
+        }
+        .trans50{
+            width: 414px;
+            padding: 20px 0 10px;
+        }
+        .go_formula{
+            width: 65px;
+            height: 65px;
+            padding-top: 13px;
+        }
+        .weapon5 li{
+            width: 100%;
+            padding: 0;
+            margin: 0 auto 30px;
+            min-height: 100px;
+        }
+        #top {
+            height: 50px;
+        }
+        #top ul{
+            /* display: none; */
+            position: fixed;
+            width: 100%;
+            left: 0;
+            top: 50px;
+            background: #026c6b;
+            box-shadow: 0 5px 3px rgba(0,0,0,.4);
+            transition: all .6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: 20;
+            left: 100vh;
+        }
+        #top ul.show{
+            left: 0;
+        }
+    
+        #top ul li {
+            float: none;
+            text-align: center;
+            height: 55px;
+            line-height: 55px;
+            border-bottom: 1px solid hsla(177, 30%, 46%, 0.41);
+        }
+    
+        #top li:after {
+            display: none;
+        }
+    
+        .logo {
+            width: 110px;
+        }
+    
+        #menuToggle {
+          display: block;
+        }
+        .f15{
+            font-size: 14px;
+        }
+        #control{
+            padding-bottom: 0;
+        }
+        #weapon{
+            padding: 60px 0;
+        }
+        #weapon h2{
+            margin-bottom: 20px;
+        }
+        .text_bottom .icon_wrap{
+            position: absolute;
+            margin: 0;
+            width: 100px;
+            height: 100px;
+            padding: 0;
+            border-width: 6px;
+        }
+        .text_top .icon_wrap{
+            position: absolute;
+            margin: 0;
+            width: 100px;
+            height: 100px;
+            padding: 0;
+            border-width: 6px;
+        }
+    
+        .weapon5 {
+            max-width: 660px;
+        }
+        
+        .weapon5 .text_detail{
+            padding-left: 130px;
+            text-align: left;
+            transform: translate(0);
+        }
+        .weapon5 li span{
+            margin: 0;
+            width: 100%;
+        }
+        .weapon5 .icon_wrap::before{
+            display: none;
+            width: 20px;
+            top: 22px;
+            left: 56px;
+        }
+        .weapon5 .icon_wrap::after{
+            display: none;
+            left: 76px;
+            width: 9px;
+            height: 9px;
+        }
+        .go_formula>p{
+            font-size: 11px;
+        }
+        .go_formula .f_yellow{
+            font-size: 27px;
+            letter-spacing: 2px;
+        }
+        #sub_kv{
+            margin-top: 50px;
+        }
+        #control .W50.t_left{
+            text-align: center;
+        }
+        
+    }  
+    @media only screen and (max-width: 414px) {
+        .title{
+            font-size: 31px;
+        }
+        .find_item{
+            width:98%;
+        }
+        .select_wrapper.poA{
+            position: relative;
+            margin-left: 0;
+            left: 0;
+            display: inline-block;
+        }
+        .filter .select_wrapper{
+            width: 100%;
+            margin: 0 0 25px;
+        }
+        
+        .weapon5 .text_detail{
+            padding-left: 130px;
+            text-align: left;
+            transform: translate(0);
+        }
+        .weapon5 li span{
+            margin: 0;
+        }
+        .weapon5 .icon_wrap::before{
+            display: none;
+            width: 20px;
+            top: 22px;
+            left: 56px;
+        }
+        .weapon5 .icon_wrap::after{
+            display: none;
+            left: 76px;
+            width: 9px;
+            height: 9px;
+        }
+        .go_formula>p{
+            font-size: 11px;
+        }
+        .go_formula .f_yellow{
+            font-size: 27px;
+            letter-spacing: 2px;
+        }
+        #sub_kv{
+            margin-top: 50px;
+        }
+        #control .W50.t_left{
+            text-align: center;
+        }
+    }
+
 @media only screen and (max-width: 414px) {
-    .f45 {
-        font-size: 35px;
-    }
-    .f35 {
-        font-size: 27px;
-    }
-    .f25 {
-        font-size: 21px;
-    }
-    .f21 {
-        font-size: 19px;
-    }
-    .f19 {
-        font-size: 17px;
-    }
-    .f17 {
-        font-size: 16px;
-    }
-    .f15 {
-        font-size: 14px;
-    }
     .title{
         font-size: 31px;
     }
@@ -1540,24 +2020,6 @@ select {
     .filter .select_wrapper{
         width: 100%;
         margin: 0 0 25px;
-    }
-    .bar {
-        width: 414px;
-        bottom: 180px;
-        margin-left: -208px;
-    }
-    .slide_bar {
-        height: 38vh;
-        bottom: 180px;
-    }
-    .circle_01:after, .circle_02:after, .circle_03:after {
-        width: 123px;
-    }
-    .bar span{
-
-    }
-    .kv_content{
-
     }
     
 }    
