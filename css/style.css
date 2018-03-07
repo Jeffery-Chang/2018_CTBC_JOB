@@ -15,7 +15,7 @@ body, html {
     font-family: 'Noto Sans', sans-serif;
     -webkit-touch-callout: none;
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-    outline: none
+    outline: none;
 }
 
 hr {
@@ -131,7 +131,7 @@ hr {
 .borderBottom {
     padding: 5px 0 10px;
     margin-bottom: 10px;
-    border-bottom: 1px solid #969696;
+    border-bottom: 1px solid #c3c3c3;
 }
 
 .borderTop {
@@ -169,6 +169,7 @@ hr {
 
 .f25 {
     font-size: 25px;
+    font-weight: 700;
 }
 
 .f35 {
@@ -366,6 +367,7 @@ hr {
     transition: all .6s;
     max-width: 100%;
     overflow-x: hidden;
+    vertical-align: -webkit-baseline-middle;
 }
 
 #top {
@@ -591,6 +593,8 @@ hr {
 .kv_content p {
     line-height: 1.9;
     text-shadow: 0 0 3px rgba(0, 0, 0, .8);
+    padding: 0 10px;
+    letter-spacing: 0;
 }
 
 .bar {
@@ -801,7 +805,7 @@ select {
 
 .pie1 {
     top: 11px;
-    left: 0px;
+    left: 0;
     width: 206px;
 }
 
@@ -875,6 +879,7 @@ select {
     border: 0;
     background: #e9e9e9;
     height: 5px;
+    width: 100%;
 }
 
 #slider .ui-slider-handle {
@@ -913,7 +918,7 @@ select {
 }
 
 .interest {
-    padding-right: 20px;
+    padding: 0 20px;
     margin: 20px 0;
 }
 
@@ -961,7 +966,9 @@ select {
     opacity: .6;
 }
 
-.find_item .f_orange {}
+.find_item .f_orange {
+    display: none;
+}
 
 .find_item .btn_green {
     display: inline-block;
@@ -993,6 +1000,7 @@ select {
 #result {
     padding: 65px 0 260px;
     display: none;
+    margin-top: -150px;
 }
 
 #result.show {
@@ -1039,6 +1047,7 @@ select {
 #analysis>p {
     line-height: 1.6;
     padding-bottom: 25px;
+    padding: 0 20px 25px 20px;
 }
 
 #weapon {
@@ -1246,7 +1255,7 @@ select {
 
 #analysis .mb.f_l_grey{
     background-color: #edfafb;
-    padding: 35px 20px;
+    padding: 25px 20px;
     margin-bottom: 40px;
     line-height: 1.5;
 }
@@ -1417,6 +1426,7 @@ select {
     }
     .weapon5 li span{
         margin: 0;
+        width: 100%;
     }
     .weapon5 .icon_wrap::before{
         display: none;
@@ -1542,22 +1552,185 @@ select {
         margin: 0 0 25px;
     }
     .bar {
-        width: 414px;
-        bottom: 180px;
-        margin-left: -208px;
+        width: 290px;
+        bottom: 157px;
+        margin-left: -143px;
     }
     .slide_bar {
-        height: 38vh;
-        bottom: 180px;
+        height: 26vh;
+        bottom: 160px;
     }
     .circle_01:after, .circle_02:after, .circle_03:after {
-        width: 123px;
+        width: 88px;
+        height: 2px;
+        margin-left: 7px;
+        margin-top: 2px;
     }
-    .bar span{
+    .bar span{border-width: 2px;width: 10px;height: 10px;}
+    .kv_content{top: 80px;padding: 0 15px;}
+    .kv_content img{
+        width: 100px;
+        margin: 5px 0 -7px;
+    }    
+    .kv_content h2{
+        padding-top: 5px;
+    }
+    .circle_04 {
+        right: -1px;
+    }
+    .change_theme li{
+        padding: 0;
+        line-height: 45px;
+        font-size: 15px;
+    }
+    .change_theme div.active{
+        height: 45px;
+    }
+    div.active .triangle {
+        right: 64%;
+    }
+    .W75{
+        width: 100%;
+    }
+    .W50{
+        width: 100%;
+    }
+    .W25{
+        width: 100%;
+    }
+    .interest{
+        text-align: left;
+        margin-top: -10px;
+    }
+    .select_wrapper{width: 100%;margin-bottom: 20px;}
+    select {
+        width: 100%;
+        font-size: 15px;
+    }
+    .silder_wrapper{
+        padding-right: 0;
+    }
+    .cost{
+        top: -45px;
+        right: 0;
+        text-align: right;
+    }
+    #analysis .btn_wrapper{
+        width: 100%;
+        margin-left: 0;
+        left: 0;
+        padding: 0 20px;
+        bottom: 30px;
+    }
+    #analysis .btn_wrapper a{
+        width: 100%;
+        margin: 15px 0;
+    }
+    .W1120{
+        padding: 0 20px;
+    }
+    #control .f_black{
+        padding-right: 0;
 
     }
-    .kv_content{
-
+    .tri{
+        width: 300px;
+        margin: 40px auto 20px;
+    }
+    .trans50{
+        width: 300px;
+    }
+    #control{
+        padding-bottom: 0;
+    }
+    .btn{
+        width: 100%;
+        margin: 0 0 15px;
+        height: 45px;
+        line-height: 45px;
+    }
+    #weapon{
+        padding: 40px 20px;
+    }
+    .formula{
+        margin-bottom: 180px;
+    }
+    #result{
+        padding-bottom: 180px;
+    }
+    .pie1{
+        width: 148px;
+        left: 4px;
+    }
+    .pie1 span{
+        top: 70px;
+        left: 57px;
+    }
+    .pie2{
+        width: 152px;
+        left: 139px;
+    }
+    .pie2 span{
+        top: 90px;
+        left: 25px;
     }
     
+    .pie3{
+        width: 248px;
+        top: 155px;
+        left: 22px;
+    }
+    .pie3 span{
+        top: 48px;
+        left: 89px;
+    }
+    .tri span{
+        font-size: 16px;
+        white-space: nowrap;
+        letter-spacing: 0;
+    }
+    #attention{
+        padding: 40px 0 30px;
+    }
+    .find_item .btn_green{
+        width: 48%;
+        float: left;
+        margin: 20px 1% 10px;
+    }
+   
+}
+
+@media only screen and (max-width: 375px) {
+    .slide_bar {
+        bottom: 145px;
+    }
+    .bar {
+        width: 290px;
+        bottom: 140px;
+        margin-left: -143px;
+    }
 }    
+
+
+
+@media only screen and (max-width: 330px) {
+    .kv_content {
+        top: 80px;
+        padding: 0 10px;
+    }
+    .kv_content p {
+        line-height: 1.6;
+    }
+    .circle_01:before, .circle_02:before, .circle_03:before, .circle_04:before{
+        font-size: 13px;
+        bottom: -33px;
+    }
+    .slide_bar {
+        bottom: 125px;
+    }
+    .bar {
+        width: 290px;
+        bottom: 117px;
+        margin-left: -143px;
+    }
+}
