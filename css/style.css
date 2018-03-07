@@ -365,7 +365,7 @@ hr {
 #wrapper>div {
     -webkit-transition: all .6s;
     transition: all .6s;
-    max-width: 100%;
+    /* max-width: 100%; */
     overflow-x: hidden;
     vertical-align: -webkit-baseline-middle;
 }
@@ -848,19 +848,19 @@ select {
 
 .select_wrapper::before {
     content: '';
-    width: 20px;
+    width: 17px;
     display: block;
     position: absolute;
     height: 1px;
     transform: rotate(-45deg);
     background: #4ed2d3;
-    right: 12px;
-    top: 22px;
+    right: 14px;
+    top: 21px;
 }
 
 .select_wrapper::after {
     content: '';
-    width: 20px;
+    width: 17px;
     display: block;
     position: absolute;
     height: 1px;
@@ -1216,16 +1216,14 @@ select {
 #funds_area {
     text-align: center;
     background: #dcf6f6;
-    padding: 75px 0;
+    padding: 0 0 75px;
 }
 
 #funds_area>div>p {
     padding-left: 1%;
 }
 
-.filter {
-    /* margin-left: 1.6%; */
-}
+.filter {background: #dcf6f6;padding-top: 55px;}
 
 .filter .select_wrapper {
     width: 210px;
@@ -1540,6 +1538,7 @@ select {
     }
     .find_item{
         width:98%;
+        padding-bottom: 5px;
     }
     .select_wrapper.poA{
         position: relative;
@@ -1549,7 +1548,7 @@ select {
     }
     .filter .select_wrapper{
         width: 100%;
-        margin: 0 0 25px;
+        margin: 0 0 15px;
     }
     .bar {
         width: 290px;
@@ -1606,6 +1605,8 @@ select {
     select {
         width: 100%;
         font-size: 15px;
+        height: 42px;
+        line-height: 42px;
     }
     .silder_wrapper{
         padding-right: 0;
@@ -1695,8 +1696,89 @@ select {
     .find_item .btn_green{
         width: 48%;
         float: left;
-        margin: 20px 1% 10px;
+        margin: 17px 1% 20px;
     }
+    .f55 {
+        font-size: 33px;
+    }
+    .kv_text{
+        margin: 0;
+        bottom: 210px;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        left: 0;
+    }
+    #sub_kv {
+        height: 100vh;
+        background-image: url(../images/bg_01.jpg);
+        background-size: 100%;
+        background-position: center 50px;
+        background-repeat: no-repeat;
+        position: relative;
+        margin: 0;
+    }
+    .filter{
+        position: absolute;
+        top: 100vh;
+        z-index: 51;
+        margin-top: -185px;
+        background: transparent;
+    }
+    #funds_area{
+        padding: 20px 0 50px;
+    }
+
+    #funds_area .find_item::before{
+        content: '';
+        width: 15px;
+        display: block;
+        position: absolute;
+        height: 1px;
+        transform: rotate(-45deg);
+        background: #4ed2d3;
+        right: 16px;
+        top: 27px;
+        transition: all .4s;
+    }
+    #funds_area .find_item::after{
+        content: '';
+        width: 15px;
+        display: block;
+        position: absolute;
+        height: 1px;
+        transform: rotate(45deg);
+        background: #4ed2d3;
+        right: 27px;
+        top: 27px;
+        transition: all .4s;
+        
+    }
+    #funds_area .find_item.show::before{
+        transform: rotate(45deg);
+        transform-origin: center;
+    }
+    #funds_area .find_item.show::after{
+        transform: rotate(-45deg);
+        transform-origin: center;
+    }
+
+    .borderBottom{
+        border-bottom-color: transparent
+    }
+    .show .borderBottom{
+        border-bottom-color: #c3c3c3;
+    }
+    .fund_detail, .find_item div.W100{
+        display: none;
+    }
+     
+    .show .fund_detail, .show.find_item div.W100{
+        display: block;
+    }
+
+    
+    
    
 }
 
