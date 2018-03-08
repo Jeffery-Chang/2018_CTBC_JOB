@@ -1,3 +1,5 @@
+var typeTop = '20px';
+var typeLeft = '0';
 var indexCtrl = {
     init(){
         this.slider();
@@ -133,23 +135,42 @@ var indexCtrl = {
             }).delay(200).fadeIn(400);
         };
         
-        // top 跟 left 數值要拉出去外面做
         btn.click(function(e){
             e.preventDefault();
             var index = $(this).index();
-            var top = $(this).data('top');
-            active.stop().animate({ top: top }, 500)
+            typeTop = $(this).data('top');
+            typeLeft = $(this).data('left');
+            
+            if(menuCtrl.chkDevice()){
+                active.css('top', '0px');
+                active.stop().animate({ left: typeLeft }, 500);
+            }else{
+                active.css('left', '0');
+                active.stop().animate({ top: typeTop }, 500);
+            }
+            
             change(index);
         }).eq(0).click();
+        
+        $(window).resize(function(){
+            if(menuCtrl.chkDevice()){
+                active.css('top', '0px');
+                active.css('left', typeLeft);
+            }else{
+                active.css('top', typeTop);
+                active.css('left', '0');
+            }
+        });
         
         //要預留手機圖路徑圖參數
     },
     play(){
         var $this = this;
         var btn = $('#top .indexPage li:eq(1), .go_formula');
-        var dis = $this.caloffset('#analysis');
+        var dis = 0;
         btn.click(function(e){
             e.preventDefault();
+            dis = $this.caloffset('#analysis');
             menuCtrl.scrollPage(dis);
         });
     },
