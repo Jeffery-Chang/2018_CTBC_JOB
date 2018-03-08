@@ -11,8 +11,16 @@ var menuCtrl = {
         this.menuBar();
     },
     menuBar(){
-        var menu = $('#top .indexPage li');
-        menu.click(function(e){
+        var menu = $('#top .indexPage');
+        var burger = $('#menuToggle');
+        
+        burger.click(function(e){
+            e.preventDefault();
+            $(this).toggleClass('show');
+            menu.toggleClass('show');
+        });
+        
+        menu.find('li').click(function(e){
             e.preventDefault();
             var index = $(this).index();
             var active = $(this).hasClass('active');
@@ -26,6 +34,8 @@ var menuCtrl = {
                     trackWaitJump('', 'index.html');
                     break;
                 case 1:
+                    burger.removeClass('show');
+                    menu.removeClass('show');
                     break;
                 case 2:
                     trackWaitJump('', 'funds.html');
@@ -42,7 +52,7 @@ var menuCtrl = {
     },
     chkDevice: function(){
         var chk_fg = false;
-        if(isMobile.phone || $(window).width() < 768){
+        if(isMobile.phone || $(window).width() < 769){
             chk_fg = true;
         }
         return chk_fg;
