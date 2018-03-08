@@ -1359,7 +1359,7 @@ select {
         box-shadow: 0 5px 3px rgba(0,0,0,.4);
         transition: all .6s cubic-bezier(0.165, 0.84, 0.44, 1);
         z-index: 20;
-        left: 100vh;
+        left: 100vw;
     }
     #top ul.show{
         left: 0;
@@ -1538,7 +1538,7 @@ select {
     }
     .find_item{
         width:98%;
-        padding-bottom: 5px;
+        padding: 15px 20px 0;
     }
     .select_wrapper.poA{
         position: relative;
@@ -1724,6 +1724,7 @@ select {
         z-index: 51;
         margin-top: -185px;
         background: transparent;
+        padding-top: 0;
     }
     #funds_area{
         padding: 20px 0 50px;
@@ -1776,10 +1777,6 @@ select {
     .show .fund_detail, .show.find_item div.W100{
         display: block;
     }
-
-    
-    
-   
 }
 
 @media only screen and (max-width: 375px) {
