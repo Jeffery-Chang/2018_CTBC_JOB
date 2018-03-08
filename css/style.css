@@ -1770,13 +1770,13 @@ select {
     .show .borderBottom{
         border-bottom-color: #c3c3c3;
     }
-    .fund_detail, .find_item div.W100{
+    /* .fund_detail, .find_item div.W100{
         display: none;
     }
      
     .show .fund_detail, .show.find_item div.W100{
         display: block;
-    }
+    } */
 }
 
 @media only screen and (max-width: 375px) {
