@@ -14,6 +14,28 @@ var fundsCtrl = {
             $(this).parent('li').find('.fund_detail').slideToggle();
             $(this).parent('li').find('.t_center').slideToggle();
         });
+        
+        // filter用 (左)
+        var go_left = $('#wrapper .filter .go_left');
+        go_left.change(function(){
+            var newval = go_left.find(':selected').val();
+            console.log(newval);
+            // 接show哪些基金的段落
+        });
+        // filter用 (中)
+        var poA = $('#wrapper .filter .poA');
+        poA.change(function(){
+            var newval = poA.find(':selected').val();
+            console.log(newval);
+            // 接show哪些基金的段落
+        });
+        // filter用 (右)
+        var go_right = $('#wrapper .filter .go_right');
+        go_right.change(function(){
+            var newval = go_right.find(':selected').val();
+            console.log(newval);
+            // 接show哪些基金的段落
+        });
     }
 }
 

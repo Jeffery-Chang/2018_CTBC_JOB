@@ -194,13 +194,14 @@ var indexCtrl = {
     showAnswer(){
         var $this = this;
         var btn = $('#analysis .btn_green');
-        var part1Dis = $this.caloffset('#analysis');
+        var part1Dis = 0;
         btn.click(function(e){
             e.preventDefault();
-
+            var adjustDis = (menuCtrl.chkDevice()) ? $('#analysis .mb').height() : 0;
             if(btn.hasClass('show')){
+                part1Dis = $this.caloffset('#analysis') + adjustDis;
                 menuCtrl.scrollPage(part1Dis);
-                $('#result').slideUp({
+                $('#result').delay(300).slideUp({
                     duration: 500,
                     complete: function(){
                         btn.removeClass('show');
@@ -213,7 +214,7 @@ var indexCtrl = {
                 duration: 750,
                 complete: function(){
                     btn.addClass('show');
-                    var part2Dis = $this.caloffset('#result');
+                    var part2Dis = $this.caloffset('#result') + adjustDis;
                     menuCtrl.scrollPage(part2Dis);
                 }
             });
