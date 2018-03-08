@@ -1330,7 +1330,9 @@ select {
     .pc{
         display: none;
     }
-    #analysis{padding-top: 0;}
+    #analysis{
+        padding-top: 0;
+    }
     .W50{
         width: 100%;
     }
@@ -1358,6 +1360,7 @@ select {
     .weapon5 li{width: 100%;padding: 0;margin: 0 auto 20px;min-height: 90px;}
     #top {
         height: 50px;
+        overflow: visible;
     }
     #top ul{
         /* display: none; */
