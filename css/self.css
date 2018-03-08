@@ -20,7 +20,6 @@
 }
 
 /* five circle use*/
-/*@media screen and (min-width: 767px) {*/
     #weapon .icon_wrap img{
         transform: scale(.7);
     }
@@ -59,4 +58,43 @@
             transform: scale(.7);
         }
     }
-/*}*/
+@media screen and (max-width: 400px) {
+    #weapon .icon_wrap img{
+        transform: scale(.7);
+    }
+    #weapon .icon_wrap.shake img{
+        animation: shake 3s ease infinite;
+    }
+    #weapon .icon_wrap.shake1 img{
+        animation-delay: 0s;
+    }
+    #weapon .icon_wrap.shake2 img{
+        animation-delay: .25s;
+    }
+    #weapon .icon_wrap.shake3 img{
+        animation-delay: .5s;
+    }
+    #weapon .icon_wrap.shake4 img{
+        animation-delay: .75s;
+    }
+    #weapon .icon_wrap.shake5 img{
+        animation-delay: 1s;
+    }
+    @keyframes shake{
+        0% {
+            transform: scale(.7);
+        }
+        30% {
+            transform: scale(.7);
+        }
+        50%{
+            transform: scale(1);
+        }
+        70%{
+            transform: scale(.7);
+        }
+        100%{
+            transform: scale(.7);
+        }
+    }
+}
