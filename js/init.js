@@ -10,6 +10,7 @@ var indexCtrl = {
         this.kv();
         this.changeBg();
         this.fromFunds();
+        this.playBtn();
     },
     fromFunds(){
         var from = $.getUrlParam('from');
@@ -164,13 +165,21 @@ var indexCtrl = {
         
         //要預留手機圖路徑圖參數
     },
+    playBtn(){
+        var btn = $('.go_formula');
+        ($(window).scrollTop() > 90) ? btn.addClass('show') : btn.removeClass('show');
+        $(window).scroll(function(){
+            ($(window).scrollTop() > 90) ? btn.addClass('show') : btn.removeClass('show');
+        });
+    },
     play(){
         var $this = this;
         var btn = $('#top .indexPage li:eq(1), .go_formula');
         var dis = 0;
         btn.click(function(e){
             e.preventDefault();
-            dis = $this.caloffset('#analysis');
+            var adjustDis = (menuCtrl.chkDevice()) ? $('#analysis .mb').height() : 0;
+            dis = $this.caloffset('#analysis') + adjustDis;
             menuCtrl.scrollPage(dis);
         });
     },
