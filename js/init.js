@@ -130,8 +130,8 @@ var indexCtrl = {
 
         var change = function(index){
             outer.fadeOut(200, function(){
-                left.css('background', 'url(../images/theme'+index+'_01.jpg) no-repeat center top').css('backgroundSize', 'cover');
-                right.css('background', 'url(../images/theme'+index+'_02.jpg) no-repeat center top').css('backgroundSize', 'cover');
+                left.css('background', 'url(images/theme'+index+'_01.jpg) no-repeat center top').css('backgroundSize', 'cover');
+                right.css('background', 'url(images/theme'+index+'_02.jpg) no-repeat center top').css('backgroundSize', 'cover');
             }).delay(200).fadeIn(400);
         };
         

@@ -9,6 +9,12 @@
 var menuCtrl = {
     init(){
         this.menuBar();
+        
+        $('#attention .f19').click(function(e){
+            e.preventDefault();
+            $(this).toggleClass('show');
+            $('#attention .f13').slideToggle();
+        });
     },
     menuBar(){
         var menu = $('#top .indexPage');
