@@ -1259,6 +1259,15 @@ select {
     line-height: 1.5;
 }
 
+#wrapper>div.go_formula{
+    transform: scale(0);
+    transition:all .3s;
+}
+
+#wrapper>div.go_formula.show{
+    transform: scale(0);
+}
+
 @media only screen and (max-width: 920px) {
     .tri{
         margin-left: 25px;
@@ -1814,14 +1823,6 @@ select {
     }
     #attention ul{
         display: none;
-    }
-    #wrapper>div.go_formula{
-        transform: scale(0);
-        transition:all .3s;
-    }
-
-    #wrapper>div.go_formula.show{
-        transform: scale(0);
     }
      
     /* .show .fund_detail, .show.find_item div.W100{
