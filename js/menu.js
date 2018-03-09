@@ -10,6 +10,7 @@ var menuCtrl = {
     init(){
         this.menuBar();
         
+        // M版注意事項
         $('#attention .f19').click(function(e){
             e.preventDefault();
             $(this).toggleClass('show');
@@ -47,7 +48,7 @@ var menuCtrl = {
                     trackWaitJump('', 'funds.html');
                     break;
                 case 3:
-                    window.open('https://www.facebook.com/', '_blank');
+                    window.open('http://www.ctbcbank.com/html/fileUpload/homebank/', '_blank');
                     break;
             }
         });
