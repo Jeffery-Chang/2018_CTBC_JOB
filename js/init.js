@@ -205,7 +205,10 @@ var indexCtrl = {
     showAnswer(){
         var $this = this;
         var btn = $('#analysis .btn_wrapper .btn_green');
+        var btn2 = $('#analysis .btn_wrapper .btn_white');
         var part1Dis = 0;
+        
+        // 立即解析/重新解析
         btn.click(function(e){
             e.preventDefault();
             var adjustDis = (menuCtrl.chkDevice()) ? $('#analysis .mb').height() : 0;
@@ -229,6 +232,12 @@ var indexCtrl = {
                     menuCtrl.scrollPage(part2Dis);
                 }
             });
+        });
+        
+        // 高勝率基金大公開
+        btn2.click(function(e){
+            e.preventDefault();
+            trackWaitJump('', 'funds.html');
         });
     },
     slider(){
