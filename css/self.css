@@ -20,44 +20,44 @@
 }
 
 /* five circle use*/
-    #weapon .icon_wrap img{
+#weapon .icon_wrap img{
+    transform: scale(.7);
+}
+#weapon .icon_wrap.shake img{
+    animation: shake 3s ease infinite;
+}
+#weapon .icon_wrap.shake1 img{
+    animation-delay: 0s;
+}
+#weapon .icon_wrap.shake2 img{
+    animation-delay: .125s;
+}
+#weapon .icon_wrap.shake3 img{
+    animation-delay: .25s;
+}
+#weapon .icon_wrap.shake4 img{
+    animation-delay: .375s;
+}
+#weapon .icon_wrap.shake5 img{
+    animation-delay: .500s;
+}
+@keyframes shake{
+    0% {
         transform: scale(.7);
     }
-    #weapon .icon_wrap.shake img{
-        animation: shake 3s ease infinite;
+    30% {
+        transform: scale(.7);
     }
-    #weapon .icon_wrap.shake1 img{
-        animation-delay: 0s;
+    50%{
+        transform: scale(1);
     }
-    #weapon .icon_wrap.shake2 img{
-        animation-delay: .125s;
+    70%{
+        transform: scale(.7);
     }
-    #weapon .icon_wrap.shake3 img{
-        animation-delay: .25s;
+    100%{
+        transform: scale(.7);
     }
-    #weapon .icon_wrap.shake4 img{
-        animation-delay: .375s;
-    }
-    #weapon .icon_wrap.shake5 img{
-        animation-delay: .500s;
-    }
-    @keyframes shake{
-        0% {
-            transform: scale(.7);
-        }
-        30% {
-            transform: scale(.7);
-        }
-        50%{
-            transform: scale(1);
-        }
-        70%{
-            transform: scale(.7);
-        }
-        100%{
-            transform: scale(.7);
-        }
-    }
+}
 @media screen and (max-width: 400px) {
     #weapon .icon_wrap img{
         transform: scale(.7);

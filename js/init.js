@@ -198,13 +198,13 @@ var indexCtrl = {
         var selector = $('#analysis .select_wrapper');
         selector.change(function(){
             var newval = selector.find(':selected').val();
-            console.log(newval);
-            // 接show哪些基金的段落
-        });
+            $('#result .inline li.find_item').hide();
+            $('.'+newval).show();
+        }).change();
     },
     showAnswer(){
         var $this = this;
-        var btn = $('#analysis .btn_green');
+        var btn = $('#analysis .btn_wrapper .btn_green');
         var part1Dis = 0;
         btn.click(function(e){
             e.preventDefault();

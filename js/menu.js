@@ -34,8 +34,6 @@ var menuCtrl = {
 
             if(active) return;
 
-            console.log('index:', index, 'active:', active);
-
             switch(index){
                 case 0:
                     trackWaitJump('', 'index.html');
