@@ -360,6 +360,8 @@ hr {
 
 #wrapper {
     margin: 0 auto;
+
+    vertical-align: -webkit-baseline-middle;
 }
 
 #wrapper>div {
