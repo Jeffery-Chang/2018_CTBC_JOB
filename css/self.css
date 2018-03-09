@@ -1,3 +1,8 @@
+/* kv use */
+#kv .content.left, #kv .content.right, #kv .slide_bar{
+    display: none;
+}
+
 /* pie Chart use*/
 #control .pie1{
     opacity: 0;

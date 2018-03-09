@@ -43,7 +43,7 @@ var menuCtrl = {
                     menu.removeClass('show');
                     break;
                 case 2:
-                    trackWaitJump('', 'funds.html');
+                    trackWaitJump('', 'fund_list.html');
                     break;
                 case 3:
                     window.open('http://www.ctbcbank.com/html/fileUpload/homebank/', '_blank');

@@ -12,6 +12,9 @@ var indexCtrl = {
         this.fromFunds();
         this.playBtn();
         
+        // 跟背景一起出現
+        $('#kv .slide_bar').delay(200).fadeIn(400);
+        
         // 立即投資
         $('#weapon .btn_green').click(function(e){
             e.preventDefault();
@@ -237,7 +240,7 @@ var indexCtrl = {
         // 高勝率基金大公開
         btn2.click(function(e){
             e.preventDefault();
-            trackWaitJump('', 'funds.html');
+            trackWaitJump('', 'fund_list.html');
         });
     },
     slider(){
