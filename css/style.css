@@ -981,6 +981,11 @@ select {
     height: 35px;
 }
 
+.find_item h5{
+    display: block;
+    height: 110px;
+ }
+
 .years,
 .money {
     padding: 10px 20px;
@@ -1522,7 +1527,30 @@ select {
         font-size: 14px;
         bottom: -39px;
     }
+    .filter .select_wrapper{
+        width: 170px;
+    }
+    .select_wrapper.poA{
+        margin-left: -85px;
+    }
+    .filter select{
+        letter-spacing: 0;
+    }
     
+}
+@media only screen and (max-width: 600px) {
+    .find_item h5{
+        height: fit-content;
+    }
+    .find_item{
+        width:98%;
+        padding: 15px 20px 0;
+    }
+    .filter .select_wrapper{
+        width: 100%;
+        margin: 0 0 15px;
+    }
+    .select_wrapper.poA{left: 0;position: relative;display: inline-block;}
 }  
 @media only screen and (max-width: 414px) {
     .f45 {
@@ -1549,10 +1577,7 @@ select {
     .title{
         font-size: 31px;
     }
-    .find_item{
-        width:98%;
-        padding: 15px 20px 0;
-    }
+
     .select_wrapper.poA{
         position: relative;
         margin-left: 0;
@@ -1645,7 +1670,6 @@ select {
     }
     #control .f_black{
         padding-right: 0;
-
     }
     .tri{
         width: 300px;
