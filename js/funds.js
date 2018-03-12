@@ -21,12 +21,12 @@ var fundsCtrl = {
         go_left.change(function(){
             var newval = go_left.find(':selected').val();
             if(newval === '0'){
-                funds_list.find('li').show();
+                funds_list.find('.find_item').show();
                 return;
             }
             poA.find('select').val(0);
             go_right.find('select').val(0);
-            funds_list.find('li').hide();
+            funds_list.find('.find_item').hide();
             funds_list.find('.'+newval).show();
         });
         
@@ -35,12 +35,12 @@ var fundsCtrl = {
         poA.change(function(){
             var newval = poA.find(':selected').val();
             if(newval === '0'){
-                funds_list.find('li').show();
+                funds_list.find('.find_item').show();
                 return;
             }
             go_left.find('select').val(0);
             go_right.find('select').val(0);
-            funds_list.find('li').hide();
+            funds_list.find('.find_item').hide();
             funds_list.find('.'+newval).show();
         });
         
@@ -49,12 +49,12 @@ var fundsCtrl = {
         go_right.change(function(){
             var newval = go_right.find(':selected').val();
             if(newval === '0'){
-                funds_list.find('li').show();
+                funds_list.find('.find_item').show();
                 return;
             }
             go_left.find('select').val(0);
             poA.find('select').val(0);
-            funds_list.find('li').hide();
+            funds_list.find('.find_item').hide();
             funds_list.find('.'+newval).show();
         });
     }
