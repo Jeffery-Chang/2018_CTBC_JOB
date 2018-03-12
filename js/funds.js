@@ -15,26 +15,47 @@ var fundsCtrl = {
             $(this).parent('li').find('.t_center').slideToggle();
         });
         
-        // filter用 (左)
+        var funds_list = $('#funds_area');
+        // 依品牌
         var go_left = $('#wrapper .filter .go_left');
         go_left.change(function(){
             var newval = go_left.find(':selected').val();
-            console.log(newval);
-            // 接show哪些基金的段落
+            if(newval === '0'){
+                funds_list.find('li').show();
+                return;
+            }
+            poA.find('select').val(0);
+            go_right.find('select').val(0);
+            funds_list.find('li').hide();
+            funds_list.find('.'+newval).show();
         });
-        // filter用 (中)
+        
+        // 依市場
         var poA = $('#wrapper .filter .poA');
         poA.change(function(){
             var newval = poA.find(':selected').val();
-            console.log(newval);
-            // 接show哪些基金的段落
+            if(newval === '0'){
+                funds_list.find('li').show();
+                return;
+            }
+            go_left.find('select').val(0);
+            go_right.find('select').val(0);
+            funds_list.find('li').hide();
+            funds_list.find('.'+newval).show();
         });
-        // filter用 (右)
+        
+        // 依成立時間
         var go_right = $('#wrapper .filter .go_right');
         go_right.change(function(){
             var newval = go_right.find(':selected').val();
-            console.log(newval);
-            // 接show哪些基金的段落
+            if(newval === '0'){
+                funds_list.find('li').show();
+                return;
+            }
+            go_left.find('select').val(0);
+            poA.find('select').val(0);
+            funds_list.find('li').hide();
+            funds_list.find('.'+newval).show();
         });
     }
 }
