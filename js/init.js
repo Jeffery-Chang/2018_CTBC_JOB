@@ -1,5 +1,98 @@
 var typeTop = '20px';
 var typeLeft = '0';
+var base_cost = 0; // 每月投資的錢
+var target_refund = 3000; // 目標
+var fund_index = 0; // 哪個基金
+var fund_data = [  
+    {  
+        "best_rate": 26.61,
+        "worst_rate": 3.06,
+        "avg_rate": 11.39,
+        "best_refund": 0,
+        "worst_refund": 0,
+        "avg_refund": 0
+    },
+    {  
+        "best_rate": 12.70,
+        "worst_rate": 1.96,
+        "avg_rate": 7.72,
+        "best_refund": 0,
+        "worst_refund": 0,
+        "avg_refund": 0
+    },
+    {
+        "best_rate": 31.87,
+        "worst_rate": -4.98,
+        "avg_rate": 13.37,
+        "best_refund": 0,
+        "worst_refund": 0,
+        "avg_refund": 0
+    },
+    {  
+        "best_rate": 46.09,
+        "worst_rate": 6.80,
+        "avg_rate": 22.97,
+        "best_refund": 0,
+        "worst_refund": 0,
+        "avg_refund": 0
+    },
+    {  
+        "best_rate": 46.76,
+        "worst_rate": 2.02,
+        "avg_rate": 24.25,
+        "best_refund": 0,
+        "worst_refund": 0,
+        "avg_refund": 0
+    },
+    {  
+        "best_rate": 31.56,
+        "worst_rate": -3.85,
+        "avg_rate": 13.49,
+        "best_refund": 0,
+        "worst_refund": 0,
+        "avg_refund": 0
+    },
+    {  
+        "best_rate": 39.30,
+        "worst_rate": -5.65,
+        "avg_rate": 22.44,
+        "best_refund": 0,
+        "worst_refund": 0,
+        "avg_refund": 0
+    },
+    {  
+        "best_rate": 37.92,
+        "worst_rate": 4.72,
+        "avg_rate": 23.36,
+        "best_refund": 0,
+        "worst_refund": 0,
+        "avg_refund": 0
+    },
+    {  
+        "best_rate": 27.25,
+        "worst_rate": 1.29,
+        "avg_rate": 14.98,
+        "best_refund": 0,
+        "worst_refund": 0,
+        "avg_refund": 0
+    },
+    {  
+        "best_rate": 47.64,
+        "worst_rate": 3.86,
+        "avg_rate": 21.78,
+        "best_refund": 0,
+        "worst_refund": 0,
+        "avg_refund": 0
+    },
+    {  
+        "best_rate": 58.73,
+        "worst_rate": 0.94,
+        "avg_rate": 24.93,
+        "best_refund": 0,
+        "worst_refund": 0,
+        "avg_refund": 0
+    }
+];
 var indexCtrl = {
     init(){
         this.slider();
@@ -11,10 +104,10 @@ var indexCtrl = {
         this.changeBg();
         this.fromFunds();
         this.playBtn();
-        
+
         // 跟背景一起出現
         $('#kv .slide_bar').delay(200).fadeIn('fast');
-        
+
         // 立即投資
         $('#weapon .btn_green').click(function(e){
             e.preventDefault();
@@ -75,7 +168,7 @@ var indexCtrl = {
             var dots2 = obj2.offset().left;
             var dots3 = obj3.offset().left;
             var dots4 = obj4.offset().left;
-            
+
             (winWidth * sliderPct > dots1) ? obj1.addClass('show') : obj1.removeClass('show') ;
             (winWidth * sliderPct > dots2) ? obj2.addClass('show') : obj2.removeClass('show') ;
             (winWidth * sliderPct > dots3) ? obj3.addClass('show') : obj3.removeClass('show') ;
@@ -149,17 +242,17 @@ var indexCtrl = {
                 right.css('background', 'url(images/theme'+index+'_02.jpg) no-repeat center top').css('backgroundSize', 'cover');
             }).delay(200).fadeIn('fast');
         };
-        
+
         btn.click(function(e){
             e.preventDefault();
             var index = $(this).index();
             typeTop = $(this).data('top');
             typeLeft = $(this).data('left');
-            
+
             if($(this).hasClass('active')) return;
-            
+
             btn.removeClass('active');
-            
+
             if(menuCtrl.chkDevice()){
                 active.css('top', '0px');
                 active.stop().animate({ left: typeLeft }, 500);
@@ -167,12 +260,12 @@ var indexCtrl = {
                 active.css('left', '0');
                 active.stop().animate({ top: typeTop }, 500);
             }
-            
+
             $(this).addClass('active');
-            
+
             change(index);
         }).eq(0).click();
-        
+
         $(window).resize(function(){
             if(menuCtrl.chkDevice()){
                 active.css('top', '0px');
@@ -182,7 +275,7 @@ var indexCtrl = {
                 active.css('left', '0');
             }
         });
-        
+
         //要預留手機圖路徑圖參數
     },
     playBtn(){
@@ -204,19 +297,26 @@ var indexCtrl = {
         });
     },
     setFunds(){
-        var selector = $('#analysis .select_wrapper');
-        selector.change(function(){
-            var newval = selector.find(':selected').val();
+        // 基金選類別下拉
+        var interest_fund = $('#analysis .select_wrapper');
+        interest_fund.change(function(){
+            var newval = interest_fund.find(':selected').val();
             $('#result .inline li.find_item').hide();
             $('.'+newval).show();
-        }).change();
+        });
+        
+        // 選基金下拉
+        var select_fund = $('#analysis');
+        select_fund.change(function(){
+            var newval = select_fund.find(':selected').val();
+        });
     },
     showAnswer(){
         var $this = this;
         var btn = $('#analysis .btn_wrapper .btn_green');
         var btn2 = $('#analysis .btn_wrapper .btn_white');
         var part1Dis = 0;
-        
+
         // 立即解析/重新解析
         btn.click(function(e){
             e.preventDefault();
@@ -242,7 +342,7 @@ var indexCtrl = {
                 }
             });
         });
-        
+
         // 高勝率基金大公開
         btn2.click(function(e){
             e.preventDefault();
@@ -252,20 +352,34 @@ var indexCtrl = {
     slider(){
         var sliderDiv = $('#slider');
         var moneyContent = $('.silder_wrapper font');
+        var costContent = $('#analysis .money');
+        var base_money = function(target, rate){
+            return Math.round(target / (36 * (100 + rate) / 100));
+        };
+        
         sliderDiv.slider({
             range: "min",     
-            value: 15000,
+            value: target_refund,
             min: 0,
             max: 30000,
             step: 1,
             create: function() {
                 moneyContent.text($(this).slider('value'));
+                target_refund = $(this).slider('value');
+                base_cost = base_money(target_refund, fund_data[fund_index].avg_rate);
+                costContent.text(base_cost);
             },
             slide: function( event, ui ) {
                 moneyContent.text(ui.value);
+                target_refund = $(this).slider('value');
+                base_cost = base_money(target_refund, fund_data[fund_index].avg_rate);
+                costContent.text(base_cost);
             },
             change: function(event, ui) {
                 moneyContent.text(ui.value);
+                target_refund = $(this).slider('value');
+                base_cost = base_money(target_refund, fund_data[fund_index].avg_rate);
+                costContent.text(base_cost);
             }
         });
     },
