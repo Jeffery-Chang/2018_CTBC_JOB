@@ -13,7 +13,7 @@ var indexCtrl = {
         this.playBtn();
         
         // 跟背景一起出現
-        $('#kv .slide_bar').delay(200).fadeIn(400);
+        $('#kv .slide_bar').delay(200).fadeIn('fast');
         
         // 立即投資
         $('#weapon .btn_green').click(function(e){
@@ -144,10 +144,10 @@ var indexCtrl = {
         var active = $('#kv .active');
 
         var change = function(index){
-            outer.fadeOut(200, function(){
+            outer.fadeOut('normal', function(){
                 left.css('background', 'url(images/theme'+index+'_01.jpg) no-repeat center top').css('backgroundSize', 'cover');
                 right.css('background', 'url(images/theme'+index+'_02.jpg) no-repeat center top').css('backgroundSize', 'cover');
-            }).delay(200).fadeIn(400);
+            }).delay(200).fadeIn('fast');
         };
         
         btn.click(function(e){
@@ -156,6 +156,10 @@ var indexCtrl = {
             typeTop = $(this).data('top');
             typeLeft = $(this).data('left');
             
+            if($(this).hasClass('active')) return;
+            
+            btn.removeClass('active');
+            
             if(menuCtrl.chkDevice()){
                 active.css('top', '0px');
                 active.stop().animate({ left: typeLeft }, 500);
@@ -163,6 +167,8 @@ var indexCtrl = {
                 active.css('left', '0');
                 active.stop().animate({ top: typeTop }, 500);
             }
+            
+            $(this).addClass('active');
             
             change(index);
         }).eq(0).click();
