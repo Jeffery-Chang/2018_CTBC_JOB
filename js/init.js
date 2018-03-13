@@ -111,11 +111,13 @@ var indexCtrl = {
         // 立即投資
         $('#weapon .btn_green').click(function(e){
             e.preventDefault();
+            gaclick('fund');
             window.open('https://www.ctbcbank.com/CTCBPortalWeb/appmanager/ebank/rb?_nfpb=true&_pageLabel=TW_RB_TX_mfund_300014&_windowLabel=T16806467151337672757923&_nffvid=%2FCTCBPortalWeb%2Fpages%2Fmf%2FmfIrRegularApply%2FmfIrRegularApplyStart.faces&firstView=true', '_blank');
         });
         // 立即開戶
         $('#weapon .btn_orange').click(function(e){
             e.preventDefault();
+            gaclick('open');
             window.open('http://www.ctbcbank.com/html/fileUpload/homebank/openacc.html', '_blank');
         });
     },

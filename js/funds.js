@@ -15,6 +15,11 @@ var fundsCtrl = {
             $(this).parent('li').find('.t_center').slideToggle();
         });
         
+        // 基金ga test
+        /*$('#funds_area .t_center .btn').click(function(e){
+            e.preventDefault();
+        });*/
+        
         var funds_list = $('#funds_area');
         // 依品牌
         var go_left = $('#wrapper .filter .go_left');

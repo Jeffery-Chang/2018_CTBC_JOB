@@ -39,13 +39,15 @@ var menuCtrl = {
                     trackWaitJump('', 'index.html');
                     break;
                 case 1:
+                    gaclick('analysis_all');
                     burger.removeClass('show');
                     menu.removeClass('show');
                     break;
                 case 2:
-                    trackWaitJump('', 'fund_list.html');
+                    trackWaitJump('header_all', 'fund_list.html');
                     break;
                 case 3:
+                    gaclick('header_homebank');
                     window.open('http://www.ctbcbank.com/html/fileUpload/homebank/', '_blank');
                     break;
             }
