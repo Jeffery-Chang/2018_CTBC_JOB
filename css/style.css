@@ -1003,6 +1003,12 @@ select::-ms-expand {
 .formula {
     line-height: 40px;
     margin: 20px auto 260px;
+    
+    
+}
+
+.analysis_result{
+    display: none;
 }
 
 .formula p {
