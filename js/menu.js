@@ -36,7 +36,7 @@ var menuCtrl = {
 
             switch(index){
                 case 0:
-                    trackWaitJump('', 'index.html');
+                    trackWaitJump('', '/');
                     break;
                 case 1:
                     gaclick('analysis_all');

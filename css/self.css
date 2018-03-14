@@ -2,12 +2,6 @@
 #kv .content.left, #kv .content.right, #kv .slide_bar{
     display: none;
 }
-.content.left {
-    background: initial;
-}
-.content.right {
-    background: initial;
-}
 .content.left.car {
     background: url(../images/theme1_01.jpg) no-repeat center top;
     background-size: cover;
@@ -39,6 +33,74 @@
 .content.right.son {
     background: url(../images/theme4_02.jpg) no-repeat center top;
     background-size: cover;
+}
+@media screen and (min-width: 415px)  and (max-width: 1024px) {
+    .content.left.car {
+        background: url(../images/theme1_01_pad.jpg) no-repeat center top;
+        background-size: cover;
+    }
+    .content.right.car {
+        background: url(../images/theme1_02_pad.jpg) no-repeat center top;
+        background-size: cover;
+    }
+    .content.left.wedding {
+        background: url(../images/theme2_01_pad.jpg) no-repeat center top;
+        background-size: cover;
+    }
+    .content.right.wedding {
+        background: url(../images/theme2_02_pad.jpg) no-repeat center top;
+        background-size: cover;
+    }
+    .content.left.school {
+        background: url(../images/theme3_01_pad.jpg) no-repeat center top;
+        background-size: cover;
+    }
+    .content.right.school {
+        background: url(../images/theme3_02_pad.jpg) no-repeat center top;
+        background-size: cover;
+    }
+    .content.left.son {
+        background: url(../images/theme4_01_pad.jpg) no-repeat center top;
+        background-size: cover;
+    }
+    .content.right.son {
+        background: url(../images/theme4_02_pad.jpg) no-repeat center top;
+        background-size: cover;
+    }
+}
+@media screen and (max-width: 414px) {
+    .content.left.car {
+        background: url(../images/theme1_01_m.jpg) no-repeat center top;
+        background-size: cover;
+    }
+    .content.right.car {
+        background: url(../images/theme1_02_m.jpg) no-repeat center top;
+        background-size: cover;
+    }
+    .content.left.wedding {
+        background: url(../images/theme2_01_m.jpg) no-repeat center top;
+        background-size: cover;
+    }
+    .content.right.wedding {
+        background: url(../images/theme2_02_m.jpg) no-repeat center top;
+        background-size: cover;
+    }
+    .content.left.school {
+        background: url(../images/theme3_01_m.jpg) no-repeat center top;
+        background-size: cover;
+    }
+    .content.right.school {
+        background: url(../images/theme3_02_m.jpg) no-repeat center top;
+        background-size: cover;
+    }
+    .content.left.son {
+        background: url(../images/theme4_01_m.jpg) no-repeat center top;
+        background-size: cover;
+    }
+    .content.right.son {
+        background: url(../images/theme4_02_m.jpg) no-repeat center top;
+        background-size: cover;
+    }
 }
 
 /* pie Chart use*/

@@ -1,3 +1,4 @@
+(function(a){a.preload=function(){var c=[],b=arguments.length;for(;b--;){c.push(a("<img />").attr("src",arguments[b]));}};})(jQuery);
 var typeTop = '20px';
 var typeLeft = '0';
 var base_cost = 0; // 每月投資的錢
@@ -120,6 +121,33 @@ var indexCtrl = {
             gaclick('open');
             window.open('http://www.ctbcbank.com/html/fileUpload/homebank/openacc.html', '_blank');
         });
+
+        $(window).on('load', function(){
+            $.preload(
+                'images/theme2_01.jpg',
+                'images/theme2_02.jpg',
+                'images/theme3_01.jpg',
+                'images/theme3_02.jpg', 
+                'images/theme4_01.jpg',
+                'images/theme4_02.jpg', 
+                'images/theme1_01_pad.jpg',
+                'images/theme1_02_pad.jpg', 
+                'images/theme2_01_pad.jpg',
+                'images/theme2_02_pad.jpg', 
+                'images/theme3_01_pad.jpg',
+                'images/theme3_02_pad.jpg', 
+                'images/theme4_01_pad.jpg',
+                'images/theme4_02_pad.jpg', 
+                'images/theme1_01_m.jpg',
+                'images/theme1_02_m.jpg', 
+                'images/theme2_01_m.jpg',
+                'images/theme2_02_m.jpg', 
+                'images/theme3_01_m.jpg',
+                'images/theme3_02_m.jpg', 
+                'images/theme4_01_m.jpg',
+                'images/theme4_02_m.jpg'
+            );
+        })
     },
     fromFunds(){
         var from = $.getUrlParam('from');
@@ -237,7 +265,7 @@ var indexCtrl = {
         var right = $('.content.right');
         var btn = $('#kv .change_theme li');
         var active = $('#kv .active');
-        
+
         var change = function(bgClass){
             outer.stop().fadeOut('fast', function(){
                 left.removeClass('car wedding school son').addClass(bgClass);
@@ -252,7 +280,7 @@ var indexCtrl = {
             var bgClass = $(this).data('class');
             typeTop = $(this).data('top');
             typeLeft = $(this).data('left');
-            
+
             if($(this).hasClass('active')) return;
 
             btn.removeClass('active');
