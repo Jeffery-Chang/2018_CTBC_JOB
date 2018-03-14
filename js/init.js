@@ -106,7 +106,7 @@ var indexCtrl = {
         this.playBtn();
 
         // 跟背景一起出現
-        $('#kv .slide_bar').delay(200).fadeIn('fast');
+        $('#kv .slide_bar').fadeIn('slow');
 
         // 立即投資
         $('#weapon .btn_green').click(function(e){
@@ -237,44 +237,42 @@ var indexCtrl = {
         var right = $('.content.right');
         var btn = $('#kv .change_theme li');
         var active = $('#kv .active');
-
-        var change = function(index){
-            outer.fadeOut('normal', function(){
-                left.css('background', 'url(images/theme'+index+'_01.jpg) no-repeat center top').css('backgroundSize', 'cover');
-                right.css('background', 'url(images/theme'+index+'_02.jpg) no-repeat center top').css('backgroundSize', 'cover');
-            }).delay(200).fadeIn('fast');
+        
+        var change = function(bgClass){
+            outer.stop().fadeOut('fast', function(){
+                left.removeClass('car wedding school son').addClass(bgClass);
+                right.removeClass('car wedding school son').addClass(bgClass);
+                /*left.css('background', 'url(images/theme'+index+'_01.jpg) no-repeat center top').css('backgroundSize', 'cover');
+                right.css('background', 'url(images/theme'+index+'_02.jpg) no-repeat center top').css('backgroundSize', 'cover');*/
+            }).fadeIn('slow');
         };
 
         btn.click(function(e){
             e.preventDefault();
-            var index = $(this).index();
+            var bgClass = $(this).data('class');
             typeTop = $(this).data('top');
             typeLeft = $(this).data('left');
-
+            
             if($(this).hasClass('active')) return;
 
             btn.removeClass('active');
 
             if(menuCtrl.chkDevice()){
-                active.css('top', '0px');
-                active.stop().animate({ left: typeLeft }, 500);
+                active.css('top', '0px').stop().animate({ left: typeLeft }, 500);
             }else{
-                active.css('left', '0');
-                active.stop().animate({ top: typeTop }, 500);
+                active.css('left', '0').stop().animate({ top: typeTop }, 500);
             }
 
             $(this).addClass('active');
 
-            change(index);
+            change(bgClass);
         }).eq(0).click();
 
         $(window).resize(function(){
             if(menuCtrl.chkDevice()){
-                active.css('top', '0px');
-                active.css('left', typeLeft);
+                active.css('top', '0px').css('left', typeLeft);
             }else{
-                active.css('top', typeTop);
-                active.css('left', '0');
+                active.css('top', typeTop).css('left', '0');
             }
         });
 
@@ -306,7 +304,7 @@ var indexCtrl = {
             $('#result .inline li.find_item').hide();
             $('.'+newval).show();
         });
-        
+
         // 選基金下拉
         var select_fund = $('#analysis');
         select_fund.change(function(){
@@ -358,7 +356,7 @@ var indexCtrl = {
         var base_money = function(target, rate){
             return Math.round(target / (36 * (100 + rate) / 100));
         };
-        
+
         sliderDiv.slider({
             range: "min",     
             value: target_refund,

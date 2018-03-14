@@ -2,6 +2,44 @@
 #kv .content.left, #kv .content.right, #kv .slide_bar{
     display: none;
 }
+.content.left {
+    background: initial;
+}
+.content.right {
+    background: initial;
+}
+.content.left.car {
+    background: url(../images/theme1_01.jpg) no-repeat center top;
+    background-size: cover;
+}
+.content.right.car {
+    background: url(../images/theme1_02.jpg) no-repeat center top;
+    background-size: cover;
+}
+.content.left.wedding {
+    background: url(../images/theme2_01.jpg) no-repeat center top;
+    background-size: cover;
+}
+.content.right.wedding {
+    background: url(../images/theme2_02.jpg) no-repeat center top;
+    background-size: cover;
+}
+.content.left.school {
+    background: url(../images/theme3_01.jpg) no-repeat center top;
+    background-size: cover;
+}
+.content.right.school {
+    background: url(../images/theme3_02.jpg) no-repeat center top;
+    background-size: cover;
+}
+.content.left.son {
+    background: url(../images/theme4_01.jpg) no-repeat center top;
+    background-size: cover;
+}
+.content.right.son {
+    background: url(../images/theme4_02.jpg) no-repeat center top;
+    background-size: cover;
+}
 
 /* pie Chart use*/
 #control .pie1{
