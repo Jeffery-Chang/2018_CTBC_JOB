@@ -791,6 +791,7 @@ div.active .triangle:after {
     background-position: right center;
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: hidden;
 }
 
 select {
