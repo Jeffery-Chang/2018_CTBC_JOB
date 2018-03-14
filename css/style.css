@@ -536,12 +536,12 @@ hr {
 }
 
 .content.left {
-    background: url(../images/theme1_01.jpg) no-repeat center top;
+    /* background: url(../images/theme1_01.jpg) no-repeat center top; */
     background-size: cover;
 }
 
 .content.right {
-    background: url(../images/theme1_02.jpg) no-repeat center top;
+    /* background: url(../images/theme1_02.jpg) no-repeat center top; */
     background-size: cover;
 }
 
