@@ -1,9 +1,38 @@
 (function(a){a.preload=function(){var c=[],b=arguments.length;for(;b--;){c.push(a("<img />").attr("src",arguments[b]));}};})(jQuery);
 var typeTop = '20px';
 var typeLeft = '0';
+var interest_fund = $('#analysis .select_wrapper:eq(0)');
+var select_fund = $('#analysis .select_wrapper:eq(1)');
+var select_option = {  
+    "shopping":[
+        `<option value="0">摩根士丹利美國優勢基金(累積)(美元)</option>`,
+        `<option value="4">富達全球消費行業基金(再投資)(歐元)</option>`
+    ], 
+    "digital":[
+        `<option value="0">摩根士丹利美國優勢基金(累積)(美元)</option>`,
+        `<option value="1">美盛凱利美國大型公司成長基金(累積)(美元)</option>`,
+        `<option value="9">百達－數位科技基金(累積)(美元)</option>`,
+        `<option value="10">富蘭克林高科技基金(再投資)(美元)(本基金配息來源可能為本金)</option>`
+    ], 
+    "healthy":[
+        `<option value="1">美盛凱利美國大型公司成長基金(累積)(美元)</option>`,
+        `<option value="2">新加坡大華全球保健基金(累積)(美元)</option>`
+    ], 
+    "reality":[
+        `<option value="3">NN(L)食品飲料基金(累積)(美元)(本基金配息來源可能為本金)</option>`,
+        `<option value="5">貝萊德亞洲老虎債券基金(累積)(美元)(本基金有相當比重投資於非投資等級之高風險債券)</option>`
+    ], 
+    "excited":[
+        `<option value="5">貝萊德亞洲老虎債券基金(累積)(美元)(本基金有相當比重投資於非投資等級之高風險債券)</option>`,
+        `<option value="6">景順環球高收益債券基金(半年再投資)(美元)(本基金主要係投資於非投資等級之高風險債券)</option>`,
+        `<option value="7">貝萊德環球高收益債券基金(累積)(美元)(本基金主要係投資於非投資等級之高風險債券)</option>`,
+        `<option value="8">貝萊德環球企業債券基金 A2 美元</option>`
+    ],
+}
 var base_cost = 0; // 每月投資的錢
-var target_refund = 3000; // 目標
+var target_refund = 0; // 目標
 var fund_index = 0; // 哪個基金
+var fund_rate = 0; // 基金%
 var fund_data = [  
     {  
         "best_rate": 26.61,
@@ -326,47 +355,73 @@ var indexCtrl = {
     },
     setFunds(){
         // 基金選類別下拉
-        var interest_fund = $('#analysis .select_wrapper');
         interest_fund.change(function(){
             var newval = interest_fund.find(':selected').val();
-            $('#result .inline li.find_item').hide();
-            $('.'+newval).show();
+            
+            select_fund.find('select').empty();
+            select_fund.find('select').append('<option value="999">請選擇基金</option>');
+            $.each(select_option[newval], function(index, obj){
+               select_fund.find('select').append(obj);
+            });
+
+            (newval != 999) ? select_fund.parents('li').show() : select_fund.parents('li').hide();
         });
 
         // 選基金下拉
-        var select_fund = $('#analysis');
         select_fund.change(function(){
             var newval = select_fund.find(':selected').val();
+            console.log('select_fund:', newval);
+            fund_index = newval;
+            fund_rate = fund_data[newval].avg_rate;
+            console.log(fund_rate);
         });
     },
     showAnswer(){
         var $this = this;
         var btn = $('#analysis .btn_wrapper .btn_green');
         var btn2 = $('#analysis .btn_wrapper .btn_white');
-        var part1Dis = 0;
+        var ans = $('#analysis .analysis_result');
 
         // 立即解析/重新解析
-        btn.click(function(e){
+        btn.click((e) => {
             e.preventDefault();
-            var adjustDis = (menuCtrl.chkDevice()) ? $('#analysis .mb').height() : 0;
+            if(interest_fund.find(':selected').val() == 999){
+                alert('請選擇興趣');
+                return;
+            }
+            if(select_fund.find(':selected').val() == 999){
+                alert('請選擇基金');
+                return;
+            }
+            if($('#slider').slider('value') == 0){
+                alert('請選擇希望達成目標');
+                return;
+            }
+
+            var adjustDis = 0;
+            var part1Dis = 0;
+
             if(btn.hasClass('show')){
+                adjustDis = (menuCtrl.chkDevice()) ? $('#analysis .mb').height() : 0;
                 part1Dis = $this.caloffset('#analysis') + adjustDis;
-                menuCtrl.scrollPage(part1Dis);
-                $('#result').delay(300).slideUp({
-                    duration: 500,
+                ans.slideUp({
+                    duration: 750,
                     complete: function(){
                         btn.removeClass('show');
+                        interest_fund.find('select').val(999);
+                        select_fund.find('select').val(999);
+                        select_fund.parents('li').hide();
+                        $('#slider').slider('value', 0);
+                        menuCtrl.scrollPage(part1Dis);
                     }
                 });
                 return;
             }
 
-            $('#result').slideDown({
+            ans.slideDown({
                 duration: 750,
-                complete: function(){
+                complete: () => {
                     btn.addClass('show');
-                    var part2Dis = $this.caloffset('#result') + adjustDis;
-                    menuCtrl.scrollPage(part2Dis);
                 }
             });
         });
@@ -394,19 +449,19 @@ var indexCtrl = {
             create: function() {
                 moneyContent.text($(this).slider('value'));
                 target_refund = $(this).slider('value');
-                base_cost = base_money(target_refund, fund_data[fund_index].avg_rate);
+                base_cost = base_money(target_refund, fund_rate);
                 costContent.text(base_cost);
             },
             slide: function( event, ui ) {
                 moneyContent.text(ui.value);
                 target_refund = $(this).slider('value');
-                base_cost = base_money(target_refund, fund_data[fund_index].avg_rate);
+                base_cost = base_money(target_refund, fund_rate);
                 costContent.text(base_cost);
             },
             change: function(event, ui) {
                 moneyContent.text(ui.value);
                 target_refund = $(this).slider('value');
-                base_cost = base_money(target_refund, fund_data[fund_index].avg_rate);
+                base_cost = base_money(target_refund, fund_rate);
                 costContent.text(base_cost);
             }
         });
