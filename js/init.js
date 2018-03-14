@@ -370,10 +370,8 @@ var indexCtrl = {
         // 選基金下拉
         select_fund.change(function(){
             var newval = select_fund.find(':selected').val();
-            console.log('select_fund:', newval);
             fund_index = newval;
             fund_rate = fund_data[newval].avg_rate;
-            console.log(fund_rate);
         });
     },
     showAnswer(){
