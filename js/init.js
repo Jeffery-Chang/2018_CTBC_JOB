@@ -3,6 +3,8 @@ var typeTop = '20px';
 var typeLeft = '0';
 var interest_fund = $('#analysis .select_wrapper:eq(0)');
 var select_fund = $('#analysis .select_wrapper:eq(1)');
+var radio_fund = $('#analysis .interest li:eq(1)');
+var sliderDiv = $('#slider'); // slider bar
 var select_option = {  
     "shopping":[
         `<option value="0">摩根士丹利美國優勢基金(累積)(美元)</option>`,
@@ -128,7 +130,7 @@ var indexCtrl = {
         this.slider();
         this.play();
         this.pieChart();
-        this.showAnswer();
+        //this.showAnswer();
         this.setFunds();
         this.kv();
         this.changeBg();
@@ -357,24 +359,28 @@ var indexCtrl = {
         // 基金選類別下拉
         interest_fund.change(function(){
             var newval = interest_fund.find(':selected').val();
-            
-            select_fund.find('select').empty();
-            select_fund.find('select').append('<option value="999">請選擇基金</option>');
-            $.each(select_option[newval], function(index, obj){
-               select_fund.find('select').append(obj);
-            });
 
-            (newval != 999) ? select_fund.parents('li').show() : select_fund.parents('li').hide();
+            radio_fund.find('.see_fund_interest').find('div').hide();
+            radio_fund.find('.'+newval).show();
+
+            (newval != 999) ? radio_fund.show() : radio_fund.hide();
+
+            fund_index = 0;
+            $('input:radio[name=fund_interest]').prop('checked', false);
+
+            sliderDiv.slider('value', 0);
+            sliderDiv.slider("disable");
         });
 
-        // 選基金下拉
-        select_fund.change(function(){
-            var newval = select_fund.find(':selected').val();
-            fund_index = newval;
-            fund_rate = fund_data[newval].avg_rate;
+        // 選基金radio
+        $('input:radio[name=fund_interest]').change(function(){
+            sliderDiv.slider('value', 0);
+            fund_index = this.value;
+            sliderDiv.slider("enable");
         });
     },
     showAnswer(){
+        /* 用不到了 */
         var $this = this;
         var btn = $('#analysis .btn_wrapper .btn_green');
         var btn2 = $('#analysis .btn_wrapper .btn_white');
@@ -391,7 +397,7 @@ var indexCtrl = {
                 alert('請選擇基金');
                 return;
             }
-            if($('#slider').slider('value') == 0){
+            if(sliderDiv.slider('value') == 0){
                 alert('請選擇希望達成目標');
                 return;
             }
@@ -409,7 +415,7 @@ var indexCtrl = {
                         interest_fund.find('select').val(999);
                         select_fund.find('select').val(999);
                         select_fund.parents('li').hide();
-                        $('#slider').slider('value', 0);
+                        sliderDiv.slider('value', 0);
                         menuCtrl.scrollPage(part1Dis);
                     }
                 });
@@ -431,7 +437,6 @@ var indexCtrl = {
         });
     },
     slider(){
-        var sliderDiv = $('#slider');
         var moneyContent = $('.silder_wrapper font');
         var costContent = $('#analysis .money');
         var base_money = function(target, rate){
@@ -463,6 +468,7 @@ var indexCtrl = {
                 costContent.text(base_cost);
             }
         });
+        sliderDiv.slider("disable");
     },
     pieChart(){
         var target = $('#control .go_right');
