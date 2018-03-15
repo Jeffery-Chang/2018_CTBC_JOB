@@ -189,7 +189,7 @@ var indexCtrl = {
         var mainImg = $('.outer.left'); //放圖片的div
         var winWidth = $(window).width();
         var winHeight = $(window).height();
-        var sliderPct = 0.5;
+        var sliderPct = ($('#kv .circle_01').offset().left + $('#kv .circle_01').width()) / winWidth;
         var sliderOrientation = 'horizontal';
         var barWidth = $('#kv .bar').width();
 
