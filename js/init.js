@@ -268,6 +268,7 @@ var indexCtrl = {
             offsetY = container.offset().top;
             imgWidth = winWidth; 
             imgHeight = mainImg.height();
+            if(!slider.hasClass('hideTip')) slider.addClass('hideTip');
         };
         var onMove = function(e){
             if (container.hasClass("active")) {
