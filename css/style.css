@@ -570,10 +570,14 @@ hr {
     margin-top: -50px; 
 }
 
+.show.slide_bar:before {
+    width: 120px;
+}
+
 .slide_bar:before {
     content: "";
     display: block;
-    width: 120px;
+    width: 0px;
     height: 50px;
     position: absolute;
     background-image: url(../images/tip.png);
@@ -583,6 +587,7 @@ hr {
     top: 50%;
     left: 12px;
     margin-top: -50px;
+    transition: all .3s;
 }
 
 .slide_bar img {
