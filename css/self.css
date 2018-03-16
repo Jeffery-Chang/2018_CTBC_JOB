@@ -123,6 +123,9 @@
     opacity: 1;
     transform: translate(0, 0);
 }
+.slide_bar.hideTip:before{
+    display: none;
+}
 
 /* five circle use*/
 #weapon .icon_wrap img{
