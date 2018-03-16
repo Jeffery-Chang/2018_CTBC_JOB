@@ -5,7 +5,7 @@ var interest_fund = $('#analysis .select_wrapper:eq(0)');
 var select_fund = $('#analysis .select_wrapper:eq(1)');
 var radio_fund = $('#analysis .interest li:eq(1)');
 var sliderDiv = $('#slider'); // slider bar
-var select_option = {  
+/*var select_option = {  
     "shopping":[
         `<option value="0">摩根士丹利美國優勢基金(累積)(美元)</option>`,
         `<option value="4">富達全球消費行業基金(再投資)(歐元)</option>`
@@ -30,7 +30,7 @@ var select_option = {
         `<option value="7">貝萊德環球高收益債券基金(累積)(美元)(本基金主要係投資於非投資等級之高風險債券)</option>`,
         `<option value="8">貝萊德環球企業債券基金 A2 美元</option>`
     ],
-}
+}*/
 var base_cost = 0; // 每月投資的錢
 var target_refund = 0; // 目標
 var fund_index = 0; // 哪個基金
@@ -39,90 +39,90 @@ var fund_data = [
     {  
         "best_rate": 26.61,
         "worst_rate": 3.06,
-        "avg_rate": 11.39,
+        "avg_rate": 11.39/*,
         "best_refund": 0,
         "worst_refund": 0,
-        "avg_refund": 0
+        "avg_refund": 0*/
     },
     {  
         "best_rate": 12.70,
         "worst_rate": 1.96,
-        "avg_rate": 7.72,
+        "avg_rate": 7.72/*,
         "best_refund": 0,
         "worst_refund": 0,
-        "avg_refund": 0
+        "avg_refund": 0*/
     },
     {
         "best_rate": 31.87,
         "worst_rate": -4.98,
-        "avg_rate": 13.37,
+        "avg_rate": 13.37/*,
         "best_refund": 0,
         "worst_refund": 0,
-        "avg_refund": 0
+        "avg_refund": 0*/
     },
     {  
         "best_rate": 46.09,
         "worst_rate": 6.80,
-        "avg_rate": 22.97,
+        "avg_rate": 22.97/*,
         "best_refund": 0,
         "worst_refund": 0,
-        "avg_refund": 0
+        "avg_refund": 0*/
     },
     {  
         "best_rate": 46.76,
         "worst_rate": 2.02,
-        "avg_rate": 24.25,
+        "avg_rate": 24.25/*,
         "best_refund": 0,
         "worst_refund": 0,
-        "avg_refund": 0
+        "avg_refund": 0*/
     },
     {  
         "best_rate": 31.56,
         "worst_rate": -3.85,
-        "avg_rate": 13.49,
+        "avg_rate": 13.49/*,
         "best_refund": 0,
         "worst_refund": 0,
-        "avg_refund": 0
+        "avg_refund": 0*/
     },
     {  
         "best_rate": 39.30,
         "worst_rate": -5.65,
-        "avg_rate": 22.44,
+        "avg_rate": 22.44/*,
         "best_refund": 0,
         "worst_refund": 0,
-        "avg_refund": 0
+        "avg_refund": 0*/
     },
     {  
         "best_rate": 37.92,
         "worst_rate": 4.72,
-        "avg_rate": 23.36,
+        "avg_rate": 23.36/*,
         "best_refund": 0,
         "worst_refund": 0,
-        "avg_refund": 0
+        "avg_refund": 0*/
     },
     {  
         "best_rate": 27.25,
         "worst_rate": 1.29,
-        "avg_rate": 14.98,
+        "avg_rate": 14.98/*,
         "best_refund": 0,
         "worst_refund": 0,
-        "avg_refund": 0
+        "avg_refund": 0*/
     },
     {  
         "best_rate": 47.64,
         "worst_rate": 3.86,
-        "avg_rate": 21.78,
+        "avg_rate": 21.78/*,
         "best_refund": 0,
         "worst_refund": 0,
-        "avg_refund": 0
+        "avg_refund": 0*/
     },
     {  
         "best_rate": 58.73,
         "worst_rate": 0.94,
-        "avg_rate": 24.93,
+        "avg_rate": 24.93/*,
         "best_refund": 0,
         "worst_refund": 0,
-        "avg_refund": 0
+        "avg_refund": 0*/
     }
 ];
 var indexCtrl = {
