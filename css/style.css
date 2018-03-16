@@ -559,16 +559,30 @@ hr {
     bottom: 12.5vh;
     z-index: 99;
 }
+.slide_bar:after { 
+    content: ""; 
+    display: block; 
+    width: 46px; 
+    height: 120%; 
+    position: absolute; 
+    margin-left: -20px; 
+    top: 0; 
+    margin-top: -50px; 
+}
 
-.slide_bar:after {
+.slide_bar:before {
     content: "";
     display: block;
-    width: 46px;
-    height: 110%;
+    width: 120px;
+    height: 50px;
     position: absolute;
-    /* background: pink; */
-    margin-left: -20px;
-    top: 0;
+    background-image: url(../images/tip.png);
+    background-repeat: no-repeat;
+    background-size: 107px;
+    color: #fff;
+    top: 50%;
+    left: 12px;
+    margin-top: -50px;
 }
 
 .slide_bar img {
@@ -773,7 +787,7 @@ div.active .triangle:after {
 }
 
 #control span.f_grey {
-    padding: 12px 0 0;
+    padding: 12px 20px 0 0;
     display: inline-block;
     width: 100%;
 }
@@ -1007,9 +1021,7 @@ select::-ms-expand {
 
 .formula {
     line-height: 40px;
-    margin: 20px auto 230px;
-
-    
+    margin: 20px auto;
 }
 
 .analysis_result{
@@ -1041,12 +1053,13 @@ select::-ms-expand {
 }
 
 #analysis .btn_wrapper {
-    position: absolute;
-    margin-top: -211px;
-    bottom: 75px;
+    /* position: absolute; */
+    /* margin-top: -211px; */
+    /* bottom: 75px; */
     display: inline-block;
-    left: 50%;
-    margin-left: -130px;
+    /* left: 50%; */
+    /* margin-left: -130px; */
+    margin: 20px auto 80px;
 }
 
 .re_ana {
@@ -1601,6 +1614,19 @@ select::-ms-expand {
     }
     .filter select{
         letter-spacing: 0;
+    }
+    #control .f_black {
+        padding-right: 0px;
+    }
+    
+    #control h4 {
+        padding: 20px 0 20px 0;
+       
+    }
+    
+    #control span.f_grey {
+        padding: 12px 0 0 0;
+       
     }
     
 }
