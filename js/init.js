@@ -139,7 +139,12 @@ var indexCtrl = {
 
         // 跟背景一起出現
         $('#kv .slide_bar').fadeIn('slow');
-
+        
+        // 高勝率基金大公開
+        $('#analysis .btn_wrapper .btn_white').click(function(e){
+            e.preventDefault();
+            trackWaitJump('', 'fund_list.html');
+        });
         // 立即投資
         $('#weapon .btn_green').click(function(e){
             e.preventDefault();
