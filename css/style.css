@@ -1268,14 +1268,14 @@ select::-ms-expand {
 .filter {background: #dcf6f6;padding-top: 55px;}
 
 .filter .select_wrapper {
-    width: 210px;
+    width: 230px;
     margin: 0 1% 30px;
 }
 
 .select_wrapper.poA {
     position: absolute;
     left: 50%;
-    margin-left: -105px;
+    margin-left: -115px;
 }
 
 .filter select {
