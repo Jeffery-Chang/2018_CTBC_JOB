@@ -1311,6 +1311,7 @@ select::-ms-expand {
 
 .fund_select  input[type="radio"]:checked{
     border: #4ed1d3 solid 1px;
+    background: url(../images/radio_ckd.png);
 }
 
 .fund_select label{
@@ -1321,7 +1322,7 @@ select::-ms-expand {
     cursor: pointer;
 }
 
-.fund_select input[type="radio"]:checked + label:after{
+/* .fund_select input[type="radio"]:checked + label:after{
     content: "";
     width: 12px;
     height: 12px;
@@ -1331,7 +1332,7 @@ select::-ms-expand {
     border-radius: 50%;
     top: 6px;
     left: -24px;
-}
+} */
 
 
 @media only screen and (max-width: 920px) {
