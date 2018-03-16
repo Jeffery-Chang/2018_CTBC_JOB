@@ -548,7 +548,7 @@ hr {
 .slide_bar {
     position: absolute;
     width: 5px;
-    height: 44vh;
+    height: 50vh;
     background-color: #ffcc04;
     z-index: 5;
     cursor: -webkit-grab;
@@ -588,8 +588,8 @@ hr {
 }
 
 .kv_content img {
-    width: 115px;
-    margin: 9px 3px -9px;
+    width: 119px;
+    margin: 6px 3px -7px;
 }
 
 .kv_content p {
@@ -1296,6 +1296,8 @@ select::-ms-expand {
     position: absolute;
     left: 0;
     top: 7px;
+    /* cursor: pointer; */
+    
 }
 
 .fund_select {
@@ -1303,11 +1305,20 @@ select::-ms-expand {
     width: 100%;
     line-height: 27px;
     padding: 7px 0 7px 30px;
+    
 }
 
 
 .fund_select  input[type="radio"]:checked{
     border: #4ed1d3 solid 1px;
+}
+
+.fund_select label{
+    position: relative;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 27px;
+    cursor: pointer;
 }
 
 .fund_select input[type="radio"]:checked + label:after{
@@ -1318,8 +1329,8 @@ select::-ms-expand {
     position: absolute;
     background: #4ed1d3;
     border-radius: 50%;
-    top: 13px;
-    left: 6px;
+    top: 6px;
+    left: -24px;
 }
 
 
@@ -1644,7 +1655,7 @@ select::-ms-expand {
         margin-left: -143px;
     }
     .slide_bar {
-        height: 26vh;
+        height: 31vh;
         bottom: 160px;
     }
     .circle_01:after, .circle_02:after, .circle_03:after {
