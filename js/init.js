@@ -357,7 +357,7 @@ var indexCtrl = {
         btn.click(function(e){
             e.preventDefault();
             var adjustDis = (menuCtrl.chkDevice()) ? $('#analysis .mb').height() : 0;
-            dis = $this.caloffset('#analysis') + adjustDis;
+            dis = (menuCtrl.chkDevice()) ? $this.caloffset('#analysis') + adjustDis : $('#kv').height() - $('#top').height();
             menuCtrl.scrollPage(dis);
         });
     },
@@ -492,7 +492,9 @@ var indexCtrl = {
     },
     caloffset(selector){
         var dis = 0;
-        dis = $(selector).offset().top - parseInt($(selector).css('padding-top').replace('px', ''));
+        var obj = $(selector);
+        var objPadding = parseInt(obj.css('padding-top').replace('px', '')) || 0;
+        dis = obj.offset().top - objPadding;
         return dis; 
     }
 }
