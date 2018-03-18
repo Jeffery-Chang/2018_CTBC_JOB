@@ -1,96 +1,128 @@
+(function(a){a.preload=function(){var c=[],b=arguments.length;for(;b--;){c.push(a("<img />").attr("src",arguments[b]));}};})(jQuery);
 var typeTop = '20px';
 var typeLeft = '0';
+var interest_fund = $('#analysis .select_wrapper:eq(0)');
+var select_fund = $('#analysis .select_wrapper:eq(1)');
+var radio_fund = $('#analysis .interest li:eq(1)');
+var sliderDiv = $('#slider'); // slider bar
+/*var select_option = {  
+    "shopping":[
+        `<option value="0">摩根士丹利美國優勢基金(累積)(美元)</option>`,
+        `<option value="4">富達全球消費行業基金(再投資)(歐元)</option>`
+    ], 
+    "digital":[
+        `<option value="0">摩根士丹利美國優勢基金(累積)(美元)</option>`,
+        `<option value="1">美盛凱利美國大型公司成長基金(累積)(美元)</option>`,
+        `<option value="9">百達－數位科技基金(累積)(美元)</option>`,
+        `<option value="10">富蘭克林高科技基金(再投資)(美元)(本基金配息來源可能為本金)</option>`
+    ], 
+    "healthy":[
+        `<option value="1">美盛凱利美國大型公司成長基金(累積)(美元)</option>`,
+        `<option value="2">新加坡大華全球保健基金(累積)(美元)</option>`
+    ], 
+    "reality":[
+        `<option value="3">NN(L)食品飲料基金(累積)(美元)(本基金配息來源可能為本金)</option>`,
+        `<option value="5">貝萊德亞洲老虎債券基金(累積)(美元)(本基金有相當比重投資於非投資等級之高風險債券)</option>`
+    ], 
+    "excited":[
+        `<option value="5">貝萊德亞洲老虎債券基金(累積)(美元)(本基金有相當比重投資於非投資等級之高風險債券)</option>`,
+        `<option value="6">景順環球高收益債券基金(半年再投資)(美元)(本基金主要係投資於非投資等級之高風險債券)</option>`,
+        `<option value="7">貝萊德環球高收益債券基金(累積)(美元)(本基金主要係投資於非投資等級之高風險債券)</option>`,
+        `<option value="8">貝萊德環球企業債券基金 A2 美元</option>`
+    ],
+}*/
 var base_cost = 0; // 每月投資的錢
-var target_refund = 3000; // 目標
+var target_refund = 0; // 目標
 var fund_index = 0; // 哪個基金
+var fund_rate = 0; // 基金%
 var fund_data = [  
     {  
         "best_rate": 26.61,
         "worst_rate": 3.06,
-        "avg_rate": 11.39,
+        "avg_rate": 11.39/*,
         "best_refund": 0,
         "worst_refund": 0,
-        "avg_refund": 0
+        "avg_refund": 0*/
     },
     {  
         "best_rate": 12.70,
         "worst_rate": 1.96,
-        "avg_rate": 7.72,
+        "avg_rate": 7.72/*,
         "best_refund": 0,
         "worst_refund": 0,
-        "avg_refund": 0
+        "avg_refund": 0*/
     },
     {
         "best_rate": 31.87,
         "worst_rate": -4.98,
-        "avg_rate": 13.37,
+        "avg_rate": 13.37/*,
         "best_refund": 0,
         "worst_refund": 0,
-        "avg_refund": 0
+        "avg_refund": 0*/
     },
     {  
         "best_rate": 46.09,
         "worst_rate": 6.80,
-        "avg_rate": 22.97,
+        "avg_rate": 22.97/*,
         "best_refund": 0,
         "worst_refund": 0,
-        "avg_refund": 0
+        "avg_refund": 0*/
     },
     {  
         "best_rate": 46.76,
         "worst_rate": 2.02,
-        "avg_rate": 24.25,
+        "avg_rate": 24.25/*,
         "best_refund": 0,
         "worst_refund": 0,
-        "avg_refund": 0
+        "avg_refund": 0*/
     },
     {  
         "best_rate": 31.56,
         "worst_rate": -3.85,
-        "avg_rate": 13.49,
+        "avg_rate": 13.49/*,
         "best_refund": 0,
         "worst_refund": 0,
-        "avg_refund": 0
+        "avg_refund": 0*/
     },
     {  
         "best_rate": 39.30,
         "worst_rate": -5.65,
-        "avg_rate": 22.44,
+        "avg_rate": 22.44/*,
         "best_refund": 0,
         "worst_refund": 0,
-        "avg_refund": 0
+        "avg_refund": 0*/
     },
     {  
         "best_rate": 37.92,
         "worst_rate": 4.72,
-        "avg_rate": 23.36,
+        "avg_rate": 23.36/*,
         "best_refund": 0,
         "worst_refund": 0,
-        "avg_refund": 0
+        "avg_refund": 0*/
     },
     {  
         "best_rate": 27.25,
         "worst_rate": 1.29,
-        "avg_rate": 14.98,
+        "avg_rate": 14.98/*,
         "best_refund": 0,
         "worst_refund": 0,
-        "avg_refund": 0
+        "avg_refund": 0*/
     },
     {  
         "best_rate": 47.64,
         "worst_rate": 3.86,
-        "avg_rate": 21.78,
+        "avg_rate": 21.78/*,
         "best_refund": 0,
         "worst_refund": 0,
-        "avg_refund": 0
+        "avg_refund": 0*/
     },
     {  
         "best_rate": 58.73,
         "worst_rate": 0.94,
-        "avg_rate": 24.93,
+        "avg_rate": 24.93/*,
         "best_refund": 0,
         "worst_refund": 0,
-        "avg_refund": 0
+        "avg_refund": 0*/
     }
 ];
 var indexCtrl = {
@@ -98,7 +130,7 @@ var indexCtrl = {
         this.slider();
         this.play();
         this.pieChart();
-        this.showAnswer();
+        //this.showAnswer();
         this.setFunds();
         this.kv();
         this.changeBg();
@@ -106,8 +138,13 @@ var indexCtrl = {
         this.playBtn();
 
         // 跟背景一起出現
-        $('#kv .slide_bar').delay(200).fadeIn('fast');
-
+        $('#kv .slide_bar').fadeIn('slow');
+        
+        // 高勝率基金大公開
+        $('#analysis .btn_wrapper .btn_white').click(function(e){
+            e.preventDefault();
+            trackWaitJump('', 'fund_list.html');
+        });
         // 立即投資
         $('#weapon .btn_green').click(function(e){
             e.preventDefault();
@@ -120,6 +157,33 @@ var indexCtrl = {
             gaclick('open');
             window.open('http://www.ctbcbank.com/html/fileUpload/homebank/openacc.html', '_blank');
         });
+
+        $(window).on('load', function(){
+            $.preload(
+                'images/theme2_01.jpg',
+                'images/theme2_02.jpg',
+                'images/theme3_01.jpg',
+                'images/theme3_02.jpg', 
+                'images/theme4_01.jpg',
+                'images/theme4_02.jpg', 
+                'images/theme1_01_pad.jpg',
+                'images/theme1_02_pad.jpg', 
+                'images/theme2_01_pad.jpg',
+                'images/theme2_02_pad.jpg', 
+                'images/theme3_01_pad.jpg',
+                'images/theme3_02_pad.jpg', 
+                'images/theme4_01_pad.jpg',
+                'images/theme4_02_pad.jpg', 
+                'images/theme1_01_m.jpg',
+                'images/theme1_02_m.jpg', 
+                'images/theme2_01_m.jpg',
+                'images/theme2_02_m.jpg', 
+                'images/theme3_01_m.jpg',
+                'images/theme3_02_m.jpg', 
+                'images/theme4_01_m.jpg',
+                'images/theme4_02_m.jpg'
+            );
+        })
     },
     fromFunds(){
         var from = $.getUrlParam('from');
@@ -132,7 +196,7 @@ var indexCtrl = {
         var mainImg = $('.outer.left'); //放圖片的div
         var winWidth = $(window).width();
         var winHeight = $(window).height();
-        var sliderPct = 0.5;
+        var sliderPct = ($('#kv .circle_01').offset().left + $('#kv .circle_01').width()) / winWidth;
         var sliderOrientation = 'horizontal';
         var barWidth = $('#kv .bar').width();
 
@@ -204,6 +268,7 @@ var indexCtrl = {
             offsetY = container.offset().top;
             imgWidth = winWidth; 
             imgHeight = mainImg.height();
+            if(!slider.hasClass('hideTip')) slider.addClass('hideTip');
         };
         var onMove = function(e){
             if (container.hasClass("active")) {
@@ -238,16 +303,18 @@ var indexCtrl = {
         var btn = $('#kv .change_theme li');
         var active = $('#kv .active');
 
-        var change = function(index){
-            outer.fadeOut('normal', function(){
-                left.css('background', 'url(images/theme'+index+'_01.jpg) no-repeat center top').css('backgroundSize', 'cover');
-                right.css('background', 'url(images/theme'+index+'_02.jpg) no-repeat center top').css('backgroundSize', 'cover');
-            }).delay(200).fadeIn('fast');
+        var change = function(bgClass){
+            outer.stop().fadeOut('fast', function(){
+                left.removeClass('car wedding school son').addClass(bgClass);
+                right.removeClass('car wedding school son').addClass(bgClass);
+                /*left.css('background', 'url(images/theme'+index+'_01.jpg) no-repeat center top').css('backgroundSize', 'cover');
+                right.css('background', 'url(images/theme'+index+'_02.jpg) no-repeat center top').css('backgroundSize', 'cover');*/
+            }).fadeIn('slow');
         };
 
         btn.click(function(e){
             e.preventDefault();
-            var index = $(this).index();
+            var bgClass = $(this).data('class');
             typeTop = $(this).data('top');
             typeLeft = $(this).data('left');
 
@@ -256,25 +323,21 @@ var indexCtrl = {
             btn.removeClass('active');
 
             if(menuCtrl.chkDevice()){
-                active.css('top', '0px');
-                active.stop().animate({ left: typeLeft }, 500);
+                active.css('top', '0px').stop().animate({ left: typeLeft }, 500);
             }else{
-                active.css('left', '0');
-                active.stop().animate({ top: typeTop }, 500);
+                active.css('left', '0').stop().animate({ top: typeTop }, 500);
             }
 
             $(this).addClass('active');
 
-            change(index);
+            change(bgClass);
         }).eq(0).click();
 
         $(window).resize(function(){
             if(menuCtrl.chkDevice()){
-                active.css('top', '0px');
-                active.css('left', typeLeft);
+                active.css('top', '0px').css('left', typeLeft);
             }else{
-                active.css('top', typeTop);
-                active.css('left', '0');
+                active.css('top', typeTop).css('left', '0');
             }
         });
 
@@ -294,53 +357,81 @@ var indexCtrl = {
         btn.click(function(e){
             e.preventDefault();
             var adjustDis = (menuCtrl.chkDevice()) ? $('#analysis .mb').height() : 0;
-            dis = $this.caloffset('#analysis') + adjustDis;
+            dis = (menuCtrl.chkDevice()) ? $this.caloffset('#analysis') + adjustDis : $('#kv').height() - $('#top').height();
             menuCtrl.scrollPage(dis);
         });
     },
     setFunds(){
         // 基金選類別下拉
-        var interest_fund = $('#analysis .select_wrapper');
         interest_fund.change(function(){
             var newval = interest_fund.find(':selected').val();
-            $('#result .inline li.find_item').hide();
-            $('.'+newval).show();
+
+            radio_fund.find('.see_fund_interest').find('div').hide();
+            radio_fund.find('.'+newval).show();
+
+            (newval != 999) ? radio_fund.show() : radio_fund.hide();
+
+            fund_index = 0;
+            $('input:radio[name=fund_interest]').prop('checked', false);
+
+            sliderDiv.slider('value', 0);
+            sliderDiv.slider("disable");
         });
-        
-        // 選基金下拉
-        var select_fund = $('#analysis');
-        select_fund.change(function(){
-            var newval = select_fund.find(':selected').val();
+
+        // 選基金radio
+        $('input:radio[name=fund_interest]').change(function(){
+            sliderDiv.slider('value', 0);
+            fund_index = this.value;
+            sliderDiv.slider("enable");
         });
     },
     showAnswer(){
+        /* 用不到了 */
         var $this = this;
         var btn = $('#analysis .btn_wrapper .btn_green');
         var btn2 = $('#analysis .btn_wrapper .btn_white');
-        var part1Dis = 0;
+        var ans = $('#analysis .analysis_result');
 
         // 立即解析/重新解析
-        btn.click(function(e){
+        btn.click((e) => {
             e.preventDefault();
-            var adjustDis = (menuCtrl.chkDevice()) ? $('#analysis .mb').height() : 0;
+            if(interest_fund.find(':selected').val() == 999){
+                alert('請選擇興趣');
+                return;
+            }
+            if(select_fund.find(':selected').val() == 999){
+                alert('請選擇基金');
+                return;
+            }
+            if(sliderDiv.slider('value') == 0){
+                alert('請選擇希望達成目標');
+                return;
+            }
+
+            var adjustDis = 0;
+            var part1Dis = 0;
+
             if(btn.hasClass('show')){
+                adjustDis = (menuCtrl.chkDevice()) ? $('#analysis .mb').height() : 0;
                 part1Dis = $this.caloffset('#analysis') + adjustDis;
-                menuCtrl.scrollPage(part1Dis);
-                $('#result').delay(300).slideUp({
-                    duration: 500,
+                ans.slideUp({
+                    duration: 750,
                     complete: function(){
                         btn.removeClass('show');
+                        interest_fund.find('select').val(999);
+                        select_fund.find('select').val(999);
+                        select_fund.parents('li').hide();
+                        sliderDiv.slider('value', 0);
+                        menuCtrl.scrollPage(part1Dis);
                     }
                 });
                 return;
             }
 
-            $('#result').slideDown({
+            ans.slideDown({
                 duration: 750,
-                complete: function(){
+                complete: () => {
                     btn.addClass('show');
-                    var part2Dis = $this.caloffset('#result') + adjustDis;
-                    menuCtrl.scrollPage(part2Dis);
                 }
             });
         });
@@ -352,13 +443,12 @@ var indexCtrl = {
         });
     },
     slider(){
-        var sliderDiv = $('#slider');
         var moneyContent = $('.silder_wrapper font');
         var costContent = $('#analysis .money');
         var base_money = function(target, rate){
             return Math.round(target / (36 * (100 + rate) / 100));
         };
-        
+
         sliderDiv.slider({
             range: "min",     
             value: target_refund,
@@ -368,22 +458,23 @@ var indexCtrl = {
             create: function() {
                 moneyContent.text($(this).slider('value'));
                 target_refund = $(this).slider('value');
-                base_cost = base_money(target_refund, fund_data[fund_index].avg_rate);
+                base_cost = base_money(target_refund, fund_rate);
                 costContent.text(base_cost);
             },
             slide: function( event, ui ) {
                 moneyContent.text(ui.value);
                 target_refund = $(this).slider('value');
-                base_cost = base_money(target_refund, fund_data[fund_index].avg_rate);
+                base_cost = base_money(target_refund, fund_rate);
                 costContent.text(base_cost);
             },
             change: function(event, ui) {
                 moneyContent.text(ui.value);
                 target_refund = $(this).slider('value');
-                base_cost = base_money(target_refund, fund_data[fund_index].avg_rate);
+                base_cost = base_money(target_refund, fund_rate);
                 costContent.text(base_cost);
             }
         });
+        sliderDiv.slider("disable");
     },
     pieChart(){
         var target = $('#control .go_right');
@@ -401,7 +492,9 @@ var indexCtrl = {
     },
     caloffset(selector){
         var dis = 0;
-        dis = $(selector).offset().top - parseInt($(selector).css('padding-top').replace('px', ''));
+        var obj = $(selector);
+        var objPadding = parseInt(obj.css('padding-top').replace('px', '')) || 0;
+        dis = obj.offset().top - objPadding;
         return dis; 
     }
 }

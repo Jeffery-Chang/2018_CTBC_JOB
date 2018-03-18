@@ -64,6 +64,10 @@ hr {
     background-color: #026c6b;
 }
 
+.f_red{
+    color: #c30000;
+}
+
 .f_green {
     color: #007f72;
 }
@@ -526,35 +530,54 @@ hr {
 }
 
 .content.left {
-    background: url(../images/theme1_01.jpg) no-repeat center top;
+    /* background: url(../images/theme1_01.jpg) no-repeat center top; */
     background-size: cover;
 }
 
 .content.right {
-    background: url(../images/theme1_02.jpg) no-repeat center top;
+    /* background: url(../images/theme1_02.jpg) no-repeat center top; */
     background-size: cover;
 }
 
 .slide_bar {
     position: absolute;
     width: 5px;
-    height: 44vh;
+    height: 50vh;
     background-color: #ffcc04;
     z-index: 5;
     cursor: -webkit-grab;
     bottom: 12.5vh;
     z-index: 99;
 }
+.slide_bar:after { 
+    content: ""; 
+    display: block; 
+    width: 46px; 
+    height: 120%; 
+    position: absolute; 
+    margin-left: -20px; 
+    top: 0; 
+    margin-top: -50px; 
+}
 
-.slide_bar:after {
+.show.slide_bar:before {
+    width: 120px;
+}
+
+.slide_bar:before {
     content: "";
     display: block;
-    width: 46px;
-    height: 110%;
+    width: 0px;
+    height: 50px;
     position: absolute;
-    /* background: pink; */
-    margin-left: -20px;
-    top: 0;
+    background-image: url(../images/tip.png);
+    background-repeat: no-repeat;
+    background-size: 107px;
+    color: #fff;
+    top: 50%;
+    left: 12px;
+    margin-top: -50px;
+    transition: all .3s;
 }
 
 .slide_bar img {
@@ -578,8 +601,8 @@ hr {
 }
 
 .kv_content img {
-    width: 115px;
-    margin: 9px 3px -9px;
+    width: 119px;
+    margin: 6px 3px -7px;
 }
 
 .kv_content p {
@@ -751,14 +774,14 @@ div.active .triangle:after {
 }
 
 #control h4 {
-    padding: 20px 0;
+    padding: 20px 25px 20px 0;
     line-height: 1.5;
     display: inline-block;
     width: 100%;
 }
 
 #control span.f_grey {
-    padding: 12px 0 0;
+    padding: 12px 20px 0 0;
     display: inline-block;
     width: 100%;
 }
@@ -780,6 +803,7 @@ div.active .triangle:after {
     background-position: right center;
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: hidden;
 }
 
 select {
@@ -921,9 +945,10 @@ select::-ms-expand {
 
 .interest li {
     margin: 10px 0 35px;
-    display: block;
+    display: inline-block;
     line-height: 45px;
-    height: 45px;
+    width: 100%;
+    min-height: 45px;
 }
 
 .trans50 {
@@ -1011,7 +1036,11 @@ font.Y3:before {
 
 .formula {
     line-height: 40px;
-    margin: 20px auto 260px;
+    margin: 20px auto;
+}
+
+.analysis_result{
+    /* display: none; */
 }
 
 .formula p {
@@ -1037,15 +1066,17 @@ font.Y3:before {
 #analysis {
     padding: 65px 0 0;
     overflow-x: hidden;
+    padding: 95px 0 0;
 }
 
 #analysis .btn_wrapper {
-    position: absolute;
-    margin-top: -211px;
-    bottom: 75px;
+    /* position: absolute; */
+    /* margin-top: -211px; */
+    /* bottom: 75px; */
     display: inline-block;
-    left: 50%;
-    margin-left: -130px;
+    /* left: 50%; */
+    /* margin-left: -130px; */
+    margin: 20px auto 80px;
 }
 
 .re_ana {
@@ -1252,14 +1283,14 @@ font.Y3:before {
 }
 
 .filter .select_wrapper {
-    width: 210px;
+    width: 230px;
     margin: 0 1% 30px;
 }
 
 .select_wrapper.poA {
     position: absolute;
     left: 50%;
-    margin-left: -105px;
+    margin-left: -115px;
 }
 
 .filter select {
@@ -1294,6 +1325,54 @@ font.Y3:before {
 #wrapper>div.go_formula.show {
     transform: scale(1);
 }
+
+.fund_select input[type="radio"] {
+    border: #9a9a9a solid 1px;
+    border-radius: 50%;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    left: 0;
+    top: 7px;
+    /* cursor: pointer; */
+    
+}
+
+.fund_select {
+    position: relative;
+    width: 100%;
+    line-height: 27px;
+    padding: 7px 0 7px 30px;
+    
+}
+
+
+.fund_select  input[type="radio"]:checked{
+    border: #4ed1d3 solid 1px;
+    background: url(../images/radio_ckd.png);
+}
+
+.fund_select label{
+    position: relative;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 27px;
+    cursor: pointer;
+}
+
+/* .fund_select input[type="radio"]:checked + label:after{
+    content: "";
+    width: 12px;
+    height: 12px;
+    display: block;
+    position: absolute;
+    background: #4ed1d3;
+    border-radius: 50%;
+    top: 6px;
+    left: -24px;
+} */
+
 
 @media only screen and (max-width: 920px) {
     .tri {
@@ -1549,6 +1628,20 @@ font.Y3:before {
     .filter select {
         letter-spacing: 0;
     }
+    #control .f_black {
+        padding-right: 0px;
+    }
+    
+    #control h4 {
+        padding: 20px 0 20px 0;
+       
+    }
+    
+    #control span.f_grey {
+        padding: 12px 0 0 0;
+       
+    }
+    
 }
 
 @media only screen and (max-width: 600px) {
@@ -1611,7 +1704,7 @@ font.Y3:before {
         margin-left: -143px;
     }
     .slide_bar {
-        height: 26vh;
+        height: 31vh;
         bottom: 160px;
     }
     .circle_01:after,
