@@ -1066,7 +1066,7 @@ font.Y3:before {
 
 #analysis {
     padding: 65px 0 0;
-    overflow-x: hidden;
+    overflow: hidden;
     padding: 95px 0 0;
 }
 
