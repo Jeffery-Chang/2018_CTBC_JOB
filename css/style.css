@@ -64,7 +64,7 @@ hr {
     background-color: #026c6b;
 }
 
-.f_red{
+.f_red {
     color: #c30000;
 }
 
@@ -549,15 +549,16 @@ hr {
     bottom: 12.5vh;
     z-index: 99;
 }
-.slide_bar:after { 
-    content: ""; 
-    display: block; 
-    width: 46px; 
-    height: 120%; 
-    position: absolute; 
-    margin-left: -20px; 
-    top: 0; 
-    margin-top: -50px; 
+
+.slide_bar:after {
+    content: "";
+    display: block;
+    width: 46px;
+    height: 120%;
+    position: absolute;
+    margin-left: -20px;
+    top: 0;
+    margin-top: -50px;
 }
 
 .show.slide_bar:before {
@@ -1039,7 +1040,7 @@ font.Y3:before {
     margin: 20px auto;
 }
 
-.analysis_result{
+.analysis_result {
     /* display: none; */
 }
 
@@ -1336,7 +1337,6 @@ font.Y3:before {
     left: 0;
     top: 7px;
     /* cursor: pointer; */
-    
 }
 
 .fund_select {
@@ -1344,22 +1344,21 @@ font.Y3:before {
     width: 100%;
     line-height: 27px;
     padding: 7px 0 7px 30px;
-    
 }
 
-
-.fund_select  input[type="radio"]:checked{
+.fund_select input[type="radio"]:checked {
     border: #4ed1d3 solid 1px;
     background: url(../images/radio_ckd.png);
 }
 
-.fund_select label{
+.fund_select label {
     position: relative;
     display: inline-block;
     font-size: 15px;
     line-height: 27px;
     cursor: pointer;
 }
+
 
 /* .fund_select input[type="radio"]:checked + label:after{
     content: "";
@@ -1372,7 +1371,6 @@ font.Y3:before {
     top: 6px;
     left: -24px;
 } */
-
 
 @media only screen and (max-width: 920px) {
     .tri {
@@ -1631,17 +1629,12 @@ font.Y3:before {
     #control .f_black {
         padding-right: 0px;
     }
-    
     #control h4 {
         padding: 20px 0 20px 0;
-       
     }
-    
     #control span.f_grey {
         padding: 12px 0 0 0;
-       
     }
-    
 }
 
 @media only screen and (max-width: 600px) {
@@ -1813,7 +1806,7 @@ font.Y3:before {
         padding: 40px 20px;
     }
     .formula {
-        margin-bottom: 180px;
+        /* margin-bottom: 180px; */
     }
     #result {
         padding-bottom: 180px;
