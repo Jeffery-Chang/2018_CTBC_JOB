@@ -993,15 +993,15 @@ select::-ms-expand {
 }
 
 font.Y1:before {
-    content: "Y1: ";
+    content: "1Y: ";
 }
 
 font.Y2:before {
-    content: "Y2: ";
+    content: "2Y: ";
 }
 
 font.Y3:before {
-    content: "Y3: ";
+    content: "3Y: ";
 }
 
 .find_item h5 .f_grey {
