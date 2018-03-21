@@ -1366,6 +1366,10 @@ font.Y3:before {
     position: relative;
 }
 
+b.f_red {
+    font-weight: 800;
+}
+
 
 /* .fund_select input[type="radio"]:checked + label:after{
     content: "";
@@ -1434,7 +1438,7 @@ font.Y3:before {
         height: 100%;
         padding-bottom: 40px;
     }
-    #kv{
+    #kv {
         padding-top: 50px;
     }
     .mb {
@@ -1695,7 +1699,7 @@ font.Y3:before {
     .title {
         font-size: 31px;
     }
-    .kv_content p{
+    .kv_content p {
         line-height: 1.5;
     }
     .select_wrapper.poA {
