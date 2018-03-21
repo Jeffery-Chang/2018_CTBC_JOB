@@ -207,7 +207,7 @@ var indexCtrl = {
 
         var adjustContainer = function(offset){
             mainImg.css("width", offset.cw);
-            container.css("height", offset.h);
+            //container.css("height", offset.h);
         };
         var calcOffset = function(dimensionPct){
             var w = winWidth;
