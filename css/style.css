@@ -53,6 +53,10 @@ hr {
     background-color: #f9f9f9;
 }
 
+.bg_f_green {
+    background-color: #ddf6f6;
+}
+
 .bg_l_green {
     background-color: #4ed1d3;
 }
@@ -1463,6 +1467,54 @@ b.f_red {
     font-weight: 800;
 }
 
+#app {
+    padding: 70px 0;
+}
+
+#app h5 {
+    padding-bottom: 8px;
+    line-height: 40px;
+}
+
+#app h5 font {
+    font-style: italic;
+    margin: -2px 6px 2px -1px;
+    display: inline-block;
+}
+
+.app_download {
+    margin: 25px 0 15px;
+}
+
+.app_download .f_green {
+    padding: 2px 0 2px 25px;
+    margin: 15px 0 20px;
+    background-image: url(../images/arrow_01.png);
+    background-size: 23px;
+    background-repeat: no-repeat;
+    background-position: 0px 1px;
+}
+
+.app_download>a {
+    width: 90px;
+    display: inline-block;
+    margin: 0 2px;
+}
+
+.app_download>div {
+    width: 140px;
+    margin: 0 2px 0 5px;
+}
+
+.app_download>div>a {
+    width: 140px;
+    display: inline-block;
+}
+
+.app_download>div>a:first-child {
+    margin-bottom: 5px;
+}
+
 
 /* .fund_select input[type="radio"]:checked + label:after{
     content: "";
@@ -2080,6 +2132,21 @@ b.f_red {
     /* .show .fund_detail, .show.find_item div.W100{
         display: block;
     } */
+    .app_download>a {
+        width: 70px;
+    }
+    .app_download>div {
+        width: 110px;
+    }
+    .app_download>div>a {
+        width: 110px;
+    }
+    #app h5 {
+        line-height: 30px;
+    }
+    #app {
+        padding: 50px 0;
+    }
 }
 
 @media only screen and (max-width: 375px) {
