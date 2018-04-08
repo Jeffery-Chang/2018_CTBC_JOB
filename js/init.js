@@ -1,5 +1,5 @@
 (function(a) { a.preload = function() { var c = [],
-            b = arguments.length; for (; b--;) { c.push(a("<img />").attr("src", arguments[b])); } }; })(jQuery);
+    b = arguments.length; for (; b--;) { c.push(a("<img />").attr("src", arguments[b])); } }; })(jQuery);
 var typeTop = '20px';
 var typeLeft = '0';
 var interest_fund = $('#analysis .select_wrapper:eq(0)');
@@ -339,7 +339,7 @@ var indexCtrl = {
     },
     /* 用不到了
     showAnswer() {
-        
+
         var $this = this;
         var btn = $('#analysis .btn_wrapper .btn_green');
         var btn2 = $('#analysis .btn_wrapper .btn_white');
@@ -396,7 +396,7 @@ var indexCtrl = {
         });
     }, */
     slider() {
-        var moneyContent = $('.silder_wrapper .cost');
+        var moneyContent = $('.silder_wrapper .cost input');
         var costContent = $('#analysis .money');
         var base_money = function(target, rate) {
             return Math.round(target / (36 * (100 + rate) / 100));
@@ -407,9 +407,9 @@ var indexCtrl = {
             value: target_refund,
             min: 36000,
             max: 360000,
-            step: 12000,
+            step: 1,
             create: function() {
-                moneyContent.text($(this).slider('value'));
+                moneyContent.val($(this).slider('value'));
                 target_refund = $(this).slider('value');
                 base_cost = base_money(target_refund, fund_data[fund_index].avg_rate);
                 costContent.text(base_cost);
@@ -421,10 +421,16 @@ var indexCtrl = {
                 costContent.text(base_cost);
             },*/
             change: function(event, ui) {
-                moneyContent.text(ui.value);
+                moneyContent.val(ui.value);
                 target_refund = $(this).slider('value');
                 base_cost = base_money(target_refund, fund_data[fund_index].avg_rate);
                 costContent.text(base_cost);
+            }
+        });
+        moneyContent.keyup(function(e){
+            var newVal = $(this).val();
+            if(newVal != '' && newVal >= 36000 && newVal <= 360000){
+                sliderDiv.slider('value', $(this).val());
             }
         });
         sliderDiv.slider("disable");
