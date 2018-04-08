@@ -161,6 +161,11 @@ hr {
     position: absolute;
 }
 
+.f11 {
+    font-size: 11px;
+    line-height: 1.3;
+}
+
 .f13 {
     font-size: 13px;
     line-height: 1.7;
@@ -1440,23 +1445,22 @@ font.Y3:before {
     position: relative;
 }
 
-.see_fund_interest div.fund_select:first-child font.f_d_yellow:before {
-    content: "*平均報酬率(%)";
-    font-size: 11px;
-    position: absolute;
-    top: -33px;
-    left: 0;
-    display: block;
-    width: 100%;
-    line-height: 1.1;
+.fund_title font {
+    float: right;
+    position: relative;
 }
 
-.see_fund_interest div.fund_select:first-child font.f_red:before {
-    content: "夏普值";
-    font-size: 11px;
+.fund_title {
+    top: -25px;
+    left: 0;
+    padding: 0 0 0 30px;
+    height: 0;
     position: absolute;
-    top: -33px;
 }
+
+.fund_title font.f_d_yellow {}
+
+.fund_title font.f_red {}
 
 .kv {
     height: 100%;
