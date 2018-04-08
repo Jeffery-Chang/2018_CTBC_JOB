@@ -4,12 +4,18 @@ var typeTop = '20px';
 var typeLeft = '0';
 var interest_fund = $('#analysis .select_wrapper:eq(0)');
 var select_fund = $('#analysis .select_wrapper:eq(1)');
+var radio_outer = $('#analysis .fund_list, #analysis .inline.formula');
 var radio_fund = $('#analysis .see_fund_interest');
 var sliderDiv = $('#slider'); // slider bar
 var base_cost = 0; // 每月投資的錢
 var target_refund = 0; // 目標
+var moneyContent = $('.silder_wrapper .cost input'); // 輸入金額
+var costContent = $('#analysis .money'); // 投資金額
 var fund_index = 0; // 哪個基金
 var fund_rate = 0; // 基金%
+var base_money = function(target, rate) {
+    return Math.round(target / (36 * (100 + rate) / 100));
+};
 var fund_data = [
     {
         "best_rate": 26.61,
@@ -312,28 +318,30 @@ var indexCtrl = {
         });
     },
     setFunds() {
+        radio_outer.hide();
+        
         // 基金選類別下拉
         interest_fund.change(function() {
             var newval = interest_fund.find(':selected').val();
-            console.log(newval);
 
             radio_fund.find('.fund_select').hide();
             radio_fund.find('.' + newval).show();
 
-            (newval != 999) ? radio_fund.show(): radio_fund.find('.fund_select').show();
+            (newval != 999) ? radio_outer.show(): radio_outer.hide();
 
             fund_index = 0;
             $('input:radio[name=fund_interest]').prop('checked', false);
 
-            sliderDiv.slider('value', 0);
+            sliderDiv.slider('value', 360000);
             sliderDiv.slider("disable");
         });
 
         // 選基金radio
         $('input:radio[name=fund_interest]').change(function() {
-            sliderDiv.slider('value', 0);
+            sliderDiv.slider('value', 360000);
             fund_index = this.value;
-            console.log(fund_index);
+            base_cost = base_money(360000, fund_data[fund_index].avg_rate);
+            costContent.text(base_cost);
             sliderDiv.slider("enable");
         });
     },
@@ -396,17 +404,11 @@ var indexCtrl = {
         });
     }, */
     slider() {
-        var moneyContent = $('.silder_wrapper .cost input');
-        var costContent = $('#analysis .money');
-        var base_money = function(target, rate) {
-            return Math.round(target / (36 * (100 + rate) / 100));
-        };
-
         sliderDiv.slider({
             range: "min",
             value: target_refund,
-            min: 36000,
-            max: 360000,
+            min: 360000,
+            max: 3600000,
             step: 1,
             create: function() {
                 moneyContent.val($(this).slider('value'));
@@ -429,8 +431,9 @@ var indexCtrl = {
         });
         moneyContent.keyup(function(e){
             var newVal = $(this).val();
-            if(newVal != '' && newVal >= 36000 && newVal <= 360000){
-                sliderDiv.slider('value', $(this).val());
+            if(!sliderDiv.hasClass('ui-slider-disabled') && newVal != '' && newVal >= 360000 && newVal <= 3600000){
+                target_refund = newVal;
+                sliderDiv.slider('value', newVal);
             }
         });
         sliderDiv.slider("disable");
@@ -453,7 +456,6 @@ var indexCtrl = {
         var dis = 0;
         var obj = $(selector);
         var objPadding = parseInt(obj.css('padding-top').replace('px', '')) || 0;
-        console.log(obj.offset().top, objPadding);
         dis = obj.offset().top - objPadding;
         return dis;
     }

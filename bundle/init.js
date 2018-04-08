@@ -6,7 +6,9 @@
     };
 }(jQuery);
 
-var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapper:eq(0)"), select_fund = $("#analysis .select_wrapper:eq(1)"), radio_fund = $("#analysis .see_fund_interest"), sliderDiv = $("#slider"), base_cost = 0, target_refund = 0, fund_index = 0, fund_rate = 0, fund_data = [ {
+var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapper:eq(0)"), select_fund = $("#analysis .select_wrapper:eq(1)"), radio_outer = $("#analysis .fund_list, #analysis .inline.formula"), radio_fund = $("#analysis .see_fund_interest"), sliderDiv = $("#slider"), base_cost = 0, target_refund = 0, moneyContent = $(".silder_wrapper .cost input"), costContent = $("#analysis .money"), fund_index = 0, fund_rate = 0, base_money = function(e, t) {
+    return Math.round(e / (36 * (100 + t) / 100));
+}, fund_data = [ {
     best_rate: 26.61,
     worst_rate: 3.06,
     avg_rate: 11.39
@@ -68,38 +70,38 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
         1 == e && null != e && $(".go_formula").click();
     },
     kv: function() {
-        var i = $(".slide_bar"), t = $(".kv"), a = $(".content"), n = $(".outer.left"), l = $(window).width(), r = $(window).height(), d = ($("#kv .circle_01").offset().left + $("#kv .circle_01").width()) / l;
+        var i = $(".slide_bar"), t = $(".kv"), a = $(".content"), n = $(".outer.left"), d = $(window).width(), r = $(window).height(), l = ($("#kv .circle_01").offset().left + $("#kv .circle_01").width()) / d;
         $("#kv .bar").width();
-        n.width(l * d), i.css("left", l * d - i.width() / 2 + "px"), a.width(l);
+        n.width(d * l), i.css("left", d * l - i.width() / 2 + "px"), a.width(d);
         var s = function(e) {
             var t, a, s = {
-                w: l + "px",
+                w: d + "px",
                 h: r + "px",
-                cw: (t = e) * l + "px",
+                cw: (t = e) * d + "px",
                 ch: t * r + "px"
             };
-            i.css("left", e * l - i.width() / 2), o(), a = s, n.css("width", a.cw);
+            i.css("left", e * d - i.width() / 2), o(), a = s, n.css("width", a.cw);
         }, o = function() {
             var e = $("#kv .circle_01"), t = $("#kv .circle_02"), a = $("#kv .circle_03"), s = $("#kv .circle_04"), i = e.offset().left, n = t.offset().left, r = a.offset().left, o = s.offset().left;
-            i < l * d ? e.addClass("show") : e.removeClass("show"), n < l * d ? t.addClass("show") : t.removeClass("show"), 
-            r < l * d ? a.addClass("show") : a.removeClass("show"), o < l * d ? s.addClass("show") : s.removeClass("show");
-        }, c = function(e, t) {
+            i < d * l ? e.addClass("show") : e.removeClass("show"), n < d * l ? t.addClass("show") : t.removeClass("show"), 
+            r < d * l ? a.addClass("show") : a.removeClass("show"), o < d * l ? s.addClass("show") : s.removeClass("show");
+        }, _ = function(e, t) {
             var a, s, i;
-            return a = (e - _) / l, s = 0, i = 1, Math.max(s, Math.min(i, a));
-        }, _ = 0;
+            return a = (e - c) / d, s = 0, i = 1, Math.max(s, Math.min(i, a));
+        }, c = 0;
         i.on("movestart", function(e) {
             e.distX > e.distY && e.distX < -e.distY || e.distX < e.distY && e.distX > -e.distY ? e.preventDefault() : e.distX < e.distY && e.distX < -e.distY || e.distX > e.distY && (e.distX, 
-            e.distY), t.addClass("active"), _ = t.offset().left, t.offset().top, l, n.height(), 
+            e.distY), t.addClass("active"), c = t.offset().left, t.offset().top, d, n.height(), 
             i.hasClass("hideTip") || i.addClass("hideTip");
         }), i.on("move", function(e) {
-            t.hasClass("active") && (d = c(e.pageX, e.pageY), s(d));
+            t.hasClass("active") && (l = _(e.pageX, e.pageY), s(l));
         }), i.on("moveend", function() {
             t.removeClass("active");
         }), i.on("touchmove", function(e) {
             e.preventDefault();
         }), $(window).on("resize", function(e) {
-            l = $(window).width(), r = $(window).height(), a.width(l), $("#kv .bar").width(), 
-            s(d);
+            d = $(window).width(), r = $(window).height(), a.width(d), $("#kv .bar").width(), 
+            s(l);
         });
     },
     changeBg: function() {
@@ -135,38 +137,35 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
         });
     },
     setFunds: function() {
-        interest_fund.change(function() {
+        radio_outer.hide(), interest_fund.change(function() {
             var e = interest_fund.find(":selected").val();
-            console.log(e), radio_fund.find(".fund_select").hide(), radio_fund.find("." + e).show(), 
-            999 != e ? radio_fund.show() : radio_fund.find(".fund_select").show(), fund_index = 0, 
-            $("input:radio[name=fund_interest]").prop("checked", !1), sliderDiv.slider("value", 0), 
+            radio_fund.find(".fund_select").hide(), radio_fund.find("." + e).show(), 999 != e ? radio_outer.show() : radio_outer.hide(), 
+            fund_index = 0, $("input:radio[name=fund_interest]").prop("checked", !1), sliderDiv.slider("value", 36e4), 
             sliderDiv.slider("disable");
         }), $("input:radio[name=fund_interest]").change(function() {
-            sliderDiv.slider("value", 0), fund_index = this.value, console.log(fund_index), 
-            sliderDiv.slider("enable");
+            sliderDiv.slider("value", 36e4), fund_index = this.value, base_cost = base_money(36e4, fund_data[fund_index].avg_rate), 
+            costContent.text(base_cost), sliderDiv.slider("enable");
         });
     },
     slider: function() {
-        var a = $(".silder_wrapper .cost input"), s = $("#analysis .money"), i = function(e, t) {
-            return Math.round(e / (36 * (100 + t) / 100));
-        };
         sliderDiv.slider({
             range: "min",
             value: target_refund,
-            min: 36e3,
-            max: 36e4,
+            min: 36e4,
+            max: 36e5,
             step: 1,
             create: function() {
-                a.val($(this).slider("value")), target_refund = $(this).slider("value"), base_cost = i(target_refund, fund_data[fund_index].avg_rate), 
-                s.text(base_cost);
+                moneyContent.val($(this).slider("value")), target_refund = $(this).slider("value"), 
+                base_cost = base_money(target_refund, fund_data[fund_index].avg_rate), costContent.text(base_cost);
             },
             change: function(e, t) {
-                a.val(t.value), target_refund = $(this).slider("value"), base_cost = i(target_refund, fund_data[fund_index].avg_rate), 
-                s.text(base_cost);
+                moneyContent.val(t.value), target_refund = $(this).slider("value"), base_cost = base_money(target_refund, fund_data[fund_index].avg_rate), 
+                costContent.text(base_cost);
             }
-        }), a.keyup(function(e) {
+        }), moneyContent.keyup(function(e) {
             var t = $(this).val();
-            "" != t && 36e3 <= t && t <= 36e4 && sliderDiv.slider("value", $(this).val());
+            !sliderDiv.hasClass("ui-slider-disabled") && "" != t && 36e4 <= t && t <= 36e5 && (target_refund = t, 
+            sliderDiv.slider("value", t));
         }), sliderDiv.slider("disable");
     },
     pieChart: function() {
@@ -183,7 +182,7 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
     },
     caloffset: function(e) {
         var t = $(e), a = parseInt(t.css("padding-top").replace("px", "")) || 0;
-        return console.log(t.offset().top, a), t.offset().top - a;
+        return t.offset().top - a;
     }
 };
 
