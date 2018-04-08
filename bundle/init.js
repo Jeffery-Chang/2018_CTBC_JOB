@@ -60,7 +60,7 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
         }), $("#weapon .btn_orange").click(function(e) {
             e.preventDefault(), gaclick("open"), window.open("http://www.ctbcbank.com/html/fileUpload/homebank/openacc.html", "_blank");
         }), $(window).on("load", function() {
-            $.preload("images/theme2_01.jpg", "images/theme2_02.jpg", "images/theme3_01.jpg", "images/theme3_02.jpg", "images/theme4_01.jpg", "images/theme4_02.jpg", "images/theme1_01_pad.jpg", "images/theme1_02_pad.jpg", "images/theme2_01_pad.jpg", "images/theme2_02_pad.jpg", "images/theme3_01_pad.jpg", "images/theme3_02_pad.jpg", "images/theme4_01_pad.jpg", "images/theme4_02_pad.jpg", "images/theme1_01_m.jpg", "images/theme1_02_m.jpg", "images/theme2_01_m.jpg", "images/theme2_02_m.jpg", "images/theme3_01_m.jpg", "images/theme3_02_m.jpg", "images/theme4_01_m.jpg", "images/theme4_02_m.jpg");
+            $.preload("images/theme1_01.jpg", "images/theme1_02.jpg", "images/theme2_01.jpg", "images/theme2_02.jpg", "images/theme3_01.jpg", "images/theme3_02.jpg", "images/theme4_01.jpg", "images/theme4_02.jpg", "images/theme5_01.jpg", "images/theme5_02.jpg", "images/theme1_01_pad.jpg", "images/theme1_02_pad.jpg", "images/theme2_01_pad.jpg", "images/theme2_02_pad.jpg", "images/theme3_01_pad.jpg", "images/theme3_02_pad.jpg", "images/theme4_01_pad.jpg", "images/theme4_02_pad.jpg", "images/theme5_01_pad.jpg", "images/theme5_02_pad.jpg", "images/theme1_01_m.jpg", "images/theme1_02_m.jpg", "images/theme2_01_m.jpg", "images/theme2_02_m.jpg", "images/theme3_01_m.jpg", "images/theme3_02_m.jpg", "images/theme4_01_m.jpg", "images/theme4_02_m.jpg", "images/theme5_01_m.jpg", "images/theme5_02_m.jpg");
         });
     },
     fromFunds: function() {
@@ -68,60 +68,60 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
         1 == e && null != e && $(".go_formula").click();
     },
     kv: function() {
-        var e = $(".slide_bar"), t = $(".kv"), a = $(".content"), s = $(".outer.left"), i = $(window).width(), n = $(window).height(), r = ($("#kv .circle_01").offset().left + $("#kv .circle_01").width()) / i, l = $("#kv .bar").width();
+        var e = $(".slide_bar"), t = $(".kv"), a = $(".content"), s = $(".outer.left"), i = $(window).width(), n = $(window).height(), r = ($("#kv .circle_01").offset().left + $("#kv .circle_01").width()) / i;
+        $("#kv .bar").width();
         s.width(i * r), e.css("left", i * r - e.width() / 2 + "px"), a.width(i);
-        var o = function(e) {
-            s.css("width", e.cw);
-        }, d = function(e) {
-            var t = i, a = n;
-            return {
-                w: t + "px",
-                h: a + "px",
-                cw: e * t + "px",
-                ch: e * a + "px"
-            };
-        }, c = function(t) {
-            var a = d(t);
-            e.css("left", t * i - e.width() / 2), f(), o(a);
-        }, f = function() {
-            var e = $("#kv .circle_01"), t = $("#kv .circle_02"), a = $("#kv .circle_03"), s = $("#kv .circle_04"), n = e.offset().left, l = t.offset().left, o = a.offset().left, d = s.offset().left;
-            i * r > n ? e.addClass("show") : e.removeClass("show"), i * r > l ? t.addClass("show") : t.removeClass("show"), 
-            i * r > o ? a.addClass("show") : a.removeClass("show"), i * r > d ? s.addClass("show") : s.removeClass("show");
-        }, _ = function(e, t, a) {
-            return Math.max(t, Math.min(a, e));
-        }, u = function(e, t) {
-            return _((e - p) / i, 0, 1);
-        }, p = 0, h = 0, v = 0, m = 0, g = function(a) {
+        var o = function(t) {
+            var a = function(e) {
+                return {
+                    w: i + "px",
+                    h: n + "px",
+                    cw: e * i + "px",
+                    ch: e * n + "px"
+                };
+            }(t);
+            e.css("left", t * i - e.width() / 2), d(), function(e) {
+                s.css("width", e.cw);
+            }(a);
+        }, d = function() {
+            var e = $("#kv .circle_01"), t = $("#kv .circle_02"), a = $("#kv .circle_03"), s = $("#kv .circle_04"), n = e.offset().left, o = t.offset().left, d = a.offset().left, l = s.offset().left;
+            i * r > n ? e.addClass("show") : e.removeClass("show"), i * r > o ? t.addClass("show") : t.removeClass("show"), 
+            i * r > d ? a.addClass("show") : a.removeClass("show"), i * r > l ? s.addClass("show") : s.removeClass("show");
+        }, l = function(e, t) {
+            return function(e, t, a) {
+                return Math.max(t, Math.min(a, e));
+            }((e - c) / i, 0, 1);
+        }, c = 0;
+        e.on("movestart", function(a) {
             a.distX > a.distY && a.distX < -a.distY || a.distX < a.distY && a.distX > -a.distY ? a.preventDefault() : a.distX < a.distY && a.distX < -a.distY || a.distX > a.distY && (a.distX, 
-            a.distY), t.addClass("active"), p = t.offset().left, h = t.offset().top, v = i, 
-            m = s.height(), e.hasClass("hideTip") || e.addClass("hideTip");
-        }, w = function(e) {
-            t.hasClass("active") && (r = u(e.pageX, e.pageY), c(r));
-        }, b = function() {
+            a.distY), t.addClass("active"), c = t.offset().left, t.offset().top, i, s.height(), 
+            e.hasClass("hideTip") || e.addClass("hideTip");
+        }), e.on("move", function(e) {
+            t.hasClass("active") && (r = l(e.pageX, e.pageY), o(r));
+        }), e.on("moveend", function() {
             t.removeClass("active");
-        };
-        e.on("movestart", g), e.on("move", w), e.on("moveend", b), e.on("touchmove", function(e) {
+        }), e.on("touchmove", function(e) {
             e.preventDefault();
         }), $(window).on("resize", function(e) {
-            i = $(window).width(), n = $(window).height(), a.width(i), l = $("#kv .bar").width(), 
-            c(r);
+            i = $(window).width(), n = $(window).height(), a.width(i), $("#kv .bar").width(), 
+            o(r);
         });
     },
     changeBg: function() {
-        var e = $(".content"), t = $(".content.left"), a = $(".content.right"), s = $("#kv .change_theme li"), i = $("#kv .active"), n = function(s) {
-            e.stop().fadeOut("fast", function() {
-                t.removeClass("car wedding school son").addClass(s), a.removeClass("car wedding school son").addClass(s);
-            }).fadeIn("slow");
-        };
-        s.click(function(e) {
-            e.preventDefault();
-            var t = $(this).data("class");
+        var e = $(".content"), t = $(".content.left"), a = $(".content.right"), s = $("#kv .change_theme li"), i = $("#kv .active");
+        s.click(function(n) {
+            n.preventDefault();
+            var r = $(this).data("class");
             typeTop = $(this).data("top"), typeLeft = $(this).data("left"), $(this).hasClass("active") || (s.removeClass("active"), 
             menuCtrl.chkDevice() ? i.css("top", "0px").stop().animate({
                 left: typeLeft
             }, 500) : i.css("left", "0").stop().animate({
                 top: typeTop
-            }, 500), $(this).addClass("active"), n(t));
+            }, 500), $(this).addClass("active"), function(s) {
+                e.stop().fadeOut("fast", function() {
+                    t.removeClass("money car work son retire").addClass(s), a.removeClass("money car work son retire").addClass(s);
+                }).fadeIn("slow");
+            }(r));
         }).eq(0).click(), $(window).resize(function() {
             menuCtrl.chkDevice() ? i.css("top", "0px").css("left", typeLeft) : i.css("top", typeTop).css("left", "0");
         });
@@ -149,30 +149,6 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
             sliderDiv.slider("value", 0), sliderDiv.slider("disable");
         }), $("input:radio[name=fund_interest]").change(function() {
             sliderDiv.slider("value", 0), fund_index = this.value, sliderDiv.slider("enable");
-        });
-    },
-    showAnswer: function() {
-        var e = this, t = $("#analysis .btn_wrapper .btn_green"), a = $("#analysis .btn_wrapper .btn_white"), s = $("#analysis .analysis_result");
-        t.click(function(a) {
-            if (a.preventDefault(), 999 != interest_fund.find(":selected").val()) if (999 != select_fund.find(":selected").val()) if (0 != sliderDiv.slider("value")) {
-                var i = 0, n = 0;
-                if (t.hasClass("show")) return i = menuCtrl.chkDevice() ? $("#analysis .mb").height() : 0, 
-                n = e.caloffset("#analysis") + i, void s.slideUp({
-                    duration: 750,
-                    complete: function() {
-                        t.removeClass("show"), interest_fund.find("select").val(999), select_fund.find("select").val(999), 
-                        select_fund.parents("li").hide(), sliderDiv.slider("value", 0), menuCtrl.scrollPage(n);
-                    }
-                });
-                s.slideDown({
-                    duration: 750,
-                    complete: function() {
-                        t.addClass("show");
-                    }
-                });
-            } else alert("請選擇希望達成目標"); else alert("請選擇基金"); else alert("請選擇興趣");
-        }), a.click(function(e) {
-            e.preventDefault(), trackWaitJump("", "fund_list.html");
         });
     },
     slider: function() {

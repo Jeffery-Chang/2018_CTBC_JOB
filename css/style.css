@@ -1053,15 +1053,15 @@ input[type=number] {
 }
 
 font.Y1:before {
-    content: "1Y: ";
+    content: "1年: ";
 }
 
 font.Y2:before {
-    content: "2Y: ";
+    content: "2年: ";
 }
 
 font.Y3:before {
-    content: "3Y: ";
+    content: "3年: ";
 }
 
 .find_item h5 .f_grey {
