@@ -1,8 +1,8 @@
 "use strict";
 
-!function(e) {
-    e.preload = function() {
-        for (var t = [], a = arguments.length; a--; ) t.push(e("<img />").attr("src", arguments[a]));
+!function(a) {
+    a.preload = function() {
+        for (var e = [], t = arguments.length; t--; ) e.push(a("<img />").attr("src", arguments[t]));
     };
 }(jQuery);
 
@@ -68,77 +68,70 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
         1 == e && null != e && $(".go_formula").click();
     },
     kv: function() {
-        var e = $(".slide_bar"), t = $(".kv"), a = $(".content"), s = $(".outer.left"), i = $(window).width(), n = $(window).height(), r = ($("#kv .circle_01").offset().left + $("#kv .circle_01").width()) / i;
+        var i = $(".slide_bar"), t = $(".kv"), a = $(".content"), n = $(".outer.left"), l = $(window).width(), r = $(window).height(), d = ($("#kv .circle_01").offset().left + $("#kv .circle_01").width()) / l;
         $("#kv .bar").width();
-        s.width(i * r), e.css("left", i * r - e.width() / 2 + "px"), a.width(i);
-        var o = function(t) {
-            var a = function(e) {
-                return {
-                    w: i + "px",
-                    h: n + "px",
-                    cw: e * i + "px",
-                    ch: e * n + "px"
-                };
-            }(t);
-            e.css("left", t * i - e.width() / 2), d(), function(e) {
-                s.css("width", e.cw);
-            }(a);
-        }, d = function() {
-            var e = $("#kv .circle_01"), t = $("#kv .circle_02"), a = $("#kv .circle_03"), s = $("#kv .circle_04"), n = e.offset().left, o = t.offset().left, d = a.offset().left, l = s.offset().left;
-            i * r > n ? e.addClass("show") : e.removeClass("show"), i * r > o ? t.addClass("show") : t.removeClass("show"), 
-            i * r > d ? a.addClass("show") : a.removeClass("show"), i * r > l ? s.addClass("show") : s.removeClass("show");
-        }, l = function(e, t) {
-            return function(e, t, a) {
-                return Math.max(t, Math.min(a, e));
-            }((e - c) / i, 0, 1);
-        }, c = 0;
-        e.on("movestart", function(a) {
-            a.distX > a.distY && a.distX < -a.distY || a.distX < a.distY && a.distX > -a.distY ? a.preventDefault() : a.distX < a.distY && a.distX < -a.distY || a.distX > a.distY && (a.distX, 
-            a.distY), t.addClass("active"), c = t.offset().left, t.offset().top, i, s.height(), 
-            e.hasClass("hideTip") || e.addClass("hideTip");
-        }), e.on("move", function(e) {
-            t.hasClass("active") && (r = l(e.pageX, e.pageY), o(r));
-        }), e.on("moveend", function() {
+        n.width(l * d), i.css("left", l * d - i.width() / 2 + "px"), a.width(l);
+        var s = function(e) {
+            var t, a, s = {
+                w: l + "px",
+                h: r + "px",
+                cw: (t = e) * l + "px",
+                ch: t * r + "px"
+            };
+            i.css("left", e * l - i.width() / 2), o(), a = s, n.css("width", a.cw);
+        }, o = function() {
+            var e = $("#kv .circle_01"), t = $("#kv .circle_02"), a = $("#kv .circle_03"), s = $("#kv .circle_04"), i = e.offset().left, n = t.offset().left, r = a.offset().left, o = s.offset().left;
+            i < l * d ? e.addClass("show") : e.removeClass("show"), n < l * d ? t.addClass("show") : t.removeClass("show"), 
+            r < l * d ? a.addClass("show") : a.removeClass("show"), o < l * d ? s.addClass("show") : s.removeClass("show");
+        }, c = function(e, t) {
+            var a, s, i;
+            return a = (e - _) / l, s = 0, i = 1, Math.max(s, Math.min(i, a));
+        }, _ = 0;
+        i.on("movestart", function(e) {
+            e.distX > e.distY && e.distX < -e.distY || e.distX < e.distY && e.distX > -e.distY ? e.preventDefault() : e.distX < e.distY && e.distX < -e.distY || e.distX > e.distY && (e.distX, 
+            e.distY), t.addClass("active"), _ = t.offset().left, t.offset().top, l, n.height(), 
+            i.hasClass("hideTip") || i.addClass("hideTip");
+        }), i.on("move", function(e) {
+            t.hasClass("active") && (d = c(e.pageX, e.pageY), s(d));
+        }), i.on("moveend", function() {
             t.removeClass("active");
-        }), e.on("touchmove", function(e) {
+        }), i.on("touchmove", function(e) {
             e.preventDefault();
         }), $(window).on("resize", function(e) {
-            i = $(window).width(), n = $(window).height(), a.width(i), $("#kv .bar").width(), 
-            o(r);
+            l = $(window).width(), r = $(window).height(), a.width(l), $("#kv .bar").width(), 
+            s(d);
         });
     },
     changeBg: function() {
-        var e = $(".content"), t = $(".content.left"), a = $(".content.right"), s = $("#kv .change_theme li"), i = $("#kv .active");
-        s.click(function(n) {
-            n.preventDefault();
-            var r = $(this).data("class");
-            typeTop = $(this).data("top"), typeLeft = $(this).data("left"), $(this).hasClass("active") || (s.removeClass("active"), 
-            menuCtrl.chkDevice() ? i.css("top", "0px").stop().animate({
+        var s = $(".content"), i = $(".content.left"), n = $(".content.right"), r = $("#kv .change_theme li"), o = $("#kv .active");
+        r.click(function(e) {
+            e.preventDefault();
+            var t, a = $(this).data("class");
+            (typeTop = $(this).data("top"), typeLeft = $(this).data("left"), $(this).hasClass("active")) || (r.removeClass("active"), 
+            menuCtrl.chkDevice() ? o.css("top", "0px").stop().animate({
                 left: typeLeft
-            }, 500) : i.css("left", "0").stop().animate({
+            }, 500) : o.css("left", "0").stop().animate({
                 top: typeTop
-            }, 500), $(this).addClass("active"), function(s) {
-                e.stop().fadeOut("fast", function() {
-                    t.removeClass("money car work son retire").addClass(s), a.removeClass("money car work son retire").addClass(s);
-                }).fadeIn("slow");
-            }(r));
+            }, 500), $(this).addClass("active"), t = a, s.stop().fadeOut("fast", function() {
+                i.removeClass("money car work son retire").addClass(t), n.removeClass("money car work son retire").addClass(t);
+            }).fadeIn("slow"));
         }).eq(0).click(), $(window).resize(function() {
-            menuCtrl.chkDevice() ? i.css("top", "0px").css("left", typeLeft) : i.css("top", typeTop).css("left", "0");
+            menuCtrl.chkDevice() ? o.css("top", "0px").css("left", typeLeft) : o.css("top", typeTop).css("left", "0");
         });
     },
     playBtn: function() {
         var e = $(".go_formula");
-        $(window).scrollTop() > 90 ? e.addClass("show") : e.removeClass("show"), $(window).scroll(function() {
-            $(window).scrollTop() > 90 ? e.addClass("show") : e.removeClass("show");
+        90 < $(window).scrollTop() ? e.addClass("show") : e.removeClass("show"), $(window).scroll(function() {
+            90 < $(window).scrollTop() ? e.addClass("show") : e.removeClass("show");
         });
     },
     play: function() {
-        var e = this, t = 0;
-        $("#top .indexPage li:eq(1), .go_formula").click(function(a) {
-            a.preventDefault();
-            var s = menuCtrl.chkDevice() ? $("#analysis .mb").height() : 0;
-            t = menuCtrl.chkDevice() ? e.caloffset("#analysis") + s : $("#kv").height() + $("#top").height(), 
-            menuCtrl.scrollPage(t);
+        var a = this, e = $("#top .indexPage li:eq(1), .go_formula"), s = 0;
+        e.click(function(e) {
+            e.preventDefault();
+            var t = menuCtrl.chkDevice() ? $("#analysis .mb").height() : 0;
+            s = menuCtrl.chkDevice() ? a.caloffset("#analysis") + t : $("#kv").height() + $("#top").height(), 
+            menuCtrl.scrollPage(s);
         });
     },
     setFunds: function() {
@@ -154,7 +147,7 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
         });
     },
     slider: function() {
-        var e = $(".silder_wrapper .cost"), t = $("#analysis .money"), a = function(e, t) {
+        var a = $(".silder_wrapper .cost input"), s = $("#analysis .money"), i = function(e, t) {
             return Math.round(e / (36 * (100 + t) / 100));
         };
         sliderDiv.slider({
@@ -162,15 +155,18 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
             value: target_refund,
             min: 36e3,
             max: 36e4,
-            step: 12e3,
+            step: 1,
             create: function() {
-                e.text($(this).slider("value")), target_refund = $(this).slider("value"), base_cost = a(target_refund, fund_data[fund_index].avg_rate), 
-                t.text(base_cost);
+                a.val($(this).slider("value")), target_refund = $(this).slider("value"), base_cost = i(target_refund, fund_data[fund_index].avg_rate), 
+                s.text(base_cost);
             },
-            change: function(s, i) {
-                e.text(i.value), target_refund = $(this).slider("value"), base_cost = a(target_refund, fund_data[fund_index].avg_rate), 
-                t.text(base_cost);
+            change: function(e, t) {
+                a.val(t.value), target_refund = $(this).slider("value"), base_cost = i(target_refund, fund_data[fund_index].avg_rate), 
+                s.text(base_cost);
             }
+        }), a.keyup(function(e) {
+            var t = $(this).val();
+            "" != t && 36e3 <= t && t <= 36e4 && sliderDiv.slider("value", $(this).val());
         }), sliderDiv.slider("disable");
     },
     pieChart: function() {
