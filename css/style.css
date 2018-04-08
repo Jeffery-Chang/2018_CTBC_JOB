@@ -1448,6 +1448,7 @@ font.Y3:before {
 .fund_title font {
     float: right;
     position: relative;
+    text-align: center;
 }
 
 .fund_title {
