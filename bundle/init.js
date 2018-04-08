@@ -6,7 +6,7 @@
     };
 }(jQuery);
 
-var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapper:eq(0)"), select_fund = $("#analysis .select_wrapper:eq(1)"), radio_fund = $("#analysis .interest li:eq(1)"), sliderDiv = $("#slider"), base_cost = 0, target_refund = 0, fund_index = 0, fund_rate = 0, fund_data = [ {
+var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapper:eq(0)"), select_fund = $("#analysis .select_wrapper:eq(1)"), radio_fund = $("#analysis .see_fund_interest"), sliderDiv = $("#slider"), base_cost = 0, target_refund = 0, fund_index = 0, fund_rate = 0, fund_data = [ {
     best_rate: 26.61,
     worst_rate: 3.06,
     avg_rate: 11.39
@@ -137,40 +137,38 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
         $("#top .indexPage li:eq(1), .go_formula").click(function(a) {
             a.preventDefault();
             var s = menuCtrl.chkDevice() ? $("#analysis .mb").height() : 0;
-            t = menuCtrl.chkDevice() ? e.caloffset("#analysis") + s : $("#kv").height() - $("#top").height(), 
+            t = menuCtrl.chkDevice() ? e.caloffset("#analysis") + s : $("#kv").height() + $("#top").height(), 
             menuCtrl.scrollPage(t);
         });
     },
     setFunds: function() {
         interest_fund.change(function() {
             var e = interest_fund.find(":selected").val();
-            radio_fund.find(".see_fund_interest").find("div").hide(), radio_fund.find("." + e).show(), 
-            999 != e ? radio_fund.show() : radio_fund.hide(), fund_index = 0, $("input:radio[name=fund_interest]").prop("checked", !1), 
-            sliderDiv.slider("value", 0), sliderDiv.slider("disable");
+            console.log(e), radio_fund.find(".fund_select").hide(), radio_fund.find("." + e).show(), 
+            999 != e ? radio_fund.show() : radio_fund.find(".fund_select").show(), fund_index = 0, 
+            $("input:radio[name=fund_interest]").prop("checked", !1), sliderDiv.slider("value", 0), 
+            sliderDiv.slider("disable");
         }), $("input:radio[name=fund_interest]").change(function() {
-            sliderDiv.slider("value", 0), fund_index = this.value, sliderDiv.slider("enable");
+            sliderDiv.slider("value", 0), fund_index = this.value, console.log(fund_index), 
+            sliderDiv.slider("enable");
         });
     },
     slider: function() {
-        var e = $(".silder_wrapper font"), t = $("#analysis .money"), a = function(e, t) {
+        var e = $(".silder_wrapper .cost"), t = $("#analysis .money"), a = function(e, t) {
             return Math.round(e / (36 * (100 + t) / 100));
         };
         sliderDiv.slider({
             range: "min",
             value: target_refund,
-            min: 0,
-            max: 3e4,
-            step: 1,
+            min: 36e3,
+            max: 36e4,
+            step: 12e3,
             create: function() {
-                e.text($(this).slider("value")), target_refund = $(this).slider("value"), base_cost = a(target_refund, fund_rate), 
-                t.text(base_cost);
-            },
-            slide: function(s, i) {
-                e.text(i.value), target_refund = $(this).slider("value"), base_cost = a(target_refund, fund_rate), 
+                e.text($(this).slider("value")), target_refund = $(this).slider("value"), base_cost = a(target_refund, fund_data[fund_index].avg_rate), 
                 t.text(base_cost);
             },
             change: function(s, i) {
-                e.text(i.value), target_refund = $(this).slider("value"), base_cost = a(target_refund, fund_rate), 
+                e.text(i.value), target_refund = $(this).slider("value"), base_cost = a(target_refund, fund_data[fund_index].avg_rate), 
                 t.text(base_cost);
             }
         }), sliderDiv.slider("disable");
@@ -189,7 +187,7 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
     },
     caloffset: function(e) {
         var t = $(e), a = parseInt(t.css("padding-top").replace("px", "")) || 0;
-        return t.offset().top - a;
+        return console.log(t.offset().top, a), t.offset().top - a;
     }
 };
 

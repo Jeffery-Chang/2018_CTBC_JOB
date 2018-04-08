@@ -4,13 +4,14 @@ var typeTop = '20px';
 var typeLeft = '0';
 var interest_fund = $('#analysis .select_wrapper:eq(0)');
 var select_fund = $('#analysis .select_wrapper:eq(1)');
-var radio_fund = $('#analysis .interest li:eq(1)');
+var radio_fund = $('#analysis .see_fund_interest');
 var sliderDiv = $('#slider'); // slider bar
 var base_cost = 0; // 每月投資的錢
 var target_refund = 0; // 目標
 var fund_index = 0; // 哪個基金
 var fund_rate = 0; // 基金%
-var fund_data = [{
+var fund_data = [
+    {
         "best_rate": 26.61,
         "worst_rate": 3.06,
         "avg_rate": 11.39
@@ -306,7 +307,7 @@ var indexCtrl = {
         btn.click(function(e) {
             e.preventDefault();
             var adjustDis = (menuCtrl.chkDevice()) ? $('#analysis .mb').height() : 0;
-            dis = (menuCtrl.chkDevice()) ? $this.caloffset('#analysis') + adjustDis : $('#kv').height() - $('#top').height();
+            dis = (menuCtrl.chkDevice()) ? $this.caloffset('#analysis') + adjustDis : $('#kv').height() + $('#top').height();
             menuCtrl.scrollPage(dis);
         });
     },
@@ -314,11 +315,12 @@ var indexCtrl = {
         // 基金選類別下拉
         interest_fund.change(function() {
             var newval = interest_fund.find(':selected').val();
+            console.log(newval);
 
-            radio_fund.find('.see_fund_interest').find('div').hide();
+            radio_fund.find('.fund_select').hide();
             radio_fund.find('.' + newval).show();
 
-            (newval != 999) ? radio_fund.show(): radio_fund.hide();
+            (newval != 999) ? radio_fund.show(): radio_fund.find('.fund_select').show();
 
             fund_index = 0;
             $('input:radio[name=fund_interest]').prop('checked', false);
@@ -331,6 +333,7 @@ var indexCtrl = {
         $('input:radio[name=fund_interest]').change(function() {
             sliderDiv.slider('value', 0);
             fund_index = this.value;
+            console.log(fund_index);
             sliderDiv.slider("enable");
         });
     },
@@ -393,7 +396,7 @@ var indexCtrl = {
         });
     }, */
     slider() {
-        var moneyContent = $('.silder_wrapper font');
+        var moneyContent = $('.silder_wrapper .cost');
         var costContent = $('#analysis .money');
         var base_money = function(target, rate) {
             return Math.round(target / (36 * (100 + rate) / 100));
@@ -402,25 +405,25 @@ var indexCtrl = {
         sliderDiv.slider({
             range: "min",
             value: target_refund,
-            min: 0,
-            max: 30000,
-            step: 1,
+            min: 36000,
+            max: 360000,
+            step: 12000,
             create: function() {
                 moneyContent.text($(this).slider('value'));
                 target_refund = $(this).slider('value');
-                base_cost = base_money(target_refund, fund_rate);
+                base_cost = base_money(target_refund, fund_data[fund_index].avg_rate);
                 costContent.text(base_cost);
             },
-            slide: function(event, ui) {
+            /*slide: function(event, ui) {
                 moneyContent.text(ui.value);
                 target_refund = $(this).slider('value');
-                base_cost = base_money(target_refund, fund_rate);
+                base_cost = base_money(target_refund, fund_data[fund_index].avg_rate);
                 costContent.text(base_cost);
-            },
+            },*/
             change: function(event, ui) {
                 moneyContent.text(ui.value);
                 target_refund = $(this).slider('value');
-                base_cost = base_money(target_refund, fund_rate);
+                base_cost = base_money(target_refund, fund_data[fund_index].avg_rate);
                 costContent.text(base_cost);
             }
         });
@@ -444,6 +447,7 @@ var indexCtrl = {
         var dis = 0;
         var obj = $(selector);
         var objPadding = parseInt(obj.css('padding-top').replace('px', '')) || 0;
+        console.log(obj.offset().top, objPadding);
         dis = obj.offset().top - objPadding;
         return dis;
     }
