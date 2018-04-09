@@ -969,7 +969,8 @@ select::-ms-expand {
 
 .cost {
     width: 180px;
-    height: 40px;
+    height: 60px;
+    padding-bottom: 20px;
     line-height: 40px;
     font-weight: bolder;
     right: 0;
@@ -977,12 +978,17 @@ select::-ms-expand {
     color: #4ed4d3;
     font-size: 29px;
     letter-spacing: -.5px;
-    background-color: #ddf6f6;
-    overflow: visible;
+    overflow: hidden;
+}
+
+.cost p{
+    display: block;
+    height: 42px;
+    width: 100%;
 }
 
 .cost font{
-    bottom: -20px;
+    bottom: 0;
     text-align: left;
     left: 0;
     font-size: 11px;
@@ -1017,6 +1023,7 @@ input[type=number] {
     position: absolute;
     right: 12px;
     vertical-align: middle;
+    top: 2px;
 }
 
 .mb_330 br{
@@ -1162,7 +1169,7 @@ font.Y3:before {
 #analysis {
     padding: 65px 0 0;
     overflow: hidden;
-    padding: 95px 0 0;
+    padding: 95px 0 65px;
 }
 
 #analysis .btn_wrapper {
@@ -1172,7 +1179,7 @@ font.Y3:before {
     display: inline-block;
     /* left: 50%; */
     /* margin-left: -130px; */
-    margin: 20px auto 80px;
+    margin: 20px auto;
     /* width: 100%; */
 }
 
@@ -1614,7 +1621,7 @@ b.f_red {
         display: none;
     }
     #analysis {
-        padding-top: 0;
+        padding: 0 0 20px;
     }
     .W50 {
         width: 100%;
@@ -1944,7 +1951,7 @@ b.f_red {
     }
     .select_wrapper {
         width: 100%;
-        margin-bottom: 20px;
+        margin-bottom: 0px;
     }
     select {
         width: 100%;
@@ -2178,6 +2185,9 @@ b.f_red {
     }
     .cost{
         top: -62px;
+    }
+    .interest li{
+        
     }
 }
 
