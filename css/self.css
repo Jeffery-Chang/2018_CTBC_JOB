@@ -1,5 +1,4 @@
 /* kv use */
-
 #kv .content.left,
 #kv .content.right,
 #kv .slide_bar {
@@ -144,7 +143,6 @@
 
 
 /* pie Chart use*/
-
 #control .pie1 {
     opacity: 0;
     transform: translate(-50px, -50px);
@@ -176,7 +174,6 @@
 
 
 /* five circle use*/
-
 #weapon .icon_wrap img {
     transform: scale(.7);
 }
@@ -262,4 +259,9 @@
             transform: scale(.7);
         }
     }
+}
+
+/* analysis use */
+#analysis .step2.hide, #analysis .step3.hide{
+    display: none;
 }

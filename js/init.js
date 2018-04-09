@@ -3,7 +3,8 @@ var typeTop = '20px';
 var typeLeft = '0';
 var interest_fund = $('#analysis .select_wrapper:eq(0)');
 var select_fund = $('#analysis .select_wrapper:eq(1)');
-var radio_outer = $('#analysis .fund_list, #analysis .inline.formula');
+var step2 = $('#analysis .step2');
+var step3 = $('#analysis .step3');
 var radio_fund = $('#analysis .see_fund_interest');
 var sliderDiv = $('#slider'); // slider bar
 var base_cost = 0; // 每月投資的錢
@@ -308,13 +309,10 @@ var indexCtrl = {
         var catch_btn = $('#analysis .btn_wrapper .btn_green');
         var deep_btn = $('#analysis .btn_wrapper .btn_white');
         var set_url = function(type){
-            /*catch_btn.attr('href', fund_data[fund_index].catch_url);
-            deep_btn.attr('href', fund_data[fund_index].deep_url);*/
             var open_url = (type == 'catch') ? fund_data[fund_index].catch_url : fund_data[fund_index].deep_url;
             window.open(open_url, '_blank');
         };
 
-        radio_outer.hide();
         catch_btn.addClass('disable');
         deep_btn.addClass('disable');
 
@@ -325,7 +323,8 @@ var indexCtrl = {
             radio_fund.find('.fund_select').hide();
             radio_fund.find('.' + newval).show();
 
-            (newval != 999) ? radio_outer.show(): radio_outer.hide();
+            (newval != 999) ? step2.removeClass('hide'): step2.addClass('hide');
+            step3.addClass('hide');
 
             fund_index = 0;
             $('input:radio[name=fund_interest]').prop('checked', false);
@@ -338,6 +337,7 @@ var indexCtrl = {
 
         // 選基金radio
         $('input:radio[name=fund_interest]').change(function() {
+            step3.removeClass('hide');
             sliderDiv.slider('value', 360000);
             fund_index = this.value;
             base_cost = base_money(360000, fund_data[fund_index].avg_rate);

@@ -6,7 +6,7 @@
     };
 }(jQuery);
 
-var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapper:eq(0)"), select_fund = $("#analysis .select_wrapper:eq(1)"), radio_outer = $("#analysis .fund_list, #analysis .inline.formula"), radio_fund = $("#analysis .see_fund_interest"), sliderDiv = $("#slider"), base_cost = 0, target_refund = 0, moneyContent = $(".silder_wrapper .cost input"), costContent = $("#analysis .money"), fund_index = 0, fund_rate = 0, base_money = function(e, t) {
+var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapper:eq(0)"), select_fund = $("#analysis .select_wrapper:eq(1)"), step2 = $("#analysis .step2"), step3 = $("#analysis .step3"), radio_fund = $("#analysis .see_fund_interest"), sliderDiv = $("#slider"), base_cost = 0, target_refund = 0, moneyContent = $(".silder_wrapper .cost input"), costContent = $("#analysis .money"), fund_index = 0, fund_rate = 0, base_money = function(e, t) {
     return Math.round(e / (36 * (100 + t) / 100));
 }, fund_data = [ {
     avg_rate: 23.36,
@@ -64,12 +64,12 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
         1 == e && null != e && $(".go_formula").click();
     },
     kv: function() {
-        var e = $(".slide_bar"), t = $(".kv"), a = $(".content"), s = $(".outer.left"), o = $(window).width(), n = $(window).height(), i = ($("#kv .circle_01").offset().left + $("#kv .circle_01").width()) / o, d = $("#kv .bar").width();
-        s.width(o * i), e.css("left", o * i - e.width() / 2 + "px"), a.width(o);
+        var e = $(".slide_bar"), t = $(".kv"), a = $(".content"), s = $(".outer.left"), n = $(window).width(), o = $(window).height(), d = ($("#kv .circle_01").offset().left + $("#kv .circle_01").width()) / n, i = $("#kv .bar").width();
+        s.width(n * d), e.css("left", n * d - e.width() / 2 + "px"), a.width(n);
         var r = function(e) {
             s.css("width", e.cw);
         }, _ = function(e) {
-            var t = o, a = n;
+            var t = n, a = o;
             return {
                 w: t + "px",
                 h: a + "px",
@@ -78,33 +78,33 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
             };
         }, c = function(t) {
             var a = _(t);
-            e.css("left", t * o - e.width() / 2), l(), r(a);
+            e.css("left", t * n - e.width() / 2), l(), r(a);
         }, l = function() {
-            var e = $("#kv .circle_01"), t = $("#kv .circle_02"), a = $("#kv .circle_03"), s = $("#kv .circle_04"), n = e.offset().left, d = t.offset().left, r = a.offset().left, _ = s.offset().left;
-            o * i > n ? e.addClass("show") : e.removeClass("show"), o * i > d ? t.addClass("show") : t.removeClass("show"), 
-            o * i > r ? a.addClass("show") : a.removeClass("show"), o * i > _ ? s.addClass("show") : s.removeClass("show");
+            var e = $("#kv .circle_01"), t = $("#kv .circle_02"), a = $("#kv .circle_03"), s = $("#kv .circle_04"), o = e.offset().left, i = t.offset().left, r = a.offset().left, _ = s.offset().left;
+            n * d > o ? e.addClass("show") : e.removeClass("show"), n * d > i ? t.addClass("show") : t.removeClass("show"), 
+            n * d > r ? a.addClass("show") : a.removeClass("show"), n * d > _ ? s.addClass("show") : s.removeClass("show");
         }, p = function(e, t, a) {
             return Math.max(t, Math.min(a, e));
-        }, u = function(e, t) {
-            return p((e - f) / o, 0, 1);
-        }, f = 0, m = 0, h = 0, g = 0, w = function(a) {
+        }, f = function(e, t) {
+            return p((e - m) / n, 0, 1);
+        }, m = 0, u = 0, h = 0, g = 0, w = function(a) {
             a.distX > a.distY && a.distX < -a.distY || a.distX < a.distY && a.distX > -a.distY ? a.preventDefault() : a.distX < a.distY && a.distX < -a.distY || a.distX > a.distY && (a.distX, 
-            a.distY), t.addClass("active"), f = t.offset().left, m = t.offset().top, h = o, 
+            a.distY), t.addClass("active"), m = t.offset().left, u = t.offset().top, h = n, 
             g = s.height(), e.hasClass("hideTip") || e.addClass("hideTip");
         }, C = function(e) {
-            t.hasClass("active") && (i = u(e.pageX, e.pageY), c(i));
+            t.hasClass("active") && (d = f(e.pageX, e.pageY), c(d));
         }, v = function() {
             t.removeClass("active");
         };
         e.on("movestart", w), e.on("move", C), e.on("moveend", v), e.on("touchmove", function(e) {
             e.preventDefault();
         }), $(window).on("resize", function(e) {
-            o = $(window).width(), n = $(window).height(), a.width(o), d = $("#kv .bar").width(), 
-            c(i);
+            n = $(window).width(), o = $(window).height(), a.width(n), i = $("#kv .bar").width(), 
+            c(d);
         });
     },
     changeBg: function() {
-        var e = $(".content"), t = $(".content.left"), a = $(".content.right"), s = $("#kv .change_theme li"), o = $("#kv .active"), n = function(s) {
+        var e = $(".content"), t = $(".content.left"), a = $(".content.right"), s = $("#kv .change_theme li"), n = $("#kv .active"), o = function(s) {
             e.stop().fadeOut("fast", function() {
                 t.removeClass("money car work son retire").addClass(s), a.removeClass("money car work son retire").addClass(s);
             }).fadeIn("slow");
@@ -113,13 +113,13 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
             e.preventDefault();
             var t = $(this).data("class");
             typeTop = $(this).data("top"), typeLeft = $(this).data("left"), $(this).hasClass("active") || (s.removeClass("active"), 
-            menuCtrl.chkDevice() ? o.css("top", "0px").stop().animate({
+            menuCtrl.chkDevice() ? n.css("top", "0px").stop().animate({
                 left: typeLeft
-            }, 500) : o.css("left", "0").stop().animate({
+            }, 500) : n.css("left", "0").stop().animate({
                 top: typeTop
-            }, 500), $(this).addClass("active"), n(t));
+            }, 500), $(this).addClass("active"), o(t));
         }).eq(0).click(), $(window).resize(function() {
-            menuCtrl.chkDevice() ? o.css("top", "0px").css("left", typeLeft) : o.css("top", typeTop).css("left", "0");
+            menuCtrl.chkDevice() ? n.css("top", "0px").css("left", typeLeft) : n.css("top", typeTop).css("left", "0");
         });
     },
     playBtn: function() {
@@ -142,15 +142,16 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
             var t = "catch" == e ? fund_data[fund_index].catch_url : fund_data[fund_index].deep_url;
             window.open(t, "_blank");
         };
-        radio_outer.hide(), e.addClass("disable"), t.addClass("disable"), interest_fund.change(function() {
+        e.addClass("disable"), t.addClass("disable"), interest_fund.change(function() {
             var a = interest_fund.find(":selected").val();
-            radio_fund.find(".fund_select").hide(), radio_fund.find("." + a).show(), 999 != a ? radio_outer.show() : radio_outer.hide(), 
-            fund_index = 0, $("input:radio[name=fund_interest]").prop("checked", !1), sliderDiv.slider("value", 36e4), 
-            sliderDiv.slider("disable"), e.addClass("disable"), t.addClass("disable");
+            radio_fund.find(".fund_select").hide(), radio_fund.find("." + a).show(), 999 != a ? step2.removeClass("hide") : step2.addClass("hide"), 
+            step3.addClass("hide"), fund_index = 0, $("input:radio[name=fund_interest]").prop("checked", !1), 
+            sliderDiv.slider("value", 36e4), sliderDiv.slider("disable"), e.addClass("disable"), 
+            t.addClass("disable");
         }), $("input:radio[name=fund_interest]").change(function() {
-            sliderDiv.slider("value", 36e4), fund_index = this.value, base_cost = base_money(36e4, fund_data[fund_index].avg_rate), 
-            costContent.text(base_cost), sliderDiv.slider("enable"), e.removeClass("disable"), 
-            t.removeClass("disable");
+            step3.removeClass("hide"), sliderDiv.slider("value", 36e4), fund_index = this.value, 
+            base_cost = base_money(36e4, fund_data[fund_index].avg_rate), costContent.text(base_cost), 
+            sliderDiv.slider("enable"), e.removeClass("disable"), t.removeClass("disable");
         }), e.click(function(e) {
             e.preventDefault(), $(this).hasClass("disable") || a("catch");
         }), t.click(function(e) {
