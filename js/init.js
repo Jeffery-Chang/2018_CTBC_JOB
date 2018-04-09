@@ -1,5 +1,4 @@
-(function(a) { a.preload = function() { var c = [],
-    b = arguments.length; for (; b--;) { c.push(a("<img />").attr("src", arguments[b])); } }; })(jQuery);
+(function(a) { a.preload = function() { var c = [], b = arguments.length; for (; b--;) { c.push(a("<img />").attr("src", arguments[b])); } }; })(jQuery);
 var typeTop = '20px';
 var typeLeft = '0';
 var interest_fund = $('#analysis .select_wrapper:eq(0)');
@@ -18,59 +17,59 @@ var base_money = function(target, rate) {
 };
 var fund_data = [
     {
-        "best_rate": 26.61,
-        "worst_rate": 3.06,
-        "avg_rate": 11.39
+        "avg_rate": 23.36,
+        "catch_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=03800004&fromPage=EDM',
+        "deep_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=03800004'
     },
     {
-        "best_rate": 12.70,
-        "worst_rate": 1.96,
-        "avg_rate": 7.72
+        "avg_rate": 22.44,
+        "catch_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=03900029&fromPage=EDM',
+        "deep_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=03900029'
     },
     {
-        "best_rate": 31.87,
-        "worst_rate": -4.98,
-        "avg_rate": 13.37
+        "avg_rate": 24.93,
+        "catch_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=01800023&fromPage=EDM',
+        "deep_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=01800023'
     },
     {
-        "best_rate": 46.09,
-        "worst_rate": 6.80,
-        "avg_rate": 22.97
+        "avg_rate": 14.98,
+        "catch_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=04100016&fromPage=EDM',
+        "deep_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=04100016'
     },
     {
-        "best_rate": 46.76,
-        "worst_rate": 2.02,
-        "avg_rate": 24.25
+        "avg_rate": 22.97,
+        "catch_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=00600055&fromPage=EDM',
+        "deep_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=00600055'
     },
     {
-        "best_rate": 31.56,
-        "worst_rate": -3.85,
-        "avg_rate": 13.49
+        "avg_rate": 11.39,
+        "catch_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=00300036&fromPage=EDM',
+        "deep_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=00300036'
     },
     {
-        "best_rate": 39.30,
-        "worst_rate": -5.65,
-        "avg_rate": 22.44
+        "avg_rate": 13.49,
+        "catch_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=01200018&fromPage=EDM',
+        "deep_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=01200018'
     },
     {
-        "best_rate": 37.92,
-        "worst_rate": 4.72,
-        "avg_rate": 23.36
+        "avg_rate": 13.37,
+        "catch_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=00300062&fromPage=EDM',
+        "deep_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=00300062'
     },
     {
-        "best_rate": 27.25,
-        "worst_rate": 1.29,
-        "avg_rate": 14.98
+        "avg_rate": 7.72,
+        "catch_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=00300063&fromPage=EDM',
+        "deep_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=00300063'
     },
     {
-        "best_rate": 47.64,
-        "worst_rate": 3.86,
-        "avg_rate": 21.78
+        "avg_rate": 21.78,
+        "catch_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=01000002&fromPage=EDM',
+        "deep_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=01000002'
     },
     {
-        "best_rate": 58.73,
-        "worst_rate": 0.94,
-        "avg_rate": 24.93
+        "avg_rate": 24.25,
+        "catch_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=01300005&fromPage=EDM',
+        "deep_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=01300005'
     }
 ];
 var indexCtrl = {
@@ -89,22 +88,10 @@ var indexCtrl = {
         $('#kv .slide_bar').fadeIn('slow');
 
         // 高勝率基金大公開
-        $('#analysis .btn_wrapper .btn_white').click(function(e) {
+        /*$('#analysis .btn_wrapper .btn_white').click(function(e) {
             e.preventDefault();
             trackWaitJump('', 'fund_list.html');
-        });
-        // 立即投資
-        $('#weapon .btn_green').click(function(e) {
-            e.preventDefault();
-            gaclick('fund');
-            window.open('https://www.ctbcbank.com/CTCBPortalWeb/appmanager/ebank/rb?_nfpb=true&_pageLabel=TW_RB_TX_mfund_300014&_windowLabel=T16806467151337672757923&_nffvid=%2FCTCBPortalWeb%2Fpages%2Fmf%2FmfIrRegularApply%2FmfIrRegularApplyStart.faces&firstView=true', '_blank');
-        });
-        // 立即開戶
-        $('#weapon .btn_orange').click(function(e) {
-            e.preventDefault();
-            gaclick('open');
-            window.open('http://www.ctbcbank.com/html/fileUpload/homebank/openacc.html', '_blank');
-        });
+        });*/
 
         $(window).on('load', function() {
             $.preload(
@@ -318,8 +305,19 @@ var indexCtrl = {
         });
     },
     setFunds() {
+        var catch_btn = $('#analysis .btn_wrapper .btn_green');
+        var deep_btn = $('#analysis .btn_wrapper .btn_white');
+        var set_url = function(type){
+            /*catch_btn.attr('href', fund_data[fund_index].catch_url);
+            deep_btn.attr('href', fund_data[fund_index].deep_url);*/
+            var open_url = (type == 'catch') ? fund_data[fund_index].catch_url : fund_data[fund_index].deep_url;
+            window.open(open_url, '_blank');
+        };
+
         radio_outer.hide();
-        
+        catch_btn.addClass('disable');
+        deep_btn.addClass('disable');
+
         // 基金選類別下拉
         interest_fund.change(function() {
             var newval = interest_fund.find(':selected').val();
@@ -334,6 +332,8 @@ var indexCtrl = {
 
             sliderDiv.slider('value', 360000);
             sliderDiv.slider("disable");
+            catch_btn.addClass('disable');
+            deep_btn.addClass('disable');
         });
 
         // 選基金radio
@@ -343,6 +343,20 @@ var indexCtrl = {
             base_cost = base_money(360000, fund_data[fund_index].avg_rate);
             costContent.text(base_cost);
             sliderDiv.slider("enable");
+            catch_btn.removeClass('disable');
+            deep_btn.removeClass('disable');
+        });
+
+        // 立即掌握
+        catch_btn.click(function(e){
+            e.preventDefault();
+            if(!$(this).hasClass('disable')) set_url('catch');
+        });
+
+        // 深入觀察
+        deep_btn.click(function(e){
+            e.preventDefault();
+            if(!$(this).hasClass('disable')) set_url('deep');
         });
     },
     /* 用不到了
