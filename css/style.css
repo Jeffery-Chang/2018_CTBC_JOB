@@ -968,7 +968,7 @@ select::-ms-expand {
 }
 
 .cost {
-    width: 170px;
+    width: 180px;
     height: 40px;
     line-height: 40px;
     font-weight: bolder;
@@ -978,7 +978,18 @@ select::-ms-expand {
     font-size: 29px;
     letter-spacing: -.5px;
     background-color: #ddf6f6;
-    overflow: hidden;
+    overflow: visible;
+}
+
+.cost font{
+    bottom: -20px;
+    text-align: left;
+    left: 0;
+    font-size: 11px;
+    line-height: 1.3;
+    font-weight:200; 
+    white-space: nowrap;
+
 }
 
 input[type=number] {
@@ -1006,6 +1017,10 @@ input[type=number] {
     position: absolute;
     right: 12px;
     vertical-align: middle;
+}
+
+.mb_330 br{
+    display: none;
 }
 
 .interest {
@@ -1117,6 +1132,7 @@ font.Y3:before {
     line-height: 40px;
     vertical-align: middle;
     position: relative;
+    margin-bottom: 10px;
 }
 
 .money::before {
@@ -1423,7 +1439,7 @@ font.Y3:before {
     position: relative;
     width: 100%;
     line-height: 27px;
-    padding: 7px 0 7px 30px;
+    padding: 7px 0 0 30px;
     border-bottom: 1px dashed #4ed2d3;
 }
 
@@ -1648,7 +1664,7 @@ b.f_red {
         box-shadow: 0 5px 3px rgba(0, 0, 0, .4);
         transition: all .6s cubic-bezier(0.165, 0.84, 0.44, 1);
         z-index: 20;
-        left: 100vw;
+        left: 102vw;
     }
     #top ul.show {
         left: 0;
@@ -1822,6 +1838,7 @@ b.f_red {
         position: relative;
         display: inline-block;
     }
+
 }
 
 @media only screen and (max-width: 414px) {
@@ -1870,6 +1887,9 @@ b.f_red {
     .slide_bar {
         height: 33vh;
         bottom: 128px;
+    }
+    #slider{
+        width: 100%;
     }
     .circle_01:after,
     .circle_02:after,
@@ -1932,7 +1952,11 @@ b.f_red {
         height: 42px;
         line-height: 42px;
     }
+    .silder_wrapper{
+        margin-top: 20px;
+    }
     .silder_wrapper {
+        margin: 20px 0 0;
         padding-right: 0;
     }
     .cost {
@@ -2152,6 +2176,9 @@ b.f_red {
     #app {
         padding: 50px 0;
     }
+    .cost{
+        top: -62px;
+    }
 }
 
 @media only screen and (max-width: 375px) {
@@ -2162,6 +2189,13 @@ b.f_red {
         width: 290px;
         bottom: 110px;
         margin-left: -143px;
+    }
+    .mb_330{
+        line-height: 1.4;
+    }
+    
+    .mb_330 br{
+        display: inline-block;
     }
 }
 
@@ -2188,4 +2222,20 @@ b.f_red {
         bottom: 117px;
         margin-left: -143px;
     }
+    #analysis>p{
+        padding: 0 10px 25px 10px;
+    }
+    .f21 {
+        font-size: 18px;
+    }
+    .f19 {
+        font-size: 16px;
+    }
+    .f17 {
+        font-size: 15px;
+    }
+    .f15 {
+        font-size: 13px;
+    }
+
 }
