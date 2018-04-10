@@ -9,7 +9,7 @@ var fundsCtrl = {
         // 基金項目展開
         $('#funds_area .f_black').click(function(e){
             e.preventDefault();
-            if(!menuCtrl.chkDevice() || $(window).width() >= 400) return;
+            if(!menuCtrl.chkDevice() || $(window).width() > 414) return;
             $(this).parent('li').toggleClass('show');
             $(this).parent('li').find('.fund_detail').slideToggle();
             $(this).parent('li').find('.t_center').slideToggle();

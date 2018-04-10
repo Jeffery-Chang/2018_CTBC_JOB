@@ -5,7 +5,7 @@ var fundsCtrl = {
         $("#top .indexPage li:eq(1)").click(function(i) {
             i.preventDefault(), trackWaitJump("", "index.html?from=1");
         }), $("#funds_area .f_black").click(function(i) {
-            i.preventDefault(), !menuCtrl.chkDevice() || $(window).width() >= 400 || ($(this).parent("li").toggleClass("show"), 
+            i.preventDefault(), !menuCtrl.chkDevice() || $(window).width() > 414 || ($(this).parent("li").toggleClass("show"), 
             $(this).parent("li").find(".fund_detail").slideToggle(), $(this).parent("li").find(".t_center").slideToggle());
         });
         var i = $("#funds_area"), e = $("#wrapper .filter .go_left");

@@ -5,6 +5,7 @@ var interest_fund = $('#analysis .select_wrapper:eq(0)');
 var select_fund = $('#analysis .select_wrapper:eq(1)');
 var step2 = $('#analysis .step2');
 var step3 = $('#analysis .step3');
+var tip = $('#analysis .step3 .cost font');
 var radio_fund = $('#analysis .see_fund_interest');
 var sliderDiv = $('#slider'); // slider bar
 var base_cost = 0; // 每月投資的錢
@@ -418,6 +419,7 @@ var indexCtrl = {
         });
     }, */
     slider() {
+        tip.hide();
         sliderDiv.slider({
             range: "min",
             value: target_refund,
@@ -448,6 +450,9 @@ var indexCtrl = {
             if(!sliderDiv.hasClass('ui-slider-disabled') && newVal != '' && newVal >= 360000 && newVal <= 3600000){
                 target_refund = newVal;
                 sliderDiv.slider('value', newVal);
+                tip.hide();
+            }else{
+                tip.show();
             }
         });
         sliderDiv.slider("disable");
