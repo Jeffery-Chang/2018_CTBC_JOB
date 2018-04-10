@@ -991,7 +991,9 @@ select::-ms-expand {
     bottom: 0;
     text-align: left;
     left: 0;
-    font-size: 10px;
+    font-size: 12px;
+    transform: scale(.9);
+    transform-origin: top left;
     line-height: 1.3;
     font-weight:200;
     white-space: nowrap;
@@ -1469,7 +1471,6 @@ font.Y3:before {
 .fund_select font {
     text-align: center;
     position: relative;
-    font-weight: bold;
 }
 
 .fund_title font {
@@ -1853,6 +1854,10 @@ b.f_red {
 }
 
 @media only screen and (max-width: 414px) {
+    .fund_select font {
+        font-weight: bold;
+    }
+    
     .f45 {
         font-size: 35px;
     }
