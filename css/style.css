@@ -1168,7 +1168,7 @@ font.Y3:before {
 }
 
 #attention a{
-    color: #6e6e6e;
+    color: #c30000;
 }
 
 #analysis {
@@ -1471,6 +1471,24 @@ font.Y3:before {
 .fund_select font {
     text-align: center;
     position: relative;
+}
+
+.fund_select .inline{
+    position: relative;
+}
+
+.fund_select .inline font.inline{
+    position: absolute;
+    top: 50%;
+    margin-top:-12px;
+}
+
+.fund_select .inline font.f_yellow {
+    left: 60%;
+}
+
+.fund_select .inline font.f_red {
+    left: 80%;
 }
 
 .fund_title font {
