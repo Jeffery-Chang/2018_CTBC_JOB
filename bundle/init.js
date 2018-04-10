@@ -153,9 +153,9 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
             base_cost = base_money(36e4, fund_data[fund_index].avg_rate), costContent.text(base_cost), 
             sliderDiv.slider("enable"), e.removeClass("disable"), t.removeClass("disable");
         }), e.click(function(e) {
-            e.preventDefault(), $(this).hasClass("disable") || a("catch");
-        }), t.click(function(e) {
             e.preventDefault(), $(this).hasClass("disable") || a("deep");
+        }), t.click(function(e) {
+            e.preventDefault(), $(this).hasClass("disable") || a("catch");
         });
     },
     slider: function() {

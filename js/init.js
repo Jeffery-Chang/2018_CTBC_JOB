@@ -349,15 +349,16 @@ var indexCtrl = {
         });
 
         // 立即掌握
+        // 連結埋反了
         catch_btn.click(function(e){
             e.preventDefault();
-            if(!$(this).hasClass('disable')) set_url('catch');
+            if(!$(this).hasClass('disable')) set_url('deep');
         });
 
         // 深入觀察
         deep_btn.click(function(e){
             e.preventDefault();
-            if(!$(this).hasClass('disable')) set_url('deep');
+            if(!$(this).hasClass('disable')) set_url('catch');
         });
     },
     /* 用不到了
