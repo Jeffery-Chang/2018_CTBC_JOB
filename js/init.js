@@ -7,6 +7,11 @@ var step2 = $('#analysis .step2');
 var step3 = $('#analysis .step3');
 var tip = $('#analysis .step3 .cost font');
 var radio_fund = $('#analysis .see_fund_interest');
+var show_btn_fg = false; // 立即試算 flag
+var play_btn = $('.go_formula'); // 立即試算按鈕
+var playBtn = function() { // 立即試算 SHOW / HIDE
+    ($(window).scrollTop() > 90 || show_btn_fg) ? play_btn.addClass('show'): play_btn.removeClass('show');
+};
 var sliderDiv = $('#slider'); // slider bar
 var base_cost = 0; // 每月投資的錢
 var target_refund = 0; // 目標
@@ -84,7 +89,7 @@ var indexCtrl = {
         this.kv();
         this.changeBg();
         this.fromFunds();
-        this.playBtn();
+        playBtn();
 
         // 跟背景一起出現
         $('#kv .slide_bar').fadeIn('slow');
@@ -128,7 +133,9 @@ var indexCtrl = {
                 'images/theme5_01_m.jpg',
                 'images/theme5_02_m.jpg'
             );
-        })
+        }).scroll(function() {
+            playBtn();
+        });
     },
     fromFunds() {
         var from = $.getUrlParam('from');
@@ -184,7 +191,9 @@ var indexCtrl = {
             (winWidth * sliderPct > dots2) ? obj2.addClass('show'): obj2.removeClass('show');
             (winWidth * sliderPct > dots3) ? obj3.addClass('show'): obj3.removeClass('show');
             (winWidth * sliderPct > dots4) ? obj4.addClass('show'): obj4.removeClass('show');
-        }
+            (obj4.hasClass('show')) ? show_btn_fg = true : show_btn_fg = false;
+            playBtn();
+        };
 
         var minMaxNumber = function(num, min, max) {
             return Math.max(min, Math.min(max, num));
@@ -287,13 +296,6 @@ var indexCtrl = {
         });
 
         //要預留手機圖路徑圖參數
-    },
-    playBtn() {
-        var btn = $('.go_formula');
-        ($(window).scrollTop() > 90) ? btn.addClass('show'): btn.removeClass('show');
-        $(window).scroll(function() {
-            ($(window).scrollTop() > 90) ? btn.addClass('show'): btn.removeClass('show');
-        });
     },
     play() {
         var $this = this;

@@ -6,7 +6,9 @@
     };
 }(jQuery);
 
-var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapper:eq(0)"), select_fund = $("#analysis .select_wrapper:eq(1)"), step2 = $("#analysis .step2"), step3 = $("#analysis .step3"), tip = $("#analysis .step3 .cost font"), radio_fund = $("#analysis .see_fund_interest"), sliderDiv = $("#slider"), base_cost = 0, target_refund = 0, moneyContent = $(".silder_wrapper .cost input"), costContent = $("#analysis .money"), fund_index = 0, fund_rate = 0, base_money = function(e, t) {
+var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapper:eq(0)"), select_fund = $("#analysis .select_wrapper:eq(1)"), step2 = $("#analysis .step2"), step3 = $("#analysis .step3"), tip = $("#analysis .step3 .cost font"), radio_fund = $("#analysis .see_fund_interest"), show_btn_fg = !1, play_btn = $(".go_formula"), playBtn = function() {
+    $(window).scrollTop() > 90 || show_btn_fg ? play_btn.addClass("show") : play_btn.removeClass("show");
+}, sliderDiv = $("#slider"), base_cost = 0, target_refund = 0, moneyContent = $(".silder_wrapper .cost input"), costContent = $("#analysis .money"), fund_index = 0, fund_rate = 0, base_money = function(e, t) {
     return Math.round(e / (36 * (100 + t) / 100));
 }, fund_data = [ {
     avg_rate: 23.36,
@@ -55,8 +57,10 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
 } ], indexCtrl = {
     init: function() {
         this.slider(), this.play(), this.pieChart(), this.setFunds(), this.kv(), this.changeBg(), 
-        this.fromFunds(), this.playBtn(), $("#kv .slide_bar").fadeIn("slow"), $(window).on("load", function() {
+        this.fromFunds(), playBtn(), $("#kv .slide_bar").fadeIn("slow"), $(window).on("load", function() {
             $.preload("images/theme1_01.jpg", "images/theme1_02.jpg", "images/theme2_01.jpg", "images/theme2_02.jpg", "images/theme3_01.jpg", "images/theme3_02.jpg", "images/theme4_01.jpg", "images/theme4_02.jpg", "images/theme5_01.jpg", "images/theme5_02.jpg", "images/theme1_01_pad.jpg", "images/theme1_02_pad.jpg", "images/theme2_01_pad.jpg", "images/theme2_02_pad.jpg", "images/theme3_01_pad.jpg", "images/theme3_02_pad.jpg", "images/theme4_01_pad.jpg", "images/theme4_02_pad.jpg", "images/theme5_01_pad.jpg", "images/theme5_02_pad.jpg", "images/theme1_01_m.jpg", "images/theme1_02_m.jpg", "images/theme2_01_m.jpg", "images/theme2_02_m.jpg", "images/theme3_01_m.jpg", "images/theme3_02_m.jpg", "images/theme4_01_m.jpg", "images/theme4_02_m.jpg", "images/theme5_01_m.jpg", "images/theme5_02_m.jpg");
+        }).scroll(function() {
+            playBtn();
         });
     },
     fromFunds: function() {
@@ -64,12 +68,12 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
         1 == e && null != e && $(".go_formula").click();
     },
     kv: function() {
-        var e = $(".slide_bar"), t = $(".kv"), a = $(".content"), s = $(".outer.left"), o = $(window).width(), n = $(window).height(), i = ($("#kv .circle_01").offset().left + $("#kv .circle_01").width()) / o, d = $("#kv .bar").width();
-        s.width(o * i), e.css("left", o * i - e.width() / 2 + "px"), a.width(o);
+        var e = $(".slide_bar"), t = $(".kv"), a = $(".content"), s = $(".outer.left"), n = $(window).width(), o = $(window).height(), i = ($("#kv .circle_01").offset().left + $("#kv .circle_01").width()) / n, d = $("#kv .bar").width();
+        s.width(n * i), e.css("left", n * i - e.width() / 2 + "px"), a.width(n);
         var r = function(e) {
             s.css("width", e.cw);
         }, _ = function(e) {
-            var t = o, a = n;
+            var t = n, a = o;
             return {
                 w: t + "px",
                 h: a + "px",
@@ -78,18 +82,19 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
             };
         }, c = function(t) {
             var a = _(t);
-            e.css("left", t * o - e.width() / 2), l(), r(a);
+            e.css("left", t * n - e.width() / 2), l(), r(a);
         }, l = function() {
-            var e = $("#kv .circle_01"), t = $("#kv .circle_02"), a = $("#kv .circle_03"), s = $("#kv .circle_04"), n = e.offset().left, d = t.offset().left, r = a.offset().left, _ = s.offset().left;
-            o * i > n ? e.addClass("show") : e.removeClass("show"), o * i > d ? t.addClass("show") : t.removeClass("show"), 
-            o * i > r ? a.addClass("show") : a.removeClass("show"), o * i > _ ? s.addClass("show") : s.removeClass("show");
+            var e = $("#kv .circle_01"), t = $("#kv .circle_02"), a = $("#kv .circle_03"), s = $("#kv .circle_04"), o = e.offset().left, d = t.offset().left, r = a.offset().left, _ = s.offset().left;
+            n * i > o ? e.addClass("show") : e.removeClass("show"), n * i > d ? t.addClass("show") : t.removeClass("show"), 
+            n * i > r ? a.addClass("show") : a.removeClass("show"), n * i > _ ? s.addClass("show") : s.removeClass("show"), 
+            show_btn_fg = !!s.hasClass("show"), playBtn();
         }, p = function(e, t, a) {
             return Math.max(t, Math.min(a, e));
         }, f = function(e, t) {
-            return p((e - m) / o, 0, 1);
-        }, m = 0, u = 0, h = 0, g = 0, w = function(a) {
+            return p((e - u) / n, 0, 1);
+        }, u = 0, m = 0, h = 0, g = 0, w = function(a) {
             a.distX > a.distY && a.distX < -a.distY || a.distX < a.distY && a.distX > -a.distY ? a.preventDefault() : a.distX < a.distY && a.distX < -a.distY || a.distX > a.distY && (a.distX, 
-            a.distY), t.addClass("active"), m = t.offset().left, u = t.offset().top, h = o, 
+            a.distY), t.addClass("active"), u = t.offset().left, m = t.offset().top, h = n, 
             g = s.height(), e.hasClass("hideTip") || e.addClass("hideTip");
         }, C = function(e) {
             t.hasClass("active") && (i = f(e.pageX, e.pageY), c(i));
@@ -99,12 +104,12 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
         e.on("movestart", w), e.on("move", C), e.on("moveend", v), e.on("touchmove", function(e) {
             e.preventDefault();
         }), $(window).on("resize", function(e) {
-            o = $(window).width(), n = $(window).height(), a.width(o), d = $("#kv .bar").width(), 
+            n = $(window).width(), o = $(window).height(), a.width(n), d = $("#kv .bar").width(), 
             c(i);
         });
     },
     changeBg: function() {
-        var e = $(".content"), t = $(".content.left"), a = $(".content.right"), s = $("#kv .change_theme li"), o = $("#kv .active"), n = function(s) {
+        var e = $(".content"), t = $(".content.left"), a = $(".content.right"), s = $("#kv .change_theme li"), n = $("#kv .active"), o = function(s) {
             e.stop().fadeOut("fast", function() {
                 t.removeClass("money car work son retire").addClass(s), a.removeClass("money car work son retire").addClass(s);
             }).fadeIn("slow");
@@ -113,19 +118,13 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
             e.preventDefault();
             var t = $(this).data("class");
             typeTop = $(this).data("top"), typeLeft = $(this).data("left"), $(this).hasClass("active") || (s.removeClass("active"), 
-            menuCtrl.chkDevice() ? o.css("top", "0px").stop().animate({
+            menuCtrl.chkDevice() ? n.css("top", "0px").stop().animate({
                 left: typeLeft
-            }, 500) : o.css("left", "0").stop().animate({
+            }, 500) : n.css("left", "0").stop().animate({
                 top: typeTop
-            }, 500), $(this).addClass("active"), n(t));
+            }, 500), $(this).addClass("active"), o(t));
         }).eq(0).click(), $(window).resize(function() {
-            menuCtrl.chkDevice() ? o.css("top", "0px").css("left", typeLeft) : o.css("top", typeTop).css("left", "0");
-        });
-    },
-    playBtn: function() {
-        var e = $(".go_formula");
-        $(window).scrollTop() > 90 ? e.addClass("show") : e.removeClass("show"), $(window).scroll(function() {
-            $(window).scrollTop() > 90 ? e.addClass("show") : e.removeClass("show");
+            menuCtrl.chkDevice() ? n.css("top", "0px").css("left", typeLeft) : n.css("top", typeTop).css("left", "0");
         });
     },
     play: function() {
