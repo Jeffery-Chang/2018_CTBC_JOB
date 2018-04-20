@@ -666,6 +666,9 @@ hr {
 
 .bar div {
     top: 53px;
+    width: 140%;
+    left: -20%;
+    text-indent: 7px;
 }
 
 
@@ -1644,6 +1647,14 @@ b.f_red {
     left: -24px;
 } */
 
+@media only screen and (max-width: 950px) {
+    .bar div {
+        width: 100%;
+        left: 0%;
+        text-indent: 0;
+    }
+}
+
 @media only screen and (max-width: 920px) {
     .tri {
         margin-left: 25px;
@@ -1668,6 +1679,7 @@ b.f_red {
     .text_top .text_detail {
         transform: translate(0, -345px);
     }
+    
 }
 
 @media only screen and (min-width: 769px) {
