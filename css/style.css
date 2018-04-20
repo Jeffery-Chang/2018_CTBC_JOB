@@ -1211,7 +1211,7 @@ font.Y3:before {
     display: inline-block;
     /* left: 50%; */
     /* margin-left: -130px; */
-    margin: 20px auto;
+    margin: 30px auto 20px;
     /* width: 100%; */
 }
 
