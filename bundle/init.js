@@ -9,49 +9,49 @@
 var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapper:eq(0)"), select_fund = $("#analysis .select_wrapper:eq(1)"), step2 = $("#analysis .step2"), step3 = $("#analysis .step3"), tip = $("#analysis .step3 .cost font"), radio_fund = $("#analysis .see_fund_interest"), show_btn_fg = !1, play_btn = $(".go_formula"), playBtn = function() {
     $(window).scrollTop() > 90 || show_btn_fg ? play_btn.addClass("show") : play_btn.removeClass("show");
 }, sliderDiv = $("#slider"), base_cost = 0, target_refund = 0, moneyContent = $(".silder_wrapper .cost input"), costContent = $("#analysis .money"), fund_index = 0, fund_rate = 0, base_money = function(e, t) {
-    return Math.round(e / (36 * (100 + t) / 100));
+    return Math.round(e / t);
 }, fund_data = [ {
-    avg_rate: 23.36,
+    avg_rate: 40.67,
     catch_url: "https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=03800004&fromPage=EDM",
     deep_url: "https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=03800004"
 }, {
-    avg_rate: 22.44,
+    avg_rate: 40.47,
     catch_url: "https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=03900029&fromPage=EDM",
     deep_url: "https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=03900029"
 }, {
-    avg_rate: 24.93,
+    avg_rate: 41.01,
     catch_url: "https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=01800023&fromPage=EDM",
     deep_url: "https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=01800023"
 }, {
-    avg_rate: 14.98,
+    avg_rate: 38.91,
     catch_url: "https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=04100016&fromPage=EDM",
     deep_url: "https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=04100016"
 }, {
-    avg_rate: 22.97,
+    avg_rate: 40.58,
     catch_url: "https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=00600055&fromPage=EDM",
     deep_url: "https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=00600055"
 }, {
-    avg_rate: 11.39,
+    avg_rate: 38.19,
     catch_url: "https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=00300036&fromPage=EDM",
     deep_url: "https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=00300036"
 }, {
-    avg_rate: 13.49,
+    avg_rate: 38.61,
     catch_url: "https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=01200018&fromPage=EDM",
     deep_url: "https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=01200018"
 }, {
-    avg_rate: 13.37,
+    avg_rate: 38.58,
     catch_url: "https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=00300062&fromPage=EDM",
     deep_url: "https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=00300062"
 }, {
-    avg_rate: 7.72,
+    avg_rate: 37.46,
     catch_url: "https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=00300063&fromPage=EDM",
     deep_url: "https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=00300063"
 }, {
-    avg_rate: 21.78,
+    avg_rate: 40.33,
     catch_url: "https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=01000002&fromPage=EDM",
     deep_url: "https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=01000002"
 }, {
-    avg_rate: 24.25,
+    avg_rate: 40.86,
     catch_url: "https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=01300005&fromPage=EDM",
     deep_url: "https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=01300005"
 } ], indexCtrl = {
@@ -80,10 +80,10 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
                 cw: e * t + "px",
                 ch: e * a + "px"
             };
-        }, c = function(t) {
+        }, l = function(t) {
             var a = _(t);
-            e.css("left", t * n - e.width() / 2), l(), r(a);
-        }, l = function() {
+            e.css("left", t * n - e.width() / 2), c(), r(a);
+        }, c = function() {
             var e = $("#kv .circle_01"), t = $("#kv .circle_02"), a = $("#kv .circle_03"), s = $("#kv .circle_04"), o = e.offset().left, d = t.offset().left, r = a.offset().left, _ = s.offset().left;
             n * i > o ? e.addClass("show") : e.removeClass("show"), n * i > d ? t.addClass("show") : t.removeClass("show"), 
             n * i > r ? a.addClass("show") : a.removeClass("show"), n * i > _ ? s.addClass("show") : s.removeClass("show"), 
@@ -91,21 +91,21 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
         }, p = function(e, t, a) {
             return Math.max(t, Math.min(a, e));
         }, f = function(e, t) {
-            return p((e - u) / n, 0, 1);
-        }, u = 0, m = 0, h = 0, g = 0, w = function(a) {
+            return p((e - m) / n, 0, 1);
+        }, m = 0, u = 0, h = 0, g = 0, w = function(a) {
             a.distX > a.distY && a.distX < -a.distY || a.distX < a.distY && a.distX > -a.distY ? a.preventDefault() : a.distX < a.distY && a.distX < -a.distY || a.distX > a.distY && (a.distX, 
-            a.distY), t.addClass("active"), u = t.offset().left, m = t.offset().top, h = n, 
+            a.distY), t.addClass("active"), m = t.offset().left, u = t.offset().top, h = n, 
             g = s.height(), e.hasClass("hideTip") || e.addClass("hideTip");
         }, C = function(e) {
-            t.hasClass("active") && (i = f(e.pageX, e.pageY), c(i));
-        }, v = function() {
+            t.hasClass("active") && (i = f(e.pageX, e.pageY), l(i));
+        }, b = function() {
             t.removeClass("active");
         };
-        e.on("movestart", w), e.on("move", C), e.on("moveend", v), e.on("touchmove", function(e) {
+        e.on("movestart", w), e.on("move", C), e.on("moveend", b), e.on("touchmove", function(e) {
             e.preventDefault();
         }), $(window).on("resize", function(e) {
             n = $(window).width(), o = $(window).height(), a.width(n), d = $("#kv .bar").width(), 
-            c(i);
+            l(i);
         });
     },
     changeBg: function() {
@@ -138,8 +138,8 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
     },
     setFunds: function() {
         var e = $("#analysis .btn_wrapper .btn_green"), t = $("#analysis .btn_wrapper .btn_white"), a = function(e) {
-            var t = "catch" == e ? fund_data[fund_index].catch_url : fund_data[fund_index].deep_url;
-            window.open(t, "_blank");
+            var t = isMobile.phone || isMobile.tablet ? "https://ctbc.tw/TNAG09" : fund_data[fund_index].catch_url, a = isMobile.phone || isMobile.tablet ? "https://ctbc.tw/TMTX01" : fund_data[fund_index].deep_url, s = "catch" == e ? t : a;
+            window.open(s, "_blank");
         };
         e.addClass("disable"), t.addClass("disable"), interest_fund.change(function() {
             var a = interest_fund.find(":selected").val();
@@ -155,6 +155,10 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
             e.preventDefault(), $(this).hasClass("disable") || a("deep");
         }), t.click(function(e) {
             e.preventDefault(), $(this).hasClass("disable") || a("catch");
+        }), $(".break_even_point, .interest_allocation, .redemption_money, .earn_now").click(function(e) {
+            e.preventDefault();
+            var t = $(this).attr("href"), a = $(this).data("mb-href"), s = isMobile.phone || isMobile.tablet ? a : t;
+            window.open(s, "_blank");
         });
     },
     slider: function() {
