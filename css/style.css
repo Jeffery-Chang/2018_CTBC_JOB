@@ -1260,6 +1260,7 @@ font.Y3:before {
     float: left;
     padding: 40px 0;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 .weapon5 li h5 {
