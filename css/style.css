@@ -635,6 +635,7 @@ hr {
 .kv_content h1{
     cursor: pointer;
     position: relative;
+    display: inline-block;
 }
 
 .kv_content h2 {
