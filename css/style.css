@@ -625,15 +625,16 @@ hr {
 }
 
 
-/* .kv_content h1 {
-    padding-bottom: 15px;
-} */
-
-.kv_content h1 font{
+.kv_content font{
     display: inline-block;
     margin-top: -5px;
     transform: scale(.5);
     transform-origin: left top;
+}
+
+.kv_content h1{
+    cursor: pointer;
+    position: relative;
 }
 
 .kv_content h2 {
