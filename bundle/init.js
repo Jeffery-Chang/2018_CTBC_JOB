@@ -57,7 +57,11 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
 } ], indexCtrl = {
     init: function() {
         this.slider(), this.play(), this.pieChart(), this.setFunds(), this.kv(), this.changeBg(), 
-        this.fromFunds(), playBtn(), $("#kv .slide_bar").fadeIn("slow"), $(window).on("load", function() {
+        this.fromFunds(), playBtn(), $("#kv .slide_bar").fadeIn("slow"), $("#kv .kv_content h1").click(function(e) {
+            e.preventDefault();
+            var t = $("#control").offset().top - $("#top").height();
+            menuCtrl.scrollPage(t);
+        }), $(window).on("load", function() {
             $.preload("images/theme1_01.jpg", "images/theme1_02.jpg", "images/theme2_01.jpg", "images/theme2_02.jpg", "images/theme3_01.jpg", "images/theme3_02.jpg", "images/theme4_01.jpg", "images/theme4_02.jpg", "images/theme5_01.jpg", "images/theme5_02.jpg", "images/theme1_01_pad.jpg", "images/theme1_02_pad.jpg", "images/theme2_01_pad.jpg", "images/theme2_02_pad.jpg", "images/theme3_01_pad.jpg", "images/theme3_02_pad.jpg", "images/theme4_01_pad.jpg", "images/theme4_02_pad.jpg", "images/theme5_01_pad.jpg", "images/theme5_02_pad.jpg", "images/theme1_01_m.jpg", "images/theme1_02_m.jpg", "images/theme2_01_m.jpg", "images/theme2_02_m.jpg", "images/theme3_01_m.jpg", "images/theme3_02_m.jpg", "images/theme4_01_m.jpg", "images/theme4_02_m.jpg", "images/theme5_01_m.jpg", "images/theme5_02_m.jpg");
         }).scroll(function() {
             playBtn();
@@ -91,10 +95,10 @@ var typeTop = "20px", typeLeft = "0", interest_fund = $("#analysis .select_wrapp
         }, p = function(e, t, a) {
             return Math.max(t, Math.min(a, e));
         }, f = function(e, t) {
-            return p((e - m) / n, 0, 1);
-        }, m = 0, u = 0, h = 0, g = 0, w = function(a) {
+            return p((e - u) / n, 0, 1);
+        }, u = 0, m = 0, h = 0, g = 0, w = function(a) {
             a.distX > a.distY && a.distX < -a.distY || a.distX < a.distY && a.distX > -a.distY ? a.preventDefault() : a.distX < a.distY && a.distX < -a.distY || a.distX > a.distY && (a.distX, 
-            a.distY), t.addClass("active"), m = t.offset().left, u = t.offset().top, h = n, 
+            a.distY), t.addClass("active"), u = t.offset().left, m = t.offset().top, h = n, 
             g = s.height(), e.hasClass("hideTip") || e.addClass("hideTip");
         }, C = function(e) {
             t.hasClass("active") && (i = f(e.pageX, e.pageY), l(i));

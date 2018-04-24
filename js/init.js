@@ -93,6 +93,7 @@ var fund_data = [
 ];
 var indexCtrl = {
     init() {
+        var $this = this;
         this.slider();
         this.play();
         this.pieChart();
@@ -111,6 +112,13 @@ var indexCtrl = {
             e.preventDefault();
             trackWaitJump('', 'fund_list.html');
         });*/
+        
+        // title高勝率基金 錨點
+        $('#kv .kv_content h1').click(function(e){
+            e.preventDefault();
+            var offset = $('#control').offset().top - $('#top').height();
+            menuCtrl.scrollPage(offset);
+        });
 
         $(window).on('load', function() {
             $.preload(
