@@ -10,7 +10,7 @@
 var menuCtrl = {
     init: function() {
         this.menuBar(), $("#attention .f19").click(function(e) {
-            e.preventDefault(), $(this).toggleClass("show"), $("#attention .f13").slideToggle();
+            e.preventDefault(), $(this).toggleClass("show"), $(this).parent().find(".f13").slideToggle();
         });
     },
     menuBar: function() {

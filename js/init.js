@@ -7,6 +7,11 @@ var step2 = $('#analysis .step2');
 var step3 = $('#analysis .step3');
 var tip = $('#analysis .step3 .cost font');
 var radio_fund = $('#analysis .see_fund_interest');
+var show_btn_fg = false; // 立即試算 flag
+var play_btn = $('.go_formula'); // 立即試算按鈕
+var playBtn = function() { // 立即試算 SHOW / HIDE
+    ($(window).scrollTop() > 90 || show_btn_fg) ? play_btn.addClass('show'): play_btn.removeClass('show');
+};
 var sliderDiv = $('#slider'); // slider bar
 var base_cost = 0; // 每月投資的錢
 var target_refund = 0; // 目標
@@ -15,67 +20,80 @@ var costContent = $('#analysis .money'); // 投資金額
 var fund_index = 0; // 哪個基金
 var fund_rate = 0; // 基金%
 var base_money = function(target, rate) {
-    return Math.round(target / (36 * (100 + rate) / 100));
+    // return Math.round(target / (36 * (100 + rate) / 100));
+    return Math.round(target / rate);
 };
 var fund_data = [
     {
-        "avg_rate": 23.36,
+        //"avg_rate": 23.36,
+        "avg_rate": 40.67,
         "catch_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=03800004&fromPage=EDM',
         "deep_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=03800004'
     },
     {
-        "avg_rate": 22.44,
+        //"avg_rate": 22.44,
+        "avg_rate": 40.47,
         "catch_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=03900029&fromPage=EDM',
         "deep_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=03900029'
     },
     {
-        "avg_rate": 24.93,
+        //"avg_rate": 24.93,
+        "avg_rate": 41.01,
         "catch_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=01800023&fromPage=EDM',
         "deep_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=01800023'
     },
     {
-        "avg_rate": 14.98,
+        //"avg_rate": 14.98,
+        "avg_rate": 38.91,
         "catch_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=04100016&fromPage=EDM',
         "deep_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=04100016'
     },
     {
-        "avg_rate": 22.97,
+        //"avg_rate": 22.97,
+        "avg_rate": 40.58,
         "catch_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=00600055&fromPage=EDM',
         "deep_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=00600055'
     },
     {
-        "avg_rate": 11.39,
+        //"avg_rate": 11.39,
+        "avg_rate": 38.19,
         "catch_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=00300036&fromPage=EDM',
         "deep_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=00300036'
     },
     {
-        "avg_rate": 13.49,
+        //"avg_rate": 13.49,
+        "avg_rate": 38.61,
         "catch_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=01200018&fromPage=EDM',
         "deep_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=01200018'
     },
     {
-        "avg_rate": 13.37,
+        //"avg_rate": 13.37,
+        "avg_rate": 38.58,
         "catch_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=00300062&fromPage=EDM',
         "deep_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=00300062'
     },
     {
-        "avg_rate": 7.72,
+        //"avg_rate": 7.72,
+        "avg_rate": 37.46,
         "catch_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=00300063&fromPage=EDM',
         "deep_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=00300063'
     },
     {
-        "avg_rate": 21.78,
+        //"avg_rate": 21.78,
+        "avg_rate": 40.33,
         "catch_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=01000002&fromPage=EDM',
         "deep_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=01000002'
     },
     {
-        "avg_rate": 24.25,
+        //"avg_rate": 24.25,
+        "avg_rate": 40.86,
         "catch_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_CM_mfund_034001&prodType=1&prodNo=01300005&fromPage=EDM',
         "deep_url": 'https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_mfund_300013&fundCode=01300005'
     }
 ];
 var indexCtrl = {
     init() {
+        var $this = this;
         this.slider();
         this.play();
         this.pieChart();
@@ -84,7 +102,7 @@ var indexCtrl = {
         this.kv();
         this.changeBg();
         this.fromFunds();
-        this.playBtn();
+        playBtn();
 
         // 跟背景一起出現
         $('#kv .slide_bar').fadeIn('slow');
@@ -94,6 +112,13 @@ var indexCtrl = {
             e.preventDefault();
             trackWaitJump('', 'fund_list.html');
         });*/
+        
+        // title高勝率基金 錨點
+        $('#kv .kv_content h1').click(function(e){
+            e.preventDefault();
+            var offset = $('#control').offset().top - $('#top').height();
+            menuCtrl.scrollPage(offset);
+        });
 
         $(window).on('load', function() {
             $.preload(
@@ -128,7 +153,9 @@ var indexCtrl = {
                 'images/theme5_01_m.jpg',
                 'images/theme5_02_m.jpg'
             );
-        })
+        }).scroll(function() {
+            playBtn();
+        });
     },
     fromFunds() {
         var from = $.getUrlParam('from');
@@ -184,7 +211,9 @@ var indexCtrl = {
             (winWidth * sliderPct > dots2) ? obj2.addClass('show'): obj2.removeClass('show');
             (winWidth * sliderPct > dots3) ? obj3.addClass('show'): obj3.removeClass('show');
             (winWidth * sliderPct > dots4) ? obj4.addClass('show'): obj4.removeClass('show');
-        }
+            (obj4.hasClass('show')) ? show_btn_fg = true : show_btn_fg = false;
+            playBtn();
+        };
 
         var minMaxNumber = function(num, min, max) {
             return Math.max(min, Math.min(max, num));
@@ -288,13 +317,6 @@ var indexCtrl = {
 
         //要預留手機圖路徑圖參數
     },
-    playBtn() {
-        var btn = $('.go_formula');
-        ($(window).scrollTop() > 90) ? btn.addClass('show'): btn.removeClass('show');
-        $(window).scroll(function() {
-            ($(window).scrollTop() > 90) ? btn.addClass('show'): btn.removeClass('show');
-        });
-    },
     play() {
         var $this = this;
         var btn = $('#top .indexPage li:eq(1), .go_formula');
@@ -310,7 +332,9 @@ var indexCtrl = {
         var catch_btn = $('#analysis .btn_wrapper .btn_green');
         var deep_btn = $('#analysis .btn_wrapper .btn_white');
         var set_url = function(type){
-            var open_url = (type == 'catch') ? fund_data[fund_index].catch_url : fund_data[fund_index].deep_url;
+            var catch_url = (isMobile.phone || isMobile.tablet) ? 'https://ctbc.tw/TNAG09' : fund_data[fund_index].catch_url;
+            var deep_url = (isMobile.phone || isMobile.tablet) ? 'https://ctbc.tw/TMTX01' : fund_data[fund_index].deep_url;
+            var open_url = (type == 'catch') ? catch_url : deep_url;
             window.open(open_url, '_blank');
         };
 
@@ -348,17 +372,27 @@ var indexCtrl = {
             deep_btn.removeClass('disable');
         });
 
-        // 立即掌握
+        // 立即掌握 >> deep_url
         // 連結埋反了
         catch_btn.click(function(e){
             e.preventDefault();
             if(!$(this).hasClass('disable')) set_url('deep');
         });
 
-        // 深入觀察
+        // 深入觀察 >> catch_url
         deep_btn.click(function(e){
             e.preventDefault();
             if(!$(this).hasClass('disable')) set_url('catch');
+        });
+        
+        // 損益點通知 配息款入帳通知 贖回款入帳通知 立即投資
+        $('.break_even_point, .interest_allocation, .redemption_money, .earn_now').click(function(e){
+            e.preventDefault();
+            var pc_url = $(this).attr('href');
+            var m_url = $(this).data('mb-href');
+            var open_url = (isMobile.phone || isMobile.tablet) ? m_url : pc_url;
+            //console.log(open_url);
+            window.open(open_url, '_blank');
         });
     },
     /* 用不到了

@@ -624,10 +624,25 @@ hr {
     text-align: center;
 }
 
+
+.kv_content font{
+    display: inline-block;
+    margin-top: -5px;
+    transform: scale(.5);
+    transform-origin: left top;
+}
+
+.kv_content h1{
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+}
+
 .kv_content h2 {
     padding: 13px 0;
     letter-spacing: 2px;
     text-shadow: 0 0 2px rgba(0, 0, 0, .5);
+    line-height: 1.4;
 }
 
 .kv_content img {
@@ -652,8 +667,12 @@ hr {
 }
 
 .bar div {
-    top: 55px;
+    top: 53px;
+    width: 140%;
+    left: -20%;
+    text-indent: 7px;
 }
+
 
 .bar span {
     border: 4px solid #fff;
@@ -1136,6 +1155,13 @@ font.Y3:before {
     /* display: none; */
 }
 
+.ps{
+    display: inline-block;
+    padding-left: 8px;
+    text-indent: -8px;
+    padding-bottom: 5px;
+}
+
 .formula p {
     line-height: 40px;
     vertical-align: middle;
@@ -1143,7 +1169,7 @@ font.Y3:before {
     margin-bottom: 10px;
 }
 
-.money::before {
+#analysis .money::before {
     content: '*';
     position: absolute;
     top: -4px;
@@ -1163,11 +1189,17 @@ font.Y3:before {
     margin-top: -180px;
 }
 
-#attention {
-    padding: 65px 0;
+#wrapper #attention {
+    padding: 65px 0 45px;
+    overflow: visible;
 }
 
-#attention a {
+
+#wrapper #attention ul{
+    margin-bottom: 40px;
+}
+
+#wrapper #attention a{
     color: #c30000;
 }
 
@@ -1184,7 +1216,7 @@ font.Y3:before {
     display: inline-block;
     /* left: 50%; */
     /* margin-left: -130px; */
-    margin: 20px auto;
+    margin: 30px auto 20px;
     /* width: 100%; */
 }
 
@@ -1233,6 +1265,7 @@ font.Y3:before {
     float: left;
     padding: 40px 0;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 .weapon5 li h5 {
@@ -1326,29 +1359,45 @@ font.Y3:before {
     height: 100%;
 }
 
-.go_formula {
+#wrapper .go_formula {
     position: fixed;
     width: 100px;
     height: 100px;
     right: 25px;
     bottom: 25px;
-    border-radius: 50%;
     text-align: center;
-    padding-top: 20px;
     cursor: pointer;
     z-index: 150;
-    overflow: hidden;
+    overflow: visible;
 }
 
-.go_formula:after {
+.bee_formula{
+    width: 55px;
+    z-index: 40;
+    top: -40px;
+    left: 50%;
+    margin-left: -27px;
+}
+
+.go_formula div{
+    padding-top: 20px;
+    overflow: hidden;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.go_formula div:after {
     content: "";
     background: #00a3a1;
     position: absolute;
     display: block;
     width: 100%;
-    height: 100%;
-    top: -100%;
+    height: 0%;
+    top: 0;
     transition: all 0.2s;
+    z-index: 5;
 }
 
 .go_formula .f_yellow {
@@ -1357,7 +1406,7 @@ font.Y3:before {
     font-size: 40px;
 }
 
-.go_formula>p {
+.go_formula div>p {
     position: relative;
     z-index: 155;
 }
@@ -1413,6 +1462,7 @@ font.Y3:before {
 
 .kv_text h1 {
     padding-bottom: 14px;
+    position: relative;
 }
 
 .ui-widget-header {
@@ -1505,6 +1555,18 @@ font.Y3:before {
     position: absolute;
 }
 
+.bee_list{
+    width: 100px;
+    top: -76px;
+    right: -10px;
+}
+
+.bee_attention{
+    width: 100px;
+    right: 45px;
+    top: -85px;
+}
+
 .fund_title font.f_d_yellow {}
 
 .fund_title font.f_red {}
@@ -1518,8 +1580,16 @@ b.f_red {
     font-weight: 800;
 }
 
-#app {
+#wrapper #app {
     padding: 70px 0;
+    overflow: visible;
+}
+
+.bee_app{
+    width: 140px;
+    margin: -85px auto 15px 10px;
+    z-index: 80;
+    position: relative;
 }
 
 #app h5 {
@@ -1579,6 +1649,14 @@ b.f_red {
     left: -24px;
 } */
 
+@media only screen and (max-width: 950px) {
+    .bar div {
+        width: 100%;
+        left: 0%;
+        text-indent: 0;
+    }
+}
+
 @media only screen and (max-width: 920px) {
     .tri {
         margin-left: 25px;
@@ -1603,11 +1681,12 @@ b.f_red {
     .text_top .text_detail {
         transform: translate(0, -345px);
     }
+    
 }
 
 @media only screen and (min-width: 769px) {
-    .go_formula:hover:after {
-        top: 0;
+    .go_formula div:hover:after {
+        height: 100%;
     }
     #top li.inactive:hover {
         margin-top: 65px;
@@ -1630,6 +1709,14 @@ b.f_red {
 }
 
 @media only screen and (max-width: 768px) {
+    .bee_app{
+        width: 120px;
+    }
+    .bee_formula{
+        width: 45px;
+        top: -38px;
+        margin-left: -22px;
+    }
     .kv {
         height: 100%;
         padding-bottom: 40px;
@@ -1669,9 +1756,11 @@ b.f_red {
         width: 414px;
         padding: 20px 0 10px;
     }
-    .go_formula {
+    #wrapper .go_formula {
         width: 65px;
         height: 65px;
+    }
+    #wrapper .go_formula div{
         padding-top: 13px;
     }
     .weapon5 li {
@@ -1767,7 +1856,7 @@ b.f_red {
         width: 9px;
         height: 9px;
     }
-    .go_formula>p {
+    .go_formula div>p {
         font-size: 11px;
     }
     .go_formula .f_yellow {
@@ -1871,6 +1960,20 @@ b.f_red {
 }
 
 @media only screen and (max-width: 414px) {
+    .bee_list{
+        right: 50%;
+        margin-right: -149px;
+        width: 90px;
+        top: -70px;
+    }
+    .bee_attention{
+        width: 80px;
+        top: -70px;
+        right: 20px;
+    }
+    .bee_app{
+        width: 100px;
+    }
     .fund_select font {
         font-weight: bold;
     }
@@ -1945,7 +2048,7 @@ b.f_red {
         margin: 5px 0 -7px;
     }
     .kv_content h2 {
-        padding-top: 5px;
+        padding: 8px 0 5px;
     }
     .circle_04 {
         right: -1px;
@@ -2071,8 +2174,8 @@ b.f_red {
         white-space: nowrap;
         letter-spacing: 0;
     }
-    #attention {
-        padding: 30px 0 20px;
+    #wrapper #attention {
+        padding: 30px 0 40px;
     }
     .find_item .btn_green {
         width: 48%;
@@ -2108,7 +2211,7 @@ b.f_red {
         padding-top: 0;
     }
     #funds_area {
-        padding: 20px 0 50px;
+        padding: 20px 0 80px;
     }
     #funds_area .find_item::before {
         content: '';
@@ -2152,13 +2255,13 @@ b.f_red {
     #funds_area .find_item div.W100 {
         display: none;
     }
-    #attention h6 {
+    #wrapper #attention h6 {
         background: #fff;
         line-height: 50px;
         padding: 0 12px;
         position: relative;
     }
-    #attention h6::after {
+    #wrapper #attention h6::after {
         content: '';
         width: 15px;
         display: block;
@@ -2170,7 +2273,7 @@ b.f_red {
         top: 23px;
         transition: all .4s;
     }
-    #attention h6::before {
+    #wrapper #attention h6::before {
         content: '';
         width: 15px;
         display: block;
@@ -2182,15 +2285,15 @@ b.f_red {
         top: 23px;
         transition: all .4s;
     }
-    #attention h6.show::after {
+    #wrapper #attention h6.show::after {
         transform: rotate(45deg);
         transform-origin: center;
     }
-    #attention h6.show::before {
+    #wrapper #attention h6.show::before {
         transform: rotate(-45deg);
         transform-origin: center;
     }
-    #attention ul {
+    #wrapper #attention ul {
         display: none;
     }
     /* .show .fund_detail, .show.find_item div.W100{
@@ -2232,8 +2335,10 @@ b.f_red {
     .mb_330 br {
         display: inline-block;
     }
-    .fund_title font:last-child {
-        text-indent: -8px;
+    .bee_formula{
+        width: 38px;
+        top: -30px;
+        margin-left: -19px;
     }
 }
 
