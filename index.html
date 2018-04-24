@@ -22,13 +22,13 @@
     <link rel="stylesheet" href="css/style.css?v=0321" />
     <link rel="stylesheet" href="css/self.css">
     <!-- js -->
-    <script>
+    <!-- <script>
         var text = prompt("請輸入進入碼：", "");
         if (text != 'ctbc') {
             alert('輸入錯誤，請重新再試！');
             location.reload();
         };
-    </script>
+    </script> -->
     <script src="vendor/isMobile.min.js"></script>
     <script src="vendor/ga.js"></script>
     <script src="vendor/jquery.min.js"></script>
@@ -118,8 +118,8 @@
                     <div class="W75 f17">
                         <div class="see_fund_interest inline W100 go_left">
                             <div class="fund_title poA W100">
-                                <font class="inline W20 f11 f_red">夏普值</font>
-                                <font class="inline W20 f11 f_d_yellow">*平均報酬率(%)</font>
+                                <font class="inline W20 f13 f_red">夏普值</font>
+                                <font class="inline W20 f13 f_d_yellow">*平均報酬率(%)</font>
 
                             </div>
                             <!-- 摩根士丹利美國優勢基金 -->
@@ -226,7 +226,7 @@
                 </li>
                 <li class="step3 hide">
                     <div class="W25 f17 mb_330">3年後我希望<br />達成目標</div>
-                    
+
                     <div class="W75 f17 silder_wrapper">
                         <div id="slider">
                             <p class="min_number poA f15 f_l_blue">360,000</p>
@@ -236,22 +236,22 @@
                             <p class="f_m_green bg_f_green">
                                 <input type="number" class="f_green" min="360000" max="3600000">
                             </p>
-                            <font class="poA f_red f12">輸入投資金額須在36萬-360萬台幣之間</font>   
+                            <font class="poA f_red f12">輸入投資金額須在36萬-360萬台幣之間</font>
                         </div>
-                        
+
                     </div>
                 </li>
             </ul>
             <hr>
             <div class="inline formula f_black step3 hide">
                 <div class="analysis_result">
-                    <p class="inline f15">如果</p>
+                    <p class="inline f17">如果</p>
                     <p class="inline years f35 f_green">3</p>
-                    <p class="inline f15">年後，想達成目標，</p>
+                    <p class="inline f17">年後，想達成目標，</p>
                     <br class="mb">
-                    <p class="inline f15">每月請至少投資</p>
+                    <p class="inline f17">每月請至少投資</p>
                     <p class="inline money f35 f_green">10,000</p>
-                    <p class="inline f15">元<span class="f_grey f13"> (四捨五入)</span></p>
+                    <p class="inline f17">元<span class="f_grey f13"> (四捨五入)</span></p>
                 </div>
             </div>
             <p class="f_grey f13 W100"><br>*:資料來源為Morningstar 原幣計價，假設條件為：以2007/1/1~2018/2/28不同月份進場連續投資36個月，將得出99個累積金額結果平均之，<br> 委託人因不同時間或不同投資幣別進場，將有不同之投資績效，過去之績效亦不代表未來績效之保證。
@@ -496,7 +496,8 @@
             </ul>
             <hr>
             <div class="inline">
-                <a href="https://www.ctbcbank.com/CTCBPortalWeb/appmanager/ebank/rb?_nfpb=true&_pageLabel=TW_RB_TX_mfund_300014&_windowLabel=T16806467151337672757923&_nffvid=%2FCTCBPortalWeb%2Fpages%2Fmf%2FmfIrRegularApply%2FmfIrRegularApplyStart.faces&firstView=true" class="btn btn_green" onclick="gaclick('fund');" target="_blank"><span>立即投資</span></a>
+                <a href="https://www.ctbcbank.com/CTCBPortalWeb/appmanager/ebank/rb?_nfpb=true&_pageLabel=TW_RB_TX_mfund_300014&_windowLabel=T16806467151337672757923&_nffvid=%2FCTCBPortalWeb%2Fpages%2Fmf%2FmfIrRegularApply%2FmfIrRegularApplyStart.faces&firstView=true"
+                    class="btn btn_green" onclick="gaclick('fund');" target="_blank"><span>立即投資</span></a>
                 <a href="http://www.ctbcbank.com/html/fileUpload/homebank/openacc.html" class="btn btn_orange" onclick="gaclick('open');" target="_blank"><span>立即開戶</span></a>
             </div>
         </div>
@@ -542,8 +543,9 @@
                         三、 本行受託投資之基金經金管會核准或同意生效，惟不表示絕無風險。基金經理公司以往之經理績效不保證基金之最低投資收益；基金經理公司除盡善良管理人之注意義務外，不負責基金之盈虧，亦不保證最低之收益，委託人申購前應詳閱基金公開說明書。
                     </li>
                     <li>
-                        四、 投資前應詳閱風險預告及各該基金公開說明書，確實作好財務規劃與風險評估。本行受託投資之基金已備有公開說明書(或其中譯本)或投資人須知【前述文件併揭露有關基金應負擔之費用(境外基金含分銷費用)】，委託人可至本行營業處所索取或至<a href="http://mops.twse.com.tw" target="_blank">公開資訊觀測站(<font class="f_red">http://mops.twse.com.tw</font>)</a>、<a href="http://www.fundclear.com.tw" target="_blank">境外基金資訊觀測站(
-                        <font class="f_red">http://www.fundclear.com.tw</font>)</a>或<a href="http://www.ctbcbank.com" target="_blank">本行網站(<font class="f_red">www.ctbcbank.com</font>)</a>下載。
+                        四、 投資前應詳閱風險預告及各該基金公開說明書，確實作好財務規劃與風險評估。本行受託投資之基金已備有公開說明書(或其中譯本)或投資人須知【前述文件併揭露有關基金應負擔之費用(境外基金含分銷費用)】，委託人可至本行營業處所索取或至<a href="http://mops.twse.com.tw" target="_blank">公開資訊觀測站(<font class="f_red">http://mops.twse.com.tw</font>)</a>、
+                        <a href="http://www.fundclear.com.tw" target="_blank">境外基金資訊觀測站(
+                            <font class="f_red">http://www.fundclear.com.tw</font>)</a>或<a href="http://www.ctbcbank.com" target="_blank">本行網站(<font class="f_red">www.ctbcbank.com</font>)</a>下載。
                     </li>
                     <li>
                         五、 為保護既有投資人之權益，部分境外基金設有價格稀釋調整機制及公平市價規定，投資人申購前應詳閱基金公開說明書及投資人須知。

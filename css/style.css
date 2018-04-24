@@ -981,13 +981,13 @@ select::-ms-expand {
     overflow: hidden;
 }
 
-.cost p{
+.cost p {
     display: block;
     height: 42px;
     width: 180px;
 }
 
-.cost font{
+.cost font {
     bottom: 0;
     text-align: left;
     left: 0;
@@ -995,7 +995,7 @@ select::-ms-expand {
     transform: scale(.9);
     transform-origin: top left;
     line-height: 1.3;
-    font-weight:200;
+    font-weight: 200;
     white-space: nowrap;
 }
 
@@ -1027,7 +1027,7 @@ input[type=number] {
     top: 2px;
 }
 
-.mb_330 br{
+.mb_330 br {
     display: none;
 }
 
@@ -1167,7 +1167,7 @@ font.Y3:before {
     padding: 65px 0;
 }
 
-#attention a{
+#attention a {
     color: #c30000;
 }
 
@@ -1473,14 +1473,14 @@ font.Y3:before {
     position: relative;
 }
 
-.fund_select .inline{
+.fund_select .inline {
     position: relative;
 }
 
-.fund_select .inline font.inline{
+.fund_select .inline font.inline {
     position: absolute;
     top: 50%;
-    margin-top:-12px;
+    margin-top: -12px;
 }
 
 .fund_select .inline font.f_yellow {
@@ -1868,14 +1868,12 @@ b.f_red {
         position: relative;
         display: inline-block;
     }
-
 }
 
 @media only screen and (max-width: 414px) {
     .fund_select font {
         font-weight: bold;
     }
-    
     .f45 {
         font-size: 35px;
     }
@@ -1922,7 +1920,7 @@ b.f_red {
         height: 33vh;
         bottom: 128px;
     }
-    #slider{
+    #slider {
         width: 100%;
     }
     .circle_01:after,
@@ -1976,6 +1974,9 @@ b.f_red {
         text-align: left;
         margin-top: -10px;
     }
+    .fund_title font {
+        margin-top: -15px;
+    }
     .select_wrapper {
         width: 100%;
         margin-bottom: 0px;
@@ -1986,7 +1987,7 @@ b.f_red {
         height: 42px;
         line-height: 42px;
     }
-    .silder_wrapper{
+    .silder_wrapper {
         margin-top: 20px;
     }
     .silder_wrapper {
@@ -2210,12 +2211,10 @@ b.f_red {
     #app {
         padding: 50px 0;
     }
-    .cost{
+    .cost {
         top: -62px;
     }
-    .interest li{
-        
-    }
+    .interest li {}
 }
 
 @media only screen and (max-width: 375px) {
@@ -2227,12 +2226,14 @@ b.f_red {
         bottom: 110px;
         margin-left: -143px;
     }
-    .mb_330{
+    .mb_330 {
         line-height: 1.4;
     }
-    
-    .mb_330 br{
+    .mb_330 br {
         display: inline-block;
+    }
+    .fund_title font:last-child {
+        text-indent: -8px;
     }
 }
 
@@ -2259,7 +2260,7 @@ b.f_red {
         bottom: 117px;
         margin-left: -143px;
     }
-    #analysis>p{
+    #analysis>p {
         padding: 0 10px 25px 10px;
     }
     .f21 {
@@ -2274,5 +2275,4 @@ b.f_red {
     .f15 {
         font-size: 13px;
     }
-
 }
