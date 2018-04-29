@@ -624,15 +624,20 @@ hr {
     text-align: center;
 }
 
-
-.kv_content font{
+font.sup {
     display: inline-block;
     margin-top: -5px;
+    margin-left: -10px;
     transform: scale(.5);
     transform-origin: left top;
+    /* font-size: 15px; */
 }
 
-.kv_content h1{
+font.sup.chinese {
+    font-size: 15px;
+}
+
+.kv_content h1 {
     cursor: pointer;
     position: relative;
     display: inline-block;
@@ -672,7 +677,6 @@ hr {
     left: -20%;
     text-indent: 7px;
 }
-
 
 .bar span {
     border: 4px solid #fff;
@@ -830,7 +834,7 @@ div.active .triangle:after {
 }
 
 #control span.f_grey {
-    padding: 12px 20px 0 0;
+    padding: 0 30px 0 0;
     display: inline-block;
     width: 100%;
 }
@@ -853,6 +857,11 @@ div.active .triangle:after {
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
+}
+
+#control .btn_orange {
+    margin-left: 0;
+    margin-bottom: 20px;
 }
 
 select {
@@ -1056,7 +1065,7 @@ input[type=number] {
 }
 
 .interest li {
-    margin: 10px 0 35px;
+    margin: 10px 0 45px;
     display: inline-block;
     line-height: 45px;
     width: 100%;
@@ -1155,7 +1164,7 @@ font.Y3:before {
     /* display: none; */
 }
 
-.ps{
+.ps {
     display: inline-block;
     padding-left: 8px;
     text-indent: -8px;
@@ -1194,12 +1203,11 @@ font.Y3:before {
     overflow: visible;
 }
 
-
-#wrapper #attention ul{
+#wrapper #attention ul {
     margin-bottom: 40px;
 }
 
-#wrapper #attention a{
+#wrapper #attention a {
     color: #c30000;
 }
 
@@ -1271,6 +1279,12 @@ font.Y3:before {
 .weapon5 li h5 {
     padding: 6px 0;
     white-space: nowrap;
+}
+
+.weapon5 li h5:after {
+    content: ">";
+    font-family: -webkit-pictograph;
+    padding-left: 5px;
 }
 
 .weapon5 li span {
@@ -1371,7 +1385,7 @@ font.Y3:before {
     overflow: visible;
 }
 
-.bee_formula{
+.bee_formula {
     width: 55px;
     z-index: 40;
     top: -40px;
@@ -1379,7 +1393,7 @@ font.Y3:before {
     margin-left: -27px;
 }
 
-.go_formula div{
+.go_formula div {
     padding-top: 20px;
     overflow: hidden;
     border-radius: 50%;
@@ -1555,13 +1569,13 @@ font.Y3:before {
     position: absolute;
 }
 
-.bee_list{
+.bee_list {
     width: 100px;
     top: -76px;
     right: -10px;
 }
 
-.bee_attention{
+.bee_attention {
     width: 100px;
     right: 45px;
     top: -85px;
@@ -1585,7 +1599,7 @@ b.f_red {
     overflow: visible;
 }
 
-.bee_app{
+.bee_app {
     width: 140px;
     margin: -85px auto 15px 10px;
     z-index: 80;
@@ -1681,7 +1695,6 @@ b.f_red {
     .text_top .text_detail {
         transform: translate(0, -345px);
     }
-    
 }
 
 @media only screen and (min-width: 769px) {
@@ -1709,10 +1722,10 @@ b.f_red {
 }
 
 @media only screen and (max-width: 768px) {
-    .bee_app{
+    .bee_app {
         width: 120px;
     }
-    .bee_formula{
+    .bee_formula {
         width: 45px;
         top: -38px;
         margin-left: -22px;
@@ -1760,7 +1773,7 @@ b.f_red {
         width: 65px;
         height: 65px;
     }
-    #wrapper .go_formula div{
+    #wrapper .go_formula div {
         padding-top: 13px;
     }
     .weapon5 li {
@@ -1960,18 +1973,18 @@ b.f_red {
 }
 
 @media only screen and (max-width: 414px) {
-    .bee_list{
+    .bee_list {
         right: 50%;
         margin-right: -149px;
         width: 90px;
         top: -70px;
     }
-    .bee_attention{
+    .bee_attention {
         width: 80px;
         top: -70px;
         right: 20px;
     }
-    .bee_app{
+    .bee_app {
         width: 100px;
     }
     .fund_select font {
@@ -2335,7 +2348,7 @@ b.f_red {
     .mb_330 br {
         display: inline-block;
     }
-    .bee_formula{
+    .bee_formula {
         width: 38px;
         top: -30px;
         margin-left: -19px;
